@@ -17,7 +17,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                                 where true";
         // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdMjesta=@IdMjesta";
         private static readonly string INSERT = "dodaj_ljekara";
-        private static readonly string UPDATE = "izmijeni_ljekara";
+        //private static readonly string UPDATE = "izmijeni_ljekara";
         public int Add(Doctor item)
         {
             MySqlConnection conn = null;

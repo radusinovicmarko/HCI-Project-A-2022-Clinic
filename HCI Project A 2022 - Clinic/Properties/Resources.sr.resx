@@ -138,4 +138,28 @@
   <data name="LoginWindowUsernameLb" xml:space="preserve">
     <value>Korisničko ime</value>
   </data>
+  <data name="MainWindowAdministrationBtn" xml:space="preserve">
+    <value>Administracija</value>
+  </data>
+  <data name="MainWindowAppointmentsBtn" xml:space="preserve">
+    <value>Naručenja</value>
+  </data>
+  <data name="MainWindowCodebooksBtn" xml:space="preserve">
+    <value>Šifarnici</value>
+  </data>
+  <data name="MainWindowExamsBtn" xml:space="preserve">
+    <value>Pregledi</value>
+  </data>
+  <data name="MainWindowLogoutBtn" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="MainWindowPatientsBtn" xml:space="preserve">
+    <value>Pacijenti</value>
+  </data>
+  <data name="MainWindowSettingsBtn" xml:space="preserve">
+    <value>Podešavanja</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>Klinika HCI</value>
+  </data>
 </root>

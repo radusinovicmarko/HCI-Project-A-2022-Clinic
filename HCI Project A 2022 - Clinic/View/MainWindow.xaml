@@ -5,13 +5,125 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project_A_2022___Clinic.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <materialDesign:Card Padding="32" Margin="16">
-                <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">My First Material Design App</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
-    </Grid>
+        Title="{x:Static p:Resources.MainWindowTitle}" 
+        Height="750" Width="1200"
+        MinHeight="750" MinWidth="1200"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <WrapPanel HorizontalAlignment="Center" Margin="20 20 20 20" Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="AccountOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowPatientsBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="CalendarClockOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowAppointmentsBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="NotebookHeartOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowExamsBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="BookOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowCodebooksBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="AccountWrenchOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowAdministrationBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="CogOutline"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowSettingsBtn}"/>
+                </StackPanel>
+            </Button>
+            <Button
+                Margin="10 0 0 0"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                MinWidth="100"
+                MinHeight="40" Click="Button_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="Logout"/>
+                    <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.MainWindowLogoutBtn}"/>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </DockPanel>
 </Window>

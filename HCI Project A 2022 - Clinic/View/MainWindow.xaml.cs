@@ -21,7 +21,15 @@ namespace HCI_Project_A_2022___Clinic.View
     {
         public MainWindow()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Are you sure?
+            new LoginWindow().Show();
+            this.Close();
         }
     }
 }

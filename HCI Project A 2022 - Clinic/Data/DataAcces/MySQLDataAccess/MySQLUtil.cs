@@ -58,8 +58,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         {
             MySqlConnection conn = null;
             MySqlCommand cmd;
-            // MySqlDataReader reader = null;
-            bool login = false;
             try
             {
                 conn = GetConnection();
@@ -72,6 +70,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@prijava", MySqlDbType.Int32);
                 cmd.Parameters["@prijava"].Direction = ParameterDirection.Output;
+                cmd.Parameters.AddWithValue("@idOsobe", MySqlDbType.Int32);
+                cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
                 return !((int) cmd.Parameters["@prijava"].Value == 0);
             }

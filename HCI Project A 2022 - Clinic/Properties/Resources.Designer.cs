@@ -142,5 +142,77 @@ namespace HCI_Project_A_2022___Clinic.Properties {
                 return ResourceManager.GetString("LoginWindowUsernameLb", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Administracija.
+        /// </summary>
+        public static string MainWindowAdministrationBtn {
+            get {
+                return ResourceManager.GetString("MainWindowAdministrationBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naručenja.
+        /// </summary>
+        public static string MainWindowAppointmentsBtn {
+            get {
+                return ResourceManager.GetString("MainWindowAppointmentsBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifarnici.
+        /// </summary>
+        public static string MainWindowCodebooksBtn {
+            get {
+                return ResourceManager.GetString("MainWindowCodebooksBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pregledi.
+        /// </summary>
+        public static string MainWindowExamsBtn {
+            get {
+                return ResourceManager.GetString("MainWindowExamsBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odjava.
+        /// </summary>
+        public static string MainWindowLogoutBtn {
+            get {
+                return ResourceManager.GetString("MainWindowLogoutBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pacijenti.
+        /// </summary>
+        public static string MainWindowPatientsBtn {
+            get {
+                return ResourceManager.GetString("MainWindowPatientsBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podešavanja.
+        /// </summary>
+        public static string MainWindowSettingsBtn {
+            get {
+                return ResourceManager.GetString("MainWindowSettingsBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Klinika HCI.
+        /// </summary>
+        public static string MainWindowTitle {
+            get {
+                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+            }
+        }
     }
 }

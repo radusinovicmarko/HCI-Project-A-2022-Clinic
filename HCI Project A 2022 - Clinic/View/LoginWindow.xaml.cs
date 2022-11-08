@@ -24,7 +24,7 @@ namespace HCI_Project_A_2022___Clinic.View
     {
         public LoginWindow()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
             InitializeComponent();
             Patient p = new Patient()
             {
@@ -45,7 +45,7 @@ namespace HCI_Project_A_2022___Clinic.View
             //var list = new MySQLPatientDAO().Add(p);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login()
         {
             string username = tbUsername.Text;
             string password = pbPassword.Password;
@@ -61,6 +61,23 @@ namespace HCI_Project_A_2022___Clinic.View
             }
             else
                 MessageBox.Show(Properties.Resources.LoginError);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+
+        private void TbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Login();
+        }
+
+        private void PbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Login();
         }
     }
 }
