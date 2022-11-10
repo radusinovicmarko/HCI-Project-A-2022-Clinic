@@ -1,0 +1,107 @@
+﻿<Page x:Class="HCI_Project_A_2022___Clinic.View.PatientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Project_A_2022___Clinic.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PatientsPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="1*" />
+            
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Background="White" Grid.Row="0" Grid.Column="1">
+            <TextBlock  HorizontalAlignment="Center"
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="{x:Static p:Resources.PatientsPageSearchLb}" />
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBox 
+                x:Name="tbLastName" 
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200"
+                Height="40"
+                Margin="0 10 0 0"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientsPageLastNameTb}" KeyDown="Tb_KeyDown"/>
+                <TextBox 
+                x:Name="tbFirstName" 
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Margin="10 10 0 0"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientsPageFirstNameTb}" KeyDown="Tb_KeyDown"/>
+                <TextBox 
+                x:Name="tbJmb" 
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Margin="10 10 0 0"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientsPageJmbTb}" KeyDown="Tb_KeyDown"/>
+                <Button 
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}" 
+                Margin="10 10 0 0" 
+                FontSize="14"
+                Height="40"
+                ToolTip="{x:Static p:Resources.PatientsPageSearchBtn}" Click="Button_Click">
+                    <materialDesign:PackIcon Kind="Magnify"/>
+                </Button>
+            </WrapPanel>
+        </StackPanel>
+        <DataGrid Margin="0 5 0 0"
+            ItemsSource="{Binding Patients}" 
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            SelectedItem="{Binding SelectedPatient}"
+            Grid.Column="1" Grid.Row="1"
+            Background="White"
+            BorderThickness="1"
+            BorderBrush="#9ebdf0" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageLastNameDG}" Binding="{Binding LastName}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageFirstNameDG}" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageJmbDG}" Binding="{Binding Jmb}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPagePhoneDG}" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageEmailDG}" Binding="{Binding Email}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageAddressDG}" Binding="{Binding Address}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageCityDG}" Binding="{Binding City.CityName}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnAddNewPatient" 
+            Grid.Column="1" Grid.Row="2"
+            materialDesign:ButtonAssist.CornerRadius="5" 
+            Cursor="Hand"  
+            Style="{StaticResource MaterialDesignPaperLightButton}"
+            Width="300"
+            MinHeight="40"
+            HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon
+                        Margin="0 2 0 0"
+                        Kind="Plus"/>
+                <TextBlock
+                        Margin="10 0 0 0"
+                        Text="{x:Static p:Resources.PatientsPageAddPatientBtn}"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

@@ -76,11 +76,11 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         {
             string selectQuery = SELECT_ALL;
             if (item.FirstName != null)
-                selectQuery += " AND o.Ime LIKE @Ime%";
+                selectQuery += " AND o.Ime LIKE @Ime";
             if (item.LastName != null)
-                selectQuery += " AND o.Prezime LIKE @Prezime%";
+                selectQuery += " AND o.Prezime LIKE @Prezime";
             if (item.Jmb != null)
-                selectQuery += " AND o.Jmb LIKE @Jmb%";
+                selectQuery += " AND o.Jmb LIKE @Jmb";
             List<Patient> result = new List<Patient>();
             MySqlConnection conn = null;
             MySqlCommand cmd;
@@ -92,11 +92,11 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd = conn.CreateCommand();
                 cmd.CommandText = selectQuery;
                 if (item.FirstName != null)
-                    cmd.Parameters.AddWithValue("@Ime", item.FirstName);
+                    cmd.Parameters.AddWithValue("@Ime", item.FirstName + "%");
                 if (item.LastName != null)
-                    cmd.Parameters.AddWithValue("@Prezime", item.LastName);
+                    cmd.Parameters.AddWithValue("@Prezime", item.LastName + "%");
                 if (item.Jmb != null)
-                    cmd.Parameters.AddWithValue("@Jmb", item.Jmb);
+                    cmd.Parameters.AddWithValue("@Jmb", item.Jmb + "%");
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                     result.Add(Create(reader));
@@ -126,7 +126,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 LastName = reader.GetString(8),
                 DateOfBirth = reader.GetDateTime(9),
                 Email = !reader.IsDBNull(10) ? reader.GetString(10) : null,
-                Address = reader.IsDBNull(11) ? reader.GetString(11) : null,
+                Address = !reader.IsDBNull(11) ? reader.GetString(11) : null,
                 City = new City()
                 {
                     CityId = reader.GetInt32(13),

@@ -214,5 +214,122 @@ namespace HCI_Project_A_2022___Clinic.Properties {
                 return ResourceManager.GetString("MainWindowTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodajte novog pacijenta.
+        /// </summary>
+        public static string PatientsPageAddPatientBtn {
+            get {
+                return ResourceManager.GetString("PatientsPageAddPatientBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresa.
+        /// </summary>
+        public static string PatientsPageAddressDG {
+            get {
+                return ResourceManager.GetString("PatientsPageAddressDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grad.
+        /// </summary>
+        public static string PatientsPageCityDG {
+            get {
+                return ResourceManager.GetString("PatientsPageCityDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-Mail adresa.
+        /// </summary>
+        public static string PatientsPageEmailDG {
+            get {
+                return ResourceManager.GetString("PatientsPageEmailDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string PatientsPageFirstNameDG {
+            get {
+                return ResourceManager.GetString("PatientsPageFirstNameDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string PatientsPageFirstNameTb {
+            get {
+                return ResourceManager.GetString("PatientsPageFirstNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string PatientsPageJmbDG {
+            get {
+                return ResourceManager.GetString("PatientsPageJmbDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string PatientsPageJmbTb {
+            get {
+                return ResourceManager.GetString("PatientsPageJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string PatientsPageLastNameDG {
+            get {
+                return ResourceManager.GetString("PatientsPageLastNameDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string PatientsPageLastNameTb {
+            get {
+                return ResourceManager.GetString("PatientsPageLastNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj telefona.
+        /// </summary>
+        public static string PatientsPagePhoneDG {
+            get {
+                return ResourceManager.GetString("PatientsPagePhoneDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretražite.
+        /// </summary>
+        public static string PatientsPageSearchBtn {
+            get {
+                return ResourceManager.GetString("PatientsPageSearchBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretraga pacijenata.
+        /// </summary>
+        public static string PatientsPageSearchLb {
+            get {
+                return ResourceManager.GetString("PatientsPageSearchLb", resourceCulture);
+            }
+        }
     }
 }

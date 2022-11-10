@@ -169,4 +169,43 @@
   <data name="MainWindowTitle" xml:space="preserve">
     <value>Clinic HCI</value>
   </data>
+  <data name="PatientsPageAddPatientBtn" xml:space="preserve">
+    <value>Add New Patient</value>
+  </data>
+  <data name="PatientsPageAddressDG" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PatientsPageCityDG" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="PatientsPageEmailDG" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="PatientsPageFirstNameDG" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="PatientsPageFirstNameTb" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="PatientsPageJmbDG" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="PatientsPageJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="PatientsPageLastNameDG" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="PatientsPageLastNameTb" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="PatientsPagePhoneDG" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="PatientsPageSearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="PatientsPageSearchLb" xml:space="preserve">
+    <value>Patient Search</value>
+  </data>
 </root>

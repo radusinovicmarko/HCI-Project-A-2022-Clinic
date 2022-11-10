@@ -31,5 +31,11 @@ namespace HCI_Project_A_2022___Clinic.View
             new LoginWindow().Show();
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (frameMain.Content == null)
+                frameMain.Content = new PatientsPage();
+        }
     }
 }

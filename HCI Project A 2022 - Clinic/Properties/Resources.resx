@@ -169,4 +169,43 @@
   <data name="MainWindowTitle" xml:space="preserve">
     <value>Klinika HCI</value>
   </data>
+  <data name="PatientsPageAddPatientBtn" xml:space="preserve">
+    <value>Dodajte novog pacijenta</value>
+  </data>
+  <data name="PatientsPageAddressDG" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="PatientsPageCityDG" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="PatientsPageEmailDG" xml:space="preserve">
+    <value>E-Mail adresa</value>
+  </data>
+  <data name="PatientsPageFirstNameDG" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="PatientsPageFirstNameTb" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="PatientsPageJmbDG" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="PatientsPageJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="PatientsPageLastNameDG" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="PatientsPageLastNameTb" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="PatientsPagePhoneDG" xml:space="preserve">
+    <value>Broj telefona</value>
+  </data>
+  <data name="PatientsPageSearchBtn" xml:space="preserve">
+    <value>Pretražite</value>
+  </data>
+  <data name="PatientsPageSearchLb" xml:space="preserve">
+    <value>Pretraga pacijenata</value>
+  </data>
 </root>
