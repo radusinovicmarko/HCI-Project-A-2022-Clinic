@@ -9,7 +9,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
     internal class Recovery
     {
         public int RecoveryId { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; } = null;
         public Illness Illness { get; set; }
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }

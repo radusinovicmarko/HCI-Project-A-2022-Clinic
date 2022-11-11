@@ -208,4 +208,97 @@
   <data name="PatientsPageSearchLb" xml:space="preserve">
     <value>Pretraga pacijenata</value>
   </data>
+  <data name="PatientWindowAddressTb" xml:space="preserve">
+    <value>Adresa stanovanja</value>
+  </data>
+  <data name="PatientWindowBasicInfo" xml:space="preserve">
+    <value>Osnovne informacije</value>
+  </data>
+  <data name="PatientWindowBloodTypeTb" xml:space="preserve">
+    <value>Krvna grupa</value>
+  </data>
+  <data name="PatientWindowCancelBtn" xml:space="preserve">
+    <value>Otkažite</value>
+  </data>
+  <data name="PatientWindowCardNumberTb" xml:space="preserve">
+    <value>Broj zdravstvenog kartona</value>
+  </data>
+  <data name="PatientWindowCityTb" xml:space="preserve">
+    <value>Mjesto rođenja</value>
+  </data>
+  <data name="PatientWindowCodeDG" xml:space="preserve">
+    <value>Šifra dijagnoze</value>
+  </data>
+  <data name="PatientWindowContactInfo" xml:space="preserve">
+    <value>Kontakt informacije</value>
+  </data>
+  <data name="PatientWindowDateDG" xml:space="preserve">
+    <value>Datum i vrijeme pregleda</value>
+  </data>
+  <data name="PatientWindowDateDP" xml:space="preserve">
+    <value>Datum rođenja</value>
+  </data>
+  <data name="PatientWindowDateTab3DG" xml:space="preserve">
+    <value>Datum i vrijeme naručenja</value>
+  </data>
+  <data name="PatientWindowDateTab4DG" xml:space="preserve">
+    <value>Datum preboljenja</value>
+  </data>
+  <data name="PatientWindowDetailedInfo" xml:space="preserve">
+    <value>Detaljne informacije</value>
+  </data>
+  <data name="PatientWindowDoctorDG" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="PatientWindowDoctorTab3DG" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="PatientWindowDoctorTab4DG" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="PatientWindowEmailTb" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="PatientWindowExamTypeDG" xml:space="preserve">
+    <value>Vrsta pregleda</value>
+  </data>
+  <data name="PatientWindowFirstNameTb" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="PatientWindowIllnessTab4DG" xml:space="preserve">
+    <value>Naziv bolesti</value>
+  </data>
+  <data name="PatientWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="PatientWindowLastNameTb" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="PatientWindowMarriageTb" xml:space="preserve">
+    <value>Bračni status</value>
+  </data>
+  <data name="PatientWindowPhoneTb" xml:space="preserve">
+    <value>Kontakt telefon</value>
+  </data>
+  <data name="PatientWindowReasonTab3DG" xml:space="preserve">
+    <value>Razlog</value>
+  </data>
+  <data name="PatientWindowSavebtn" xml:space="preserve">
+    <value>Sačuvajte</value>
+  </data>
+  <data name="PatientWindowTab1" xml:space="preserve">
+    <value>Podaci o pacijentu</value>
+  </data>
+  <data name="PatientWindowTab2" xml:space="preserve">
+    <value>Pregledi pacijenta</value>
+  </data>
+  <data name="PatientWindowTab3" xml:space="preserve">
+    <value>Naručenja pacijenta</value>
+  </data>
+  <data name="PatientWindowTab4" xml:space="preserve">
+    <value>Preboljenja pacijenta</value>
+  </data>
+  <data name="PatientWindowTitle" xml:space="preserve">
+    <value>Pregled pacijenta</value>
+  </data>
 </root>

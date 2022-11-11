@@ -124,10 +124,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 {
                     PersonId = reader.GetInt32(3)
                 },
-                Doctor = new Doctor()
-                {
-                    PersonId = reader.GetInt32(4)
-                }
+                Doctor = new MySQLDoctorDAO().Get(new Doctor() { PersonId = reader.GetInt32(4) })[0]
             };
         }
 

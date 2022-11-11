@@ -9,7 +9,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
     internal class Exam
     {
         public int ExamId { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime? DateTime { get; set; } = null;
         public string DiagnosisCode { get; set; }
         public string Report { get; set; }
         public ExamType ExamType { get; set; }

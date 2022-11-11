@@ -1,0 +1,289 @@
+﻿<Window x:Class="HCI_Project_A_2022___Clinic.View.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Project_A_2022___Clinic.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static p:Resources.PatientWindowTitle}" MinHeight="500" Width="1000">
+    <materialDesign:Card>
+        <TabControl
+            TabStripPlacement="Left"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignFilledTabControl}"
+            materialDesign:ColorZoneAssist.Mode="Custom"
+            materialDesign:ColorZoneAssist.Foreground="#2E2E20"
+            materialDesign:ColorZoneAssist.Background="#9ebdf0">
+            <TabItem Header="{x:Static p:Resources.PatientWindowTab1}">
+                <Border Margin="30" BorderBrush="#9ebdf0" BorderThickness="1">
+                    <Grid x:Name="gridPatientData">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        Text="{x:Static p:Resources.PatientWindowBasicInfo}" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        <TextBox 
+                        x:Name="tbJmb"
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        Text="{Binding Jmb}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowJmbTb}"/>
+                        <TextBox 
+                        x:Name="tbFirstName"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Text="{Binding FirstName}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowFirstNameTb}"/>
+                        <TextBox 
+                        x:Name="tbLastName"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Text="{Binding LastName}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowLastNameTb}"/>
+
+                        <DatePicker
+                            Width="200"
+                            Height="40"
+                            Grid.Row="4"
+                            Padding="5 0 5 0"
+                            Text="{Binding DateOfBirth}"
+                            materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowDateDP}"
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                        
+                        <Button 
+                            Grid.Column="1" Grid.Row="6"
+                            materialDesign:ButtonAssist.CornerRadius="5" 
+                            Cursor="Hand"  
+                            Style="{StaticResource MaterialDesignPaperLightButton}"
+                            Width="200"
+                            MinHeight="40"
+                            HorizontalAlignment="Center"
+                            Content="{x:Static p:Resources.PatientWindowSavebtn}" Click="Button_Click_1"/>
+
+                        <TextBlock
+                            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                            Text="{x:Static p:Resources.PatientWindowContactInfo}"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+
+                        <TextBox 
+                        x:Name="tbPhone"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Text="{Binding PhoneNumber}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowPhoneTb}"/>
+                        <TextBox 
+                        x:Name="tbEmail"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Text="{Binding Email}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowEmailTb}"/>
+                        <TextBox 
+                        x:Name="tbAddress"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Text="{Binding Address}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowAddressTb}"/>
+                        <ComboBox
+                            x:Name="cbCity"
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            Padding="5 10 5 0"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowCityTb}"
+                            
+                            Width="200"
+                            Height="40"/>
+                        <TextBlock
+                        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        Text="{x:Static p:Resources.PatientWindowDetailedInfo}"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+
+                        <TextBox 
+                        x:Name="tbMedicalCardNumber"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Text="{Binding MedicalCardNumber}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowCardNumberTb}"/>
+                        <TextBox 
+                        x:Name="tbBloodType"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Text="{Binding BloodType}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowBloodTypeTb}"/>
+                        <TextBox 
+                        x:Name="tbMarriageStatus"
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Text="{Binding MarriageStatus}"
+                        Padding="5 10 5 0" 
+                        FontSize="14" 
+                        Width="200" 
+                        Height="40"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowMarriageTb}"/>
+                        <Button 
+                            Grid.Column="2" Grid.Row="6"
+                            materialDesign:ButtonAssist.CornerRadius="5" 
+                            Cursor="Hand"  
+                            Style="{StaticResource MaterialDesignPaperLightButton}"
+                            Width="200"
+                            MinHeight="40"
+                            HorizontalAlignment="Center"
+                            Content="{x:Static p:Resources.PatientWindowCancelBtn}" Click="Button_Click"/>
+                    </Grid>
+                </Border>
+            </TabItem>
+            <TabItem x:Name="tabExams" Header="{x:Static p:Resources.PatientWindowTab2}">
+                <Grid x:Name="gridExams" Margin="10">
+                    <DataGrid Margin="0 5 0 0"
+                        ItemsSource="{Binding Items}" 
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        SelectedItem="{Binding SelectedItem}"
+                        Grid.Column="1" Grid.Row="1"
+                        Background="White"
+                        BorderThickness="1"
+                        BorderBrush="#9ebdf0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowExamTypeDG}" Binding="{Binding ExamType.Name}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateDG}" Binding="{Binding DateTime,StringFormat='{}{0:dd.MM.yyy. HH:mm}'}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowCodeDG}" Binding="{Binding DiagnosisCode}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDoctorDG}">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                        <Binding Path="Doctor.LastName" />
+                                        <Binding Path="Doctor.FirstName" />
+                                        <Binding Path="Doctor.Title" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabAppointments"  Header="{x:Static p:Resources.PatientWindowTab3}">
+                <Grid x:Name="gridAppointments" Margin="10">
+                    <DataGrid Margin="0 5 0 0"
+                        ItemsSource="{Binding Items}" 
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        SelectedItem="{Binding SelectedItem}"
+                        Grid.Column="1" Grid.Row="1"
+                        Background="White"
+                        BorderThickness="1"
+                        BorderBrush="#9ebdf0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab3DG}" Binding="{Binding DateTime}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowReasonTab3DG}" Binding="{Binding Reason}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDoctorTab3DG}">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                        <Binding Path="Doctor.LastName" />
+                                        <Binding Path="Doctor.FirstName" />
+                                        <Binding Path="Doctor.Title" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabRecoveries" Header="{x:Static p:Resources.PatientWindowTab4}">
+                <Grid x:Name="gridRecoveries" Margin="10">
+                    <DataGrid Margin="0 5 0 0"
+                        ItemsSource="{Binding Items}" 
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        SelectedItem="{Binding SelectedItem}"
+                        Grid.Column="1" Grid.Row="1"
+                        Background="White"
+                        BorderThickness="1"
+                        BorderBrush="#9ebdf0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab4DG}" Binding="{Binding Date}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowIllnessTab4DG}" Binding="{Binding Illness.Name}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDoctorTab4DG}">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0} {1}, {2}">
+                                        <Binding Path="Doctor.LastName" />
+                                        <Binding Path="Doctor.FirstName" />
+                                        <Binding Path="Doctor.Title" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </materialDesign:Card>
+</Window>

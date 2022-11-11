@@ -23,6 +23,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
             InitializeComponent();
+            frameMain.Content = new PatientsPage();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

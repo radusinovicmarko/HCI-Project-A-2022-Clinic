@@ -8,7 +8,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
 {
     internal abstract class Person
     {
-        public int PersonId { get; set; }
+        public int? PersonId { get; set; } = null;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Jmb { get; set; }

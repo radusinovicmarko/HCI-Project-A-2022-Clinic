@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
 {
     internal class MySQLExamDAO : IGenericSearchDAO<Exam>
     {
-        private static readonly string SELECT_ALL = @"SELECT * FROM `pregled` p WHERE true";
+        private static readonly string SELECT_ALL = @"SELECT * FROM `pregled` p inner join `vrsta_pregleda` v 
+                            on p.VRSTA_PREGLEDA_IdVrstePregleda=v.IdVrstePregleda WHERE true";
         private static readonly string INSERT = @"INSERT INTO `pregled`(DatumVrijemePregleda, SifraDijagnoze, Nalaz,
                             VRSTA_PREGLEDA_IdVrstePregleda, PACIJENT_OSOBA_IdOsobe, LJEKAR_ZAPOSLENI_OSOBA_IdOsobe) 
                             VALUES (@datum, @sifra, @nalaz, @idVrstePregleda, @idPacijenta, @idLjekara)";
@@ -123,9 +125,15 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 DateTime = reader.GetDateTime(1),
                 DiagnosisCode = reader.GetString(2),
                 Report = reader.GetString(3),
-                ExamType = new ExamType() { ExamTypeId = reader.GetInt32(4) },
+                ExamType = new ExamType()
+                {
+                    ExamTypeId = reader.GetInt32(4),
+                    Code = reader.GetString(8),
+                    Name = reader.GetString(9),
+                },
                 Patient = new Patient() { PersonId = reader.GetInt32(5) },
-                Doctor = new Doctor() { PersonId = reader.GetInt32(6) }
+                //Doctor = new Doctor() { PersonId = reader.GetInt32(6) }
+                Doctor = new MySQLDoctorDAO().Get(new Doctor() { PersonId = reader.GetInt32(6) })[0]
             };
         }
 

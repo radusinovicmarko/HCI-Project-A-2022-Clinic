@@ -11,7 +11,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
 {
     internal class MySQLRecoveryDAO : IGenericSearchDAO<Recovery>
     {
-        private static readonly string SELECT_ALL = @"SELECT * FROM `preboljenje` p WHERE true";
+        private static readonly string SELECT_ALL = @"SELECT * FROM `preboljenje` p inner join `bolest` b
+                            on p.BOLEST_IdBolesti=b.IdBolesti WHERE true";
         private static readonly string INSERT = @"INSERT INTO `preboljenje`(DatumPreboljenja, BOLEST_IdBolesti,
                             PACIJENT_OSOBA_IdOsobe, LJEKAR_ZAPOSLENI_OSOBA_IdOsobe) 
                             VALUES (@datum, @idBolesti, @idPacijenta, @idLjekara)";
@@ -120,9 +121,14 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             {
                 RecoveryId = reader.GetInt32(0),
                 Date = reader.GetDateTime(1),
-                Illness = new Illness() { IllnessId = reader.GetInt32(2) },
+                Illness = new Illness() 
+                { 
+                    IllnessId = reader.GetInt32(2),
+                    Name = reader.GetString(6),
+                    Code = reader.GetString(7)
+                },
                 Patient = new Patient() { PersonId = reader.GetInt32(3) },
-                Doctor = new Doctor() { PersonId = reader.GetInt32(4) }
+                Doctor = new MySQLDoctorDAO().Get(new Doctor() { PersonId = reader.GetInt32(4) })[0]
             };
         }
 

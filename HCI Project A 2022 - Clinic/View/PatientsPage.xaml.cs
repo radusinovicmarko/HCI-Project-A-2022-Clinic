@@ -25,13 +25,13 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class PatientsPage : Page
     {
-        private PatientsViewModel patientsViewModel;
+        private GenericDataGridViewModel<Patient> patientsViewModel;
         public PatientsPage()
         {
             InitializeComponent();
-            patientsViewModel = new PatientsViewModel()
+            patientsViewModel = new GenericDataGridViewModel<Patient>()
             {
-                Patients = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
+                Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
             };
             DataContext = patientsViewModel;
         }
@@ -40,9 +40,9 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             if (string.IsNullOrEmpty(tbFirstName.Text) && string.IsNullOrEmpty(tbLastName.Text) && string.IsNullOrEmpty(tbJmb.Text))
             {
-                patientsViewModel = new PatientsViewModel()
+                patientsViewModel = new GenericDataGridViewModel<Patient>()
                 {
-                    Patients = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
+                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
                 };
                 DataContext = patientsViewModel;
                 return;
@@ -54,17 +54,17 @@ namespace HCI_Project_A_2022___Clinic.View
                 searchPatient.LastName = tbLastName.Text;
             if (!string.IsNullOrEmpty(tbJmb.Text))
                 searchPatient.Jmb = tbJmb.Text;
-            patientsViewModel = new PatientsViewModel()
+            patientsViewModel = new GenericDataGridViewModel<Patient>()
             {
-                Patients = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient))
+                Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient))
             };
             DataContext = patientsViewModel;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (patientsViewModel.SelectedPatient != null)
-                MessageBox.Show(patientsViewModel.SelectedPatient.FirstName + " " + patientsViewModel.SelectedPatient.LastName);
+            //if (patientsViewModel.SelectedItem != null)
+             //   new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -76,6 +76,29 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             if (e.Key == Key.Enter)
                 Search();
+        }
+
+        private void btnAddNewPatient_Click(object sender, RoutedEventArgs e)
+        {
+            new PatientWindow().ShowDialog();
+        }
+
+        private void DataGrid_Selected(object sender, RoutedEventArgs e)
+        {
+            if (patientsViewModel.SelectedItem != null)
+                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void DataGrid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (patientsViewModel.SelectedItem != null)
+                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (patientsViewModel.SelectedItem != null)
+                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
         }
     }
 }

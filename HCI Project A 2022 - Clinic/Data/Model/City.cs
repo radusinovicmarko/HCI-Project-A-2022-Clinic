@@ -22,5 +22,10 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         {
             return -528980569 + CityId.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return CityName;
+        }
     }
 }
