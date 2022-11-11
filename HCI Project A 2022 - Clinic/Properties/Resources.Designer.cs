@@ -61,6 +61,105 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podaci o naručenju.
+        /// </summary>
+        public static string AppointmentWindowAppointmentData {
+            get {
+                return ResourceManager.GetString("AppointmentWindowAppointmentData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Otkažite.
+        /// </summary>
+        public static string AppointmentWindowCancelBtn {
+            get {
+                return ResourceManager.GetString("AppointmentWindowCancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum naručenja.
+        /// </summary>
+        public static string AppointmentWindowDateDP {
+            get {
+                return ResourceManager.GetString("AppointmentWindowDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string AppointmentWindowDoctorCB {
+            get {
+                return ResourceManager.GetString("AppointmentWindowDoctorCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o ljekaru.
+        /// </summary>
+        public static string AppointmentWindowDoctorData {
+            get {
+                return ResourceManager.GetString("AppointmentWindowDoctorData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string AppointmentWindowJmbTb {
+            get {
+                return ResourceManager.GetString("AppointmentWindowJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o pacijentu.
+        /// </summary>
+        public static string AppointmentWindowPatientData {
+            get {
+                return ResourceManager.GetString("AppointmentWindowPatientData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razlog.
+        /// </summary>
+        public static string AppointmentWindowReasonTb {
+            get {
+                return ResourceManager.GetString("AppointmentWindowReasonTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte.
+        /// </summary>
+        public static string AppointmentWindowSaveBtn {
+            get {
+                return ResourceManager.GetString("AppointmentWindowSaveBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrijeme naručenja.
+        /// </summary>
+        public static string AppointmentWindowTimeTP {
+            get {
+                return ResourceManager.GetString("AppointmentWindowTimeTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naručenje.
+        /// </summary>
+        public static string AppointmentWindowTitle {
+            get {
+                return ResourceManager.GetString("AppointmentWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap clinic_reception1 {
@@ -536,6 +635,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string PatientWindowMarriageTb {
             get {
                 return ResourceManager.GetString("PatientWindowMarriageTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodajte novo naručenje.
+        /// </summary>
+        public static string PatientWindowNewAppointmentBtn {
+            get {
+                return ResourceManager.GetString("PatientWindowNewAppointmentBtn", resourceCulture);
             }
         }
         

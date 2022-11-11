@@ -117,6 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppointmentWindowAppointmentData" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="AppointmentWindowCancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AppointmentWindowDateDP" xml:space="preserve">
+    <value>Date Of Appointment</value>
+  </data>
+  <data name="AppointmentWindowDoctorCB" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="AppointmentWindowDoctorData" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="AppointmentWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="AppointmentWindowPatientData" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="AppointmentWindowReasonTb" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="AppointmentWindowSaveBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="AppointmentWindowTimeTP" xml:space="preserve">
+    <value>Time Of Appointment</value>
+  </data>
+  <data name="AppointmentWindowTitle" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="clinic_reception1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clinic-reception.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -212,7 +245,7 @@
     <value>Address</value>
   </data>
   <data name="PatientWindowBasicInfo" xml:space="preserve">
-    <value>Basiac Information</value>
+    <value>Basic Information</value>
   </data>
   <data name="PatientWindowBloodTypeTb" xml:space="preserve">
     <value>Blood Type</value>
@@ -276,6 +309,9 @@
   </data>
   <data name="PatientWindowMarriageTb" xml:space="preserve">
     <value>Marriage Status</value>
+  </data>
+  <data name="PatientWindowNewAppointmentBtn" xml:space="preserve">
+    <value>Add New Appointment</value>
   </data>
   <data name="PatientWindowPhoneTb" xml:space="preserve">
     <value>Phone Number</value>

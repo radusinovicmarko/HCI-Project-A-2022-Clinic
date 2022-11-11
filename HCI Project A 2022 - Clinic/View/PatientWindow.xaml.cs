@@ -89,5 +89,26 @@ namespace HCI_Project_A_2022___Clinic.View
                 dao.Add(patient);
             }
         }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (appointmentViewModel.SelectedItem != null)
+                    new AppointmentWindow(appointmentViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            if (new AppointmentWindow(patient).ShowDialog().Value)
+            {
+                appointmentViewModel = new GenericDataGridViewModel<Appointment>()
+                {
+                    Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
+                    {
+                        Patient = patient
+                    }))
+                };
+                gridAppointments.DataContext = appointmentViewModel;
+            }
+        }
     }
 }

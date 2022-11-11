@@ -75,6 +75,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         public List<Patient> Get(Patient item)
         {
             string selectQuery = SELECT_ALL;
+            if (item.PersonId != null)
+                selectQuery += " AND o.IdOsobe = @id";
             if (item.FirstName != null)
                 selectQuery += " AND o.Ime LIKE @Ime";
             if (item.LastName != null)
@@ -91,6 +93,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 conn = MySQLUtil.GetConnection();
                 cmd = conn.CreateCommand();
                 cmd.CommandText = selectQuery;
+                if (item.PersonId != null)
+                    cmd.Parameters.AddWithValue("@id", item.PersonId);
                 if (item.FirstName != null)
                     cmd.Parameters.AddWithValue("@Ime", item.FirstName + "%");
                 if (item.LastName != null)

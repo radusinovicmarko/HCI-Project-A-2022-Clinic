@@ -9,5 +9,11 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
     internal class Doctor : Employee
     {
         public string Title { get; set; }
+
+        public override string ToString()
+        {
+            return LastName + " " + FirstName + ", " + Title;
+        }
     }
+
 }

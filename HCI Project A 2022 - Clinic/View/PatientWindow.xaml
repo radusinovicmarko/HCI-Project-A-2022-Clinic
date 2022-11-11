@@ -198,7 +198,8 @@
                             Width="200"
                             MinHeight="40"
                             HorizontalAlignment="Center"
-                            Content="{x:Static p:Resources.PatientWindowCancelBtn}" Click="Button_Click"/>
+                            IsCancel="True"
+                            Content="{x:Static p:Resources.PatientWindowCancelBtn}"/>
                     </Grid>
                 </Border>
             </TabItem>
@@ -232,15 +233,20 @@
             </TabItem>
             <TabItem x:Name="tabAppointments"  Header="{x:Static p:Resources.PatientWindowTab3}">
                 <Grid x:Name="gridAppointments" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <DataGrid Margin="0 5 0 0"
                         ItemsSource="{Binding Items}" 
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         SelectedItem="{Binding SelectedItem}"
-                        Grid.Column="1" Grid.Row="1"
+                        Grid.Column="0" Grid.Row="0"
                         Background="White"
                         BorderThickness="1"
-                        BorderBrush="#9ebdf0">
+                        BorderBrush="#9ebdf0"
+                        MouseDoubleClick="DataGrid_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab3DG}" Binding="{Binding DateTime}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowReasonTab3DG}" Binding="{Binding Reason}" />
@@ -255,6 +261,24 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button x:Name="btnAddNewAppointment" 
+                        Grid.Column="0" Grid.Row="1"
+                        materialDesign:ButtonAssist.CornerRadius="5" 
+                        Cursor="Hand"  
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Width="300"
+                        MinHeight="40"
+                        HorizontalAlignment="Left"
+                        Click="BtnAddNewAppointment_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Margin="0 2 0 0"
+                                Kind="Plus"/>
+                            <TextBlock
+                                Margin="10 0 0 0"
+                                Text="{x:Static p:Resources.PatientWindowNewAppointmentBtn}"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabRecoveries" Header="{x:Static p:Resources.PatientWindowTab4}">

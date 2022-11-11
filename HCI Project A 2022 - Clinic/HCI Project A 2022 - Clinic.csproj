@@ -149,6 +149,9 @@
     </Compile>
     <Compile Include="ViewModel\GenericDataGridViewModel.cs" />
     <Compile Include="ViewModel\PatientsViewModel.cs" />
+    <Compile Include="View\AppointmentWindow.xaml.cs">
+      <DependentUpon>AppointmentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
     <Resource Include="Resources\clinic-icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\AppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
