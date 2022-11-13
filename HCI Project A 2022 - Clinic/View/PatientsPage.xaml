@@ -7,8 +7,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PatientsPage">
+      d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -75,8 +74,8 @@
             Grid.Column="1" Grid.Row="1"
             Background="White"
             BorderThickness="1"
-            
-            BorderBrush="#9ebdf0" SelectionChanged="DataGrid_SelectionChanged" MouseDoubleClick="DataGrid_MouseDoubleClick">
+            BorderBrush="#9ebdf0"
+            MouseDoubleClick="DataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageLastNameDG}" Binding="{Binding LastName}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientsPageFirstNameDG}" Binding="{Binding FirstName}" />
@@ -94,7 +93,7 @@
             Style="{StaticResource MaterialDesignPaperLightButton}"
             Width="300"
             MinHeight="40"
-            HorizontalAlignment="Left" Click="btnAddNewPatient_Click">
+            HorizontalAlignment="Left" Click="BtnAddNewPatient_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon
                         Margin="0 2 0 0"

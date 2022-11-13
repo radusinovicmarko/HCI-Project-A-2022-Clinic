@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppointmentsPageAddAppointmentBtn" xml:space="preserve">
+    <value>Dodajte novo naručenje</value>
+  </data>
+  <data name="AppointmentsPageDateDP" xml:space="preserve">
+    <value>Datum naručenja</value>
+  </data>
+  <data name="AppointmentsPageDateTimeDG" xml:space="preserve">
+    <value>Datum i vrijeme naručenja</value>
+  </data>
+  <data name="AppointmentsPageDoctorCB" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="AppointmentsPageDoctorDG" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="AppointmentsPageReasonDG" xml:space="preserve">
+    <value>Razlog</value>
+  </data>
+  <data name="AppointmentsPageSearchBtn" xml:space="preserve">
+    <value>Pretražite</value>
+  </data>
+  <data name="AppointmentsPageSearchLb" xml:space="preserve">
+    <value>Pretraga naručenja</value>
+  </data>
   <data name="AppointmentWindowAppointmentData" xml:space="preserve">
     <value>Podaci o naručenju</value>
   </data>
@@ -156,6 +180,48 @@
   </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Niste unijeli korisničko ime ili lozinku.</value>
+  </data>
+  <data name="EmployeesPageAddEmployeeBtn" xml:space="preserve">
+    <value>Dodajte novog zaposlenog</value>
+  </data>
+  <data name="EmployeesPageEmailDG" xml:space="preserve">
+    <value>E-Mail adresa</value>
+  </data>
+  <data name="EmployeesPageEmployedDG" xml:space="preserve">
+    <value>Trenutno zaposlen</value>
+  </data>
+  <data name="EmployeesPageFirstNameDG" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="EmployeesPageFirstNameTb" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="EmployeesPageJmbDG" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="EmployeesPageJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="EmployeesPageLastNameDG" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="EmployeesPageLastNameTb" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="EmployeesPageRoleCB" xml:space="preserve">
+    <value>Uloga</value>
+  </data>
+  <data name="EmployeesPageRoleDG" xml:space="preserve">
+    <value>Uloga</value>
+  </data>
+  <data name="EmployeesPageSearchBtn" xml:space="preserve">
+    <value>Pretražite</value>
+  </data>
+  <data name="EmployeesPageSearchLb" xml:space="preserve">
+    <value>Pretraga zaposlenih</value>
+  </data>
+  <data name="EmployeesPageUsernameDG" xml:space="preserve">
+    <value>Korisničko ime</value>
   </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,6 +379,9 @@
   <data name="PatientWindowNewAppointmentBtn" xml:space="preserve">
     <value>Dodajte novo naručenje</value>
   </data>
+  <data name="PatientWindowNewRecoveryBtn" xml:space="preserve">
+    <value>Dodajte novo preboljenje</value>
+  </data>
   <data name="PatientWindowPhoneTb" xml:space="preserve">
     <value>Kontakt telefon</value>
   </data>
@@ -336,5 +405,35 @@
   </data>
   <data name="PatientWindowTitle" xml:space="preserve">
     <value>Pregled pacijenta</value>
+  </data>
+  <data name="RecoveryWindowCancelBtn" xml:space="preserve">
+    <value>Otkažite</value>
+  </data>
+  <data name="RecoveryWindowDateDP" xml:space="preserve">
+    <value>Datum preboljenja</value>
+  </data>
+  <data name="RecoveryWindowDoctorCB" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="RecoveryWindowDoctorData" xml:space="preserve">
+    <value>Podaci o ljekaru</value>
+  </data>
+  <data name="RecoveryWindowIllnessCB" xml:space="preserve">
+    <value>Bolest</value>
+  </data>
+  <data name="RecoveryWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="RecoveryWindowPatientData" xml:space="preserve">
+    <value>Podaci o pacijentu</value>
+  </data>
+  <data name="RecoveryWindowRecoveryData" xml:space="preserve">
+    <value>Podaci o preboljenju</value>
+  </data>
+  <data name="RecoveryWindowSaveBtn" xml:space="preserve">
+    <value>Sačuvajte</value>
+  </data>
+  <data name="RecoveryWindowTitle" xml:space="preserve">
+    <value>Preboljenje</value>
   </data>
 </root>

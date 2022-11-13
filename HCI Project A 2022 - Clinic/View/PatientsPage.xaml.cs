@@ -26,9 +26,11 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class PatientsPage : Page
     {
         private GenericDataGridViewModel<Patient> patientsViewModel;
-        public PatientsPage()
+        private Employee employee;
+        internal PatientsPage(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
             patientsViewModel = new GenericDataGridViewModel<Patient>()
             {
                 Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
@@ -61,12 +63,6 @@ namespace HCI_Project_A_2022___Clinic.View
             DataContext = patientsViewModel;
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //if (patientsViewModel.SelectedItem != null)
-             //   new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Search();
@@ -78,27 +74,15 @@ namespace HCI_Project_A_2022___Clinic.View
                 Search();
         }
 
-        private void btnAddNewPatient_Click(object sender, RoutedEventArgs e)
+        private void BtnAddNewPatient_Click(object sender, RoutedEventArgs e)
         {
-            new PatientWindow().ShowDialog();
-        }
-
-        private void DataGrid_Selected(object sender, RoutedEventArgs e)
-        {
-            if (patientsViewModel.SelectedItem != null)
-                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
-        }
-
-        private void DataGrid_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (patientsViewModel.SelectedItem != null)
-                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
+            new PatientWindow(employee).ShowDialog();
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (patientsViewModel.SelectedItem != null)
-                new PatientWindow(patientsViewModel.SelectedItem).ShowDialog();
+                new PatientWindow(patientsViewModel.SelectedItem, employee).ShowDialog();
         }
     }
 }

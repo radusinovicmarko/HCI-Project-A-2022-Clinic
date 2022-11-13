@@ -54,9 +54,13 @@ namespace HCI_Project_A_2022___Clinic.View
                 MessageBox.Show(Properties.Resources.CredentialsMissing);
                 return;
             }
-            if (MySQLUtil.Login(username, password))
+            var loginInfo = MySQLUtil.Login(username, password);
+            if (loginInfo.Item1)
             {
-                new MainWindow().Show();
+                Employee employee = new MySQLEmployeeDAO().Get(new Employee() { PersonId = loginInfo.Item2 })[0];
+                if (employee.Role == EmployeeRole.LJEKAR)
+                    employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
+                new MainWindow(employee).Show();
                 this.Close();
             }
             else

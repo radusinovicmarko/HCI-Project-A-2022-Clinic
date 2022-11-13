@@ -22,5 +22,10 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         {
             return 43588570 + IllnessId.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

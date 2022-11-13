@@ -50,7 +50,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         {
             string selectQuery = SELECT_ALL;
             if (item.DateTime != null)
-                selectQuery += " AND n.DatumVrijemePregleda=@datum";
+                selectQuery += " AND n.DatumVrijemePregleda>=@datumOd AND n.DatumVrijemePregleda<=@datumDo";
             if (item.Patient != null)
                 selectQuery += " AND n.PACIJENT_OSOBA_IdOsobe=@idPacijenta";
             if (item.Doctor != null)
@@ -66,7 +66,10 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd = conn.CreateCommand();
                 cmd.CommandText = selectQuery;
                 if (item.DateTime != null)
-                    cmd.Parameters.AddWithValue("@datum", item.DateTime);
+                {
+                    cmd.Parameters.AddWithValue("@datumOd", item.DateTime);
+                    cmd.Parameters.AddWithValue("@datumDo", new DateTime(item.DateTime.Value.Year, item.DateTime.Value.Month, item.DateTime.Value.Day + 1));
+                }
                 if (item.Patient != null)
                     cmd.Parameters.AddWithValue("@idPacijenta", item.Patient.PersonId);
                 if (item.Doctor != null)

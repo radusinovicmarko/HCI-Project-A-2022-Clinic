@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HCI_Project_A_2022___Clinic.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,13 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private Employee employee;
+        internal MainWindow(Employee employee)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
             InitializeComponent();
-            frameMain.Content = new PatientsPage();
+            this.employee = employee;
+            frameMain.Content = new PatientsPage(employee);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,8 +38,32 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (frameMain.Content == null)
-                frameMain.Content = new PatientsPage();
+            if (!(frameMain.Content is PatientsPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new PatientsPage(employee);
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is AppointmentsPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new AppointmentsPage(employee);
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is EmployeesPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new EmployeesPage(employee);
+            }
         }
     }
 }

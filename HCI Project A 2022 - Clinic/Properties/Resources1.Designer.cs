@@ -61,6 +61,78 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodajte novo naručenje.
+        /// </summary>
+        public static string AppointmentsPageAddAppointmentBtn {
+            get {
+                return ResourceManager.GetString("AppointmentsPageAddAppointmentBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum naručenja.
+        /// </summary>
+        public static string AppointmentsPageDateDP {
+            get {
+                return ResourceManager.GetString("AppointmentsPageDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum i vrijeme naručenja.
+        /// </summary>
+        public static string AppointmentsPageDateTimeDG {
+            get {
+                return ResourceManager.GetString("AppointmentsPageDateTimeDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string AppointmentsPageDoctorCB {
+            get {
+                return ResourceManager.GetString("AppointmentsPageDoctorCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string AppointmentsPageDoctorDG {
+            get {
+                return ResourceManager.GetString("AppointmentsPageDoctorDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razlog.
+        /// </summary>
+        public static string AppointmentsPageReasonDG {
+            get {
+                return ResourceManager.GetString("AppointmentsPageReasonDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretražite.
+        /// </summary>
+        public static string AppointmentsPageSearchBtn {
+            get {
+                return ResourceManager.GetString("AppointmentsPageSearchBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretraga naručenja.
+        /// </summary>
+        public static string AppointmentsPageSearchLb {
+            get {
+                return ResourceManager.GetString("AppointmentsPageSearchLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Podaci o naručenju.
         /// </summary>
         public static string AppointmentWindowAppointmentData {
@@ -175,6 +247,132 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string CredentialsMissing {
             get {
                 return ResourceManager.GetString("CredentialsMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodajte novog zaposlenog.
+        /// </summary>
+        public static string EmployeesPageAddEmployeeBtn {
+            get {
+                return ResourceManager.GetString("EmployeesPageAddEmployeeBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-Mail adresa.
+        /// </summary>
+        public static string EmployeesPageEmailDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageEmailDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trenutno zaposlen.
+        /// </summary>
+        public static string EmployeesPageEmployedDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageEmployedDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string EmployeesPageFirstNameDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageFirstNameDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string EmployeesPageFirstNameTb {
+            get {
+                return ResourceManager.GetString("EmployeesPageFirstNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string EmployeesPageJmbDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageJmbDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string EmployeesPageJmbTb {
+            get {
+                return ResourceManager.GetString("EmployeesPageJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string EmployeesPageLastNameDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageLastNameDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string EmployeesPageLastNameTb {
+            get {
+                return ResourceManager.GetString("EmployeesPageLastNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uloga.
+        /// </summary>
+        public static string EmployeesPageRoleCB {
+            get {
+                return ResourceManager.GetString("EmployeesPageRoleCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uloga.
+        /// </summary>
+        public static string EmployeesPageRoleDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageRoleDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretražite.
+        /// </summary>
+        public static string EmployeesPageSearchBtn {
+            get {
+                return ResourceManager.GetString("EmployeesPageSearchBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretraga zaposlenih.
+        /// </summary>
+        public static string EmployeesPageSearchLb {
+            get {
+                return ResourceManager.GetString("EmployeesPageSearchLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime.
+        /// </summary>
+        public static string EmployeesPageUsernameDG {
+            get {
+                return ResourceManager.GetString("EmployeesPageUsernameDG", resourceCulture);
             }
         }
         
@@ -648,6 +846,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodajte novo preboljenje.
+        /// </summary>
+        public static string PatientWindowNewRecoveryBtn {
+            get {
+                return ResourceManager.GetString("PatientWindowNewRecoveryBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kontakt telefon.
         /// </summary>
         public static string PatientWindowPhoneTb {
@@ -716,6 +923,96 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string PatientWindowTitle {
             get {
                 return ResourceManager.GetString("PatientWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Otkažite.
+        /// </summary>
+        public static string RecoveryWindowCancelBtn {
+            get {
+                return ResourceManager.GetString("RecoveryWindowCancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum preboljenja.
+        /// </summary>
+        public static string RecoveryWindowDateDP {
+            get {
+                return ResourceManager.GetString("RecoveryWindowDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string RecoveryWindowDoctorCB {
+            get {
+                return ResourceManager.GetString("RecoveryWindowDoctorCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o ljekaru.
+        /// </summary>
+        public static string RecoveryWindowDoctorData {
+            get {
+                return ResourceManager.GetString("RecoveryWindowDoctorData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolest.
+        /// </summary>
+        public static string RecoveryWindowIllnessCB {
+            get {
+                return ResourceManager.GetString("RecoveryWindowIllnessCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string RecoveryWindowJmbTb {
+            get {
+                return ResourceManager.GetString("RecoveryWindowJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o pacijentu.
+        /// </summary>
+        public static string RecoveryWindowPatientData {
+            get {
+                return ResourceManager.GetString("RecoveryWindowPatientData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o preboljenju.
+        /// </summary>
+        public static string RecoveryWindowRecoveryData {
+            get {
+                return ResourceManager.GetString("RecoveryWindowRecoveryData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte.
+        /// </summary>
+        public static string RecoveryWindowSaveBtn {
+            get {
+                return ResourceManager.GetString("RecoveryWindowSaveBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preboljenje.
+        /// </summary>
+        public static string RecoveryWindowTitle {
+            get {
+                return ResourceManager.GetString("RecoveryWindowTitle", resourceCulture);
             }
         }
     }

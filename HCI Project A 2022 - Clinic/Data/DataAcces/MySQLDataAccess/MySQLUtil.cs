@@ -54,7 +54,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             CloseQuietly(conn);
         }
 
-        public static bool Login(string username, string password)
+        public static (bool, int) Login(string username, string password)
         {
             MySqlConnection conn = null;
             MySqlCommand cmd;
@@ -73,7 +73,10 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters.AddWithValue("@idOsobe", MySqlDbType.Int32);
                 cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
-                return !((int) cmd.Parameters["@prijava"].Value == 0);
+                bool login = !((int)cmd.Parameters["@prijava"].Value == 0);
+                int id = login ? (int)cmd.Parameters["@idOsobe"].Value : -1;
+
+                return (login, id);
             }
             catch (Exception ex)
             {

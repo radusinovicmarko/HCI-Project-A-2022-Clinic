@@ -76,6 +76,7 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowLastNameTb}"/>
 
                         <DatePicker
+                            x:Name="dpDateOfBirth"
                             Width="200"
                             Height="40"
                             Grid.Row="4"
@@ -248,7 +249,7 @@
                         BorderBrush="#9ebdf0"
                         MouseDoubleClick="DataGrid_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab3DG}" Binding="{Binding DateTime}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab3DG}" Binding="{Binding DateTime, StringFormat='{}{0:dd.MM.yyyy. HH:mm}'}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowReasonTab3DG}" Binding="{Binding Reason}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDoctorTab3DG}">
                                 <DataGridTextColumn.Binding>
@@ -283,17 +284,22 @@
             </TabItem>
             <TabItem x:Name="tabRecoveries" Header="{x:Static p:Resources.PatientWindowTab4}">
                 <Grid x:Name="gridRecoveries" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <DataGrid Margin="0 5 0 0"
                         ItemsSource="{Binding Items}" 
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         SelectedItem="{Binding SelectedItem}"
-                        Grid.Column="1" Grid.Row="1"
+                        Grid.Row="0"
                         Background="White"
                         BorderThickness="1"
-                        BorderBrush="#9ebdf0">
+                        BorderBrush="#9ebdf0"
+                        MouseDoubleClick="DataGrid_MouseDoubleClick_1">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab4DG}" Binding="{Binding Date}" />
+                            <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateTab4DG}" Binding="{Binding Date, StringFormat='{}{0:dd.MM.yyyy.}'}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowIllnessTab4DG}" Binding="{Binding Illness.Name}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDoctorTab4DG}">
                                 <DataGridTextColumn.Binding>
@@ -306,6 +312,24 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button x:Name="btnAddNewRecovery" 
+                        Grid.Column="0" Grid.Row="1"
+                        materialDesign:ButtonAssist.CornerRadius="5" 
+                        Cursor="Hand"  
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Width="300"
+                        MinHeight="40"
+                        HorizontalAlignment="Left"
+                        Click="btnAddNewRecovery_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Margin="0 2 0 0"
+                                Kind="Plus"/>
+                            <TextBlock
+                                Margin="10 0 0 0"
+                                Text="{x:Static p:Resources.PatientWindowNewRecoveryBtn}"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
             </TabItem>
         </TabControl>

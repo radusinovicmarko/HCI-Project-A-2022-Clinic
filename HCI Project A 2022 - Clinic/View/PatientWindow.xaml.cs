@@ -24,13 +24,15 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class PatientWindow : Window
     {
         private Patient patient;
+        private Employee employee;
         private bool editMode = false;
         private GenericDataGridViewModel<Exam> examViewModel;
         private GenericDataGridViewModel<Appointment> appointmentViewModel;
         private GenericDataGridViewModel<Recovery> recoveriesViewModel;
-        public PatientWindow()
+        internal PatientWindow(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
             patient = new Patient();
             tabExams.Visibility = Visibility.Collapsed;
             tabAppointments.Visibility = Visibility.Collapsed;
@@ -38,10 +40,11 @@ namespace HCI_Project_A_2022___Clinic.View
             gridPatientData.DataContext = patient;
             cbCity.ItemsSource = new MySQLCityDAO().GetAll();
         }
-        internal PatientWindow(Patient patient)
+        internal PatientWindow(Patient patient, Employee employee)
         {
             InitializeComponent();
             this.patient = patient;
+            this.employee = employee;
             editMode = true;
             cbCity.ItemsSource = new MySQLCityDAO().GetAll();
             cbCity.SelectedItem = patient.City;
@@ -85,6 +88,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 dao.Update((int)patient.PersonId, patient);
             else
             {
+                patient.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
                 patient.City = cbCity.SelectedItem as City;
                 dao.Add(patient);
             }
@@ -108,6 +112,27 @@ namespace HCI_Project_A_2022___Clinic.View
                     }))
                 };
                 gridAppointments.DataContext = appointmentViewModel;
+            }
+        }
+
+        private void DataGrid_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
+        {
+            if (recoveriesViewModel.SelectedItem != null)
+                new RecoveryWindow(recoveriesViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void btnAddNewRecovery_Click(object sender, RoutedEventArgs e)
+        {
+            if (new RecoveryWindow(patient, employee as Doctor).ShowDialog().Value)
+            {
+                recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
+                {
+                    Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
+                    {
+                        Patient = patient
+                    }))
+                };
+                gridRecoveries.DataContext = recoveriesViewModel;
             }
         }
     }

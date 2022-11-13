@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppointmentsPageAddAppointmentBtn" xml:space="preserve">
+    <value>Add New Appointment</value>
+  </data>
+  <data name="AppointmentsPageDateDP" xml:space="preserve">
+    <value>Date Of Appointment</value>
+  </data>
+  <data name="AppointmentsPageDateTimeDG" xml:space="preserve">
+    <value>Date And Time Of Appointment</value>
+  </data>
+  <data name="AppointmentsPageDoctorCB" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="AppointmentsPageDoctorDG" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="AppointmentsPageReasonDG" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="AppointmentsPageSearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="AppointmentsPageSearchLb" xml:space="preserve">
+    <value>Appointment's Search</value>
+  </data>
   <data name="AppointmentWindowAppointmentData" xml:space="preserve">
     <value>Appointment</value>
   </data>
@@ -156,6 +180,48 @@
   </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Username or password missing.</value>
+  </data>
+  <data name="EmployeesPageAddEmployeeBtn" xml:space="preserve">
+    <value>Add New Employee</value>
+  </data>
+  <data name="EmployeesPageEmailDG" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmployeesPageEmployedDG" xml:space="preserve">
+    <value>Currently Employed</value>
+  </data>
+  <data name="EmployeesPageFirstNameDG" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="EmployeesPageFirstNameTb" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="EmployeesPageJmbDG" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="EmployeesPageJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="EmployeesPageLastNameDG" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="EmployeesPageLastNameTb" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="EmployeesPageRoleCB" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="EmployeesPageRoleDG" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="EmployeesPageSearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="EmployeesPageSearchLb" xml:space="preserve">
+    <value>Employee Search</value>
+  </data>
+  <data name="EmployeesPageUsernameDG" xml:space="preserve">
+    <value>Username</value>
   </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,6 +379,9 @@
   <data name="PatientWindowNewAppointmentBtn" xml:space="preserve">
     <value>Add New Appointment</value>
   </data>
+  <data name="PatientWindowNewRecoveryBtn" xml:space="preserve">
+    <value>Add New Recovery</value>
+  </data>
   <data name="PatientWindowPhoneTb" xml:space="preserve">
     <value>Phone Number</value>
   </data>
@@ -336,5 +405,35 @@
   </data>
   <data name="PatientWindowTitle" xml:space="preserve">
     <value>Patient View</value>
+  </data>
+  <data name="RecoveryWindowCancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="RecoveryWindowDateDP" xml:space="preserve">
+    <value>Date Of Recovery</value>
+  </data>
+  <data name="RecoveryWindowDoctorCB" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="RecoveryWindowDoctorData" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="RecoveryWindowIllnessCB" xml:space="preserve">
+    <value>Illness</value>
+  </data>
+  <data name="RecoveryWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="RecoveryWindowPatientData" xml:space="preserve">
+    <value>Patinet</value>
+  </data>
+  <data name="RecoveryWindowRecoveryData" xml:space="preserve">
+    <value>Recovery</value>
+  </data>
+  <data name="RecoveryWindowSaveBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="RecoveryWindowTitle" xml:space="preserve">
+    <value>Recovery</value>
   </data>
 </root>
