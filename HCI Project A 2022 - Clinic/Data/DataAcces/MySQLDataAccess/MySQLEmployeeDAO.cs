@@ -49,10 +49,12 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@sprema"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@korisnickoIme", item.Username);
                 cmd.Parameters["@korisnickoIme"].Direction = ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@loznika", item.Password);
-                cmd.Parameters["@loznika"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@lozinka", item.Password);
+                cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
                 cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@uloga", item.Role);
+                cmd.Parameters["@uloga"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@idOsobe", MySqlDbType.Int32);
                 cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();

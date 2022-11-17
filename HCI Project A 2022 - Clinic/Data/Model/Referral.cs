@@ -11,7 +11,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         public int ReferralId { get; set; }
         public string InstitutionName { get; set; }
         public string InstitutionCode { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
         public Exam Exam { get; set; }
 
         public override bool Equals(object obj)

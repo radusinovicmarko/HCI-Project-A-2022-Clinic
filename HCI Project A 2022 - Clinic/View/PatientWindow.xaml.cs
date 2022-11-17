@@ -135,5 +135,16 @@ namespace HCI_Project_A_2022___Clinic.View
                 gridRecoveries.DataContext = recoveriesViewModel;
             }
         }
+
+        private void DataGrid_MouseDoubleClick_2(object sender, MouseButtonEventArgs e)
+        {
+            if (examViewModel.SelectedItem != null)
+                new ExamWindow(examViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void BtnAddNewExam_Click(object sender, RoutedEventArgs e)
+        {
+            new ExamWindow(patient, (Doctor)employee).ShowDialog();
+        }
     }
 }

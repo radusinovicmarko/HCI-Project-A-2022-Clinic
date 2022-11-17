@@ -22,5 +22,10 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         {
             return 2027573207 + MedicationId.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return FactoryName;
+        }
     }
 }

@@ -47,20 +47,22 @@ namespace HCI_Project_A_2022___Clinic.View
             cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
             cbDoctor.SelectedItem = appointment.Doctor;
             gridAppointment.DataContext = appointment;
+            btnSave.Visibility = Visibility.Collapsed;
+            btnNewExam.Visibility = Visibility.Visible;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             appointment.Doctor = cbDoctor.SelectedItem as Doctor;
             appointment.DateTime = DateTime.Parse(dpDate.Text + " " + tpTime.Text);
             new MySQLAppointmentDAO().Add(appointment);
             DialogResult = true;
             Close();
+        }
+
+        private void BtnNewExam_Click(object sender, RoutedEventArgs e)
+        {
+            new ExamWindow(appointment.Patient, appointment.Doctor).ShowDialog();
         }
     }
 }

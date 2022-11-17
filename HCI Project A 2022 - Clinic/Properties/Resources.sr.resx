@@ -159,6 +159,9 @@
   <data name="AppointmentWindowJmbTb" xml:space="preserve">
     <value>JMB</value>
   </data>
+  <data name="AppointmentWindowNewExamBtn" xml:space="preserve">
+    <value>Evidentirajte novi pregled</value>
+  </data>
   <data name="AppointmentWindowPatientData" xml:space="preserve">
     <value>Podaci o pacijentu</value>
   </data>
@@ -215,6 +218,159 @@
   </data>
   <data name="EmployeesPageUsernameDG" xml:space="preserve">
     <value>Korisničko ime</value>
+  </data>
+  <data name="EmployeeWindowAddressTb" xml:space="preserve">
+    <value>Adresa stanovanja</value>
+  </data>
+  <data name="EmployeeWindowBasicInfo" xml:space="preserve">
+    <value>Osnovne informacije</value>
+  </data>
+  <data name="EmployeeWindowCancelBtn" xml:space="preserve">
+    <value>Otkažite</value>
+  </data>
+  <data name="EmployeeWindowCityTb" xml:space="preserve">
+    <value>Mjesto rođenja</value>
+  </data>
+  <data name="EmployeeWindowContactInfo" xml:space="preserve">
+    <value>Kontakt informacije</value>
+  </data>
+  <data name="EmployeeWindowCredentials" xml:space="preserve">
+    <value>Kredencijali</value>
+  </data>
+  <data name="EmployeeWindowDateDP" xml:space="preserve">
+    <value>Datum rođenja</value>
+  </data>
+  <data name="EmployeeWindowDetailedInfo" xml:space="preserve">
+    <value>Detaljne informacije</value>
+  </data>
+  <data name="EmployeeWindowEmailTb" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmployeeWindowEmployedCb" xml:space="preserve">
+    <value>Trenutno zaposlen</value>
+  </data>
+  <data name="EmployeeWindowFirstNameTb" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="EmployeeWindowHireDateDP" xml:space="preserve">
+    <value>Datum zaposlenja</value>
+  </data>
+  <data name="EmployeeWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="EmployeeWindowLastNameTb" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="EmployeeWindowPassword" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="EmployeeWindowQualificationTb" xml:space="preserve">
+    <value>Stručna sprema</value>
+  </data>
+  <data name="EmployeeWindowRoleCB" xml:space="preserve">
+    <value>Uloga</value>
+  </data>
+  <data name="EmployeeWindowSalaryTb" xml:space="preserve">
+    <value>Plata</value>
+  </data>
+  <data name="EmployeeWindowSaveBtn" xml:space="preserve">
+    <value>Sačuvajte</value>
+  </data>
+  <data name="EmployeeWindowTitle" xml:space="preserve">
+    <value>Pregled zaposlenog</value>
+  </data>
+  <data name="EmployeeWindowTitleTb" xml:space="preserve">
+    <value>Zvanje</value>
+  </data>
+  <data name="EmployeeWindowUsernameTb" xml:space="preserve">
+    <value>Korisničko ime</value>
+  </data>
+  <data name="ExamsPageAddExamBtn" xml:space="preserve">
+    <value>Dodajte novi pregled</value>
+  </data>
+  <data name="ExamsPageDateDP" xml:space="preserve">
+    <value>Datum pregleda</value>
+  </data>
+  <data name="ExamsPageDateTimeDG" xml:space="preserve">
+    <value>Datum i vrijeme pregleda</value>
+  </data>
+  <data name="ExamsPageDiagnosisCodeDG" xml:space="preserve">
+    <value>Šifra dijagnoze</value>
+  </data>
+  <data name="ExamsPageDoctorCB" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="ExamsPageDoctorDG" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="ExamsPageExamTypeDG" xml:space="preserve">
+    <value>Vrsta pregleda</value>
+  </data>
+  <data name="ExamsPageSearchBtn" xml:space="preserve">
+    <value>Pretražite</value>
+  </data>
+  <data name="ExamsPageSearchLb" xml:space="preserve">
+    <value>Pretraga pregleda</value>
+  </data>
+  <data name="ExamWindowCancelBtn" xml:space="preserve">
+    <value>Otkažite</value>
+  </data>
+  <data name="ExamWindowDiagnosisCodeTb" xml:space="preserve">
+    <value>Šifra dijagnoze</value>
+  </data>
+  <data name="ExamWindowDoctorCB" xml:space="preserve">
+    <value>Ljekar</value>
+  </data>
+  <data name="ExamWindowDoctorData" xml:space="preserve">
+    <value>Podaci o ljekaru</value>
+  </data>
+  <data name="ExamWindowExamData" xml:space="preserve">
+    <value>Podaci o pregledu</value>
+  </data>
+  <data name="ExamWindowExamTypeCB" xml:space="preserve">
+    <value>Vrsta pregleda</value>
+  </data>
+  <data name="ExamWindowInstituionNameTb" xml:space="preserve">
+    <value>Naziv ustanove</value>
+  </data>
+  <data name="ExamWindowInstitutionCodeTb" xml:space="preserve">
+    <value>Šifra ustanove</value>
+  </data>
+  <data name="ExamWindowInstructionTb" xml:space="preserve">
+    <value>Način upotrebe</value>
+  </data>
+  <data name="ExamWindowJmbTb" xml:space="preserve">
+    <value>JMB</value>
+  </data>
+  <data name="ExamWindowMedicationCB" xml:space="preserve">
+    <value>Lijek</value>
+  </data>
+  <data name="ExamWindowPatientData" xml:space="preserve">
+    <value>Podaci o pacijentu</value>
+  </data>
+  <data name="ExamWindowPrescriptionCb" xml:space="preserve">
+    <value>Recept</value>
+  </data>
+  <data name="ExamWindowPrescriptionData" xml:space="preserve">
+    <value>Podaci o receptu</value>
+  </data>
+  <data name="ExamWindowRefferalCb" xml:space="preserve">
+    <value>Uputnica</value>
+  </data>
+  <data name="ExamWindowRefferalData" xml:space="preserve">
+    <value>Podaci o uputnici</value>
+  </data>
+  <data name="ExamWindowRefferalTypeTb" xml:space="preserve">
+    <value>Vrsta uputnice</value>
+  </data>
+  <data name="ExamWindowReportTb" xml:space="preserve">
+    <value>Nalaz i mišljenje</value>
+  </data>
+  <data name="ExamWindowSaveBtn" xml:space="preserve">
+    <value>Sačuvajte</value>
+  </data>
+  <data name="ExamWindowTitle" xml:space="preserve">
+    <value>Pregled</value>
   </data>
   <data name="LoginError" xml:space="preserve">
     <value>Pogrešni pristupni podaci.</value>
@@ -369,6 +525,9 @@
   <data name="PatientWindowNewAppointmentBtn" xml:space="preserve">
     <value>Dodajte novo naručenje</value>
   </data>
+  <data name="PatientWindowNewExamBtn" xml:space="preserve">
+    <value>Dodajte novi pregled</value>
+  </data>
   <data name="PatientWindowNewRecoveryBtn" xml:space="preserve">
     <value>Dodajte novo preboljenje</value>
   </data>
@@ -425,5 +584,17 @@
   </data>
   <data name="RecoveryWindowTitle" xml:space="preserve">
     <value>Preboljenje</value>
+  </data>
+  <data name="RoleWindowContinueBtn" xml:space="preserve">
+    <value>Nastavite</value>
+  </data>
+  <data name="RoleWindowRoleCb" xml:space="preserve">
+    <value>Uloga</value>
+  </data>
+  <data name="RoleWindowTitle" xml:space="preserve">
+    <value>Izbor uloge</value>
+  </data>
+  <data name="RoleWindowTitleLb" xml:space="preserve">
+    <value>Izaberite ulogu zaposlenog</value>
   </data>
 </root>

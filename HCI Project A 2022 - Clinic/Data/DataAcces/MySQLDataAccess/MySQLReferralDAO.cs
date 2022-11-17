@@ -49,10 +49,14 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         public List<Referral> Get(Referral item)
         {
             string selectQuery = SELECT_ALL;
-            if (item.Exam.Patient != null)
-                selectQuery += " AND p.PACIJENT_OSOBA_IdOsobe=@idPacijenta";
-            if (item.Exam.Doctor != null)
-                selectQuery += " AND p.LJEKAR_ZAPOSLENI_OSOBA_IdOsobe=@idLjekara";
+            if (item.Exam != null)
+            {
+                selectQuery += " AND p.IdPregleda=@idPregleda";
+                if (item.Exam.Patient != null)
+                    selectQuery += " AND p.PACIJENT_OSOBA_IdOsobe=@idPacijenta";
+                if (item.Exam.Doctor != null)
+                    selectQuery += " AND p.LJEKAR_ZAPOSLENI_OSOBA_IdOsobe=@idLjekara";
+            }
             List<Referral> result = new List<Referral>();
             MySqlConnection conn = null;
             MySqlCommand cmd;
@@ -63,10 +67,14 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 conn = MySQLUtil.GetConnection();
                 cmd = conn.CreateCommand();
                 cmd.CommandText = selectQuery;
-                if (item.Exam.Patient != null)
-                    cmd.Parameters.AddWithValue("@idPacijenta", item.Exam.Patient.PersonId);
-                if (item.Exam.Doctor != null)
-                    cmd.Parameters.AddWithValue("@idLjekara", item.Exam.Doctor.PersonId);
+                if (item.Exam != null)
+                {
+                    cmd.Parameters.AddWithValue("@idPregleda", item.Exam.ExamId);
+                    if (item.Exam.Patient != null)
+                        cmd.Parameters.AddWithValue("@idPacijenta", item.Exam.Patient.PersonId);
+                    if (item.Exam.Doctor != null)
+                        cmd.Parameters.AddWithValue("@idLjekara", item.Exam.Doctor.PersonId);
+                }
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                     result.Add(Create(reader));
@@ -116,7 +124,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 ReferralId = reader.GetInt32(0),
                 InstitutionCode = reader.GetString(1),
                 InstitutionName = reader.GetString(2),
-                Type = reader.GetInt32(3),
+                Type = reader.GetString(3),
                 Exam = new Exam()
                 {
                     ExamId = reader.GetInt32(5),

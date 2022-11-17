@@ -48,12 +48,13 @@
                     </StackPanel>
                 </Button>
                 <Button
-                Margin="10 0 0 0"
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40">
+                    Margin="10 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40"
+                    Click="Button_Click_4">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"
@@ -64,12 +65,12 @@
                     </StackPanel>
                 </Button>
                 <Button
-                Margin="10 0 0 0"
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40">
+                    Margin="10 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"
@@ -80,12 +81,12 @@
                     </StackPanel>
                 </Button>
                 <Button
-                Margin="10 0 0 0"
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40" Click="Button_Click_3">
+                    Margin="10 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40" Click="Button_Click_3">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"
@@ -96,12 +97,12 @@
                     </StackPanel>
                 </Button>
                 <Button
-                Margin="10 0 0 0"
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40">
+                    Margin="10 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"
@@ -112,12 +113,12 @@
                     </StackPanel>
                 </Button>
                 <Button
-                Margin="10 0 0 0"
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40" Click="Button_Click">
+                    Margin="10 0 0 0"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40" Click="Button_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"

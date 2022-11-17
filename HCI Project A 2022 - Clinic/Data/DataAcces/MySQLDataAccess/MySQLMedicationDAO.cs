@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
 {
-    internal class MySQLMedicationDAO : IGenericDAO<Medication>
+    internal class MySQLMedicationDAO : IGenericSearchDAO<Medication>
     {
-        private static readonly string SELECT_ALL = @"SELECT * FROM `lijek`";
+        private static readonly string SELECT_ALL = @"SELECT * FROM `lijek` WHERE true";
         // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdLijeka=@IdLijeka";
         private static readonly string INSERT = @"INSERT INTO `lijek`(GenerickiNazivLijeka, TvornickiNazivLijeka) 
                             VALUES (@GenerickiNaziv, @TvornickiNaziv)";
@@ -63,6 +63,41 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             {
                 MySQLUtil.CloseQuietly(conn);
             }
+        }
+
+        public List<Medication> Get(Medication item)
+        {
+            string selectQuery = SELECT_ALL;
+            selectQuery += " AND IdLijeka=@id";
+            List<Medication> result = new List<Medication>();
+            MySqlConnection conn = null;
+            MySqlCommand cmd;
+            MySqlDataReader reader = null;
+
+            try
+            {
+                conn = MySQLUtil.GetConnection();
+                cmd = conn.CreateCommand();
+                cmd.CommandText = selectQuery;
+                cmd.Parameters.AddWithValue("@id", item.MedicationId);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                    result.Add(new Medication()
+                    {
+                        MedicationId = reader.GetInt32(0),
+                        GenericName = reader.GetString(1),
+                        FactoryName = reader.GetString(2)
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Exception in MySqlExam", ex);
+            }
+            finally
+            {
+                MySQLUtil.CloseQuietly(reader, conn);
+            }
+            return result;
         }
 
         public List<Medication> GetAll()

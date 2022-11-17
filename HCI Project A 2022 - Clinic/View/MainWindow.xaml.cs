@@ -65,5 +65,15 @@ namespace HCI_Project_A_2022___Clinic.View
                 frameMain.Content = new EmployeesPage(employee);
             }
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is ExamsPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new ExamsPage(employee);
+            }
+        }
     }
 }

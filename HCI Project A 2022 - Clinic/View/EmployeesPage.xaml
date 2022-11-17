@@ -87,7 +87,8 @@
             Grid.Column="1" Grid.Row="1"
             Background="White"
             BorderThickness="1"
-            BorderBrush="#9ebdf0">
+            BorderBrush="#9ebdf0"
+            MouseDoubleClick="DataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.EmployeesPageLastNameDG}" Binding="{Binding LastName}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.EmployeesPageFirstNameDG}" Binding="{Binding FirstName}" />

@@ -12,10 +12,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `recept` r INNER JOIN `pregled` p
                             ON r.PREGLED_IdPregleda=p.IdPregleda WHERE true";
-        private static readonly string INSERT = @"INSERT INTO `recept`(SerijskiBrojRecepta, SifraUstanove,
-                            DatumPropisivanja, Pakovanje, DozaLijeka, NacinUpotrebe,
-                            LIJEK_IdLijeka, PREGLED_IdPregleda) 
-                            VALUES (@serijskiBroj, @sifra, @datum, @pakovanje, @doza, @nacin, @idLijeka, @idPregleda)";
+        private static readonly string INSERT = @"INSERT INTO `recept`(DatumPropisivanja, NacinUpotrebe,
+                            LIJEK_IdLijeka, PREGLED_IdPregleda) VALUES ( @datum, @nacin, @idLijeka, @idPregleda)";
         public int Add(Prescription item)
         {
             MySqlConnection conn = null;
@@ -25,11 +23,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 conn = MySQLUtil.GetConnection();
                 cmd = conn.CreateCommand();
                 cmd.CommandText = INSERT;
-                cmd.Parameters.AddWithValue("@serijskiBroj", item.SerialNumber);
                 cmd.Parameters.AddWithValue("@datum", item.Date);
-                cmd.Parameters.AddWithValue("@sifra", item.Institution);
-                cmd.Parameters.AddWithValue("@pakovanje", item.Package);
-                cmd.Parameters.AddWithValue("@doza", item.Dose);
                 cmd.Parameters.AddWithValue("@nacin", item.Instruction);
                 cmd.Parameters.AddWithValue("@idLijeka", item.Medication.MedicationId);
                 cmd.Parameters.AddWithValue("@idPregleda", item.Exam.ExamId);
@@ -57,10 +51,14 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             string selectQuery = SELECT_ALL;
             if (item.Date != null)
                 selectQuery += " AND r.DatumPropisivanja=@datum";
-            if (item.Exam.Patient != null)
-                selectQuery += " AND p.PACIJENT_OSOBA_IdOsobe=@idPacijenta";
-            if (item.Exam.Doctor != null)
-                selectQuery += " AND p.LJEKAR_ZAPOSLENI_OSOBA_IdOsobe=@idLjekara";
+            if (item.Exam != null)
+            {
+                selectQuery += " AND r.PREGLED_IdPregleda=@idPregleda";
+                if (item.Exam.Patient != null)
+                    selectQuery += " AND r.PACIJENT_OSOBA_IdOsobe=@idPacijenta";
+                if (item.Exam.Doctor != null)
+                    selectQuery += " AND r.LJEKAR_ZAPOSLENI_OSOBA_IdOsobe=@idLjekara";
+            }
             List<Prescription> result = new List<Prescription>();
             MySqlConnection conn = null;
             MySqlCommand cmd;
@@ -73,10 +71,14 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.CommandText = selectQuery;
                 if (item.Date != null)
                     cmd.Parameters.AddWithValue("@datum", item.Date);
-                if (item.Exam.Patient != null)
-                    cmd.Parameters.AddWithValue("@idPacijenta", item.Exam.Patient.PersonId);
-                if (item.Exam.Doctor != null)
-                    cmd.Parameters.AddWithValue("@idLjekara", item.Exam.Doctor.PersonId);
+                if (item.Exam != null)
+                {
+                    cmd.Parameters.AddWithValue("@idPregleda", item.Exam.ExamId);
+                    if (item.Exam.Patient != null)
+                        cmd.Parameters.AddWithValue("@idPacijenta", item.Exam.Patient.PersonId);
+                    if (item.Exam.Doctor != null)
+                        cmd.Parameters.AddWithValue("@idLjekara", item.Exam.Doctor.PersonId);
+                }
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                     result.Add(Create(reader));
@@ -124,22 +126,18 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             return new Prescription()
             {
                 PrescriptionId = reader.GetInt32(0),
-                SerialNumber = reader.GetString(1),
-                Institution = reader.GetString(2),
-                Date = reader.GetDateTime(3),
-                Package = reader.GetString(4),
-                Dose = reader.GetString(5),
-                Instruction = reader.GetString(6),
-                Medication = new Medication() { MedicationId = reader.GetInt32(7) },
+                Date = reader.GetDateTime(1),
+                Instruction = reader.GetString(2),
+                Medication = new MySQLMedicationDAO().Get(new Medication() { MedicationId = reader.GetInt32(3) })[0],
                 Exam = new Exam()
                 {
-                    ExamId = reader.GetInt32(9),
-                    DateTime = reader.GetDateTime(10),
-                    DiagnosisCode = reader.GetString(11),
-                    Report = reader.GetString(12),
-                    ExamType = new ExamType() { ExamTypeId = reader.GetInt32(13) },
-                    Patient = new Patient() { PersonId = reader.GetInt32(14) },
-                    Doctor = new Doctor() { PersonId = reader.GetInt32(15) }
+                    ExamId = reader.GetInt32(5),
+                    DateTime = reader.GetDateTime(6),
+                    DiagnosisCode = reader.GetString(7),
+                    Report = reader.GetString(8),
+                    ExamType = new ExamType() { ExamTypeId = reader.GetInt32(9) },
+                    Patient = new Patient() { PersonId = reader.GetInt32(10) },
+                    Doctor = new Doctor() { PersonId = reader.GetInt32(11) }
                 }
 
             };

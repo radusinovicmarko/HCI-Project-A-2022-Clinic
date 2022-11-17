@@ -12,7 +12,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Jmb { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; } = null;
         public string Email { get; set; }
         public string Address { get; set; }
         public City City { get; set; }

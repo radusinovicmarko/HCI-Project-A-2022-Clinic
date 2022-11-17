@@ -73,12 +73,18 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            
+            new RoleWindow().ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Search();
+        }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (employeesViewModel.SelectedItem != null)
+                new EmployeeWindow(employeesViewModel.SelectedItem).ShowDialog();
         }
     }
 }

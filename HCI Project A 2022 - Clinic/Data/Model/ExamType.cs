@@ -22,5 +22,10 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
         {
             return 710036551 + ExamTypeId.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return Code + " - " + Name;
+        }
     }
 }

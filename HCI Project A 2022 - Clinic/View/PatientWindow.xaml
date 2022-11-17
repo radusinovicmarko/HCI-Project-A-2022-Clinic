@@ -206,15 +206,19 @@
             </TabItem>
             <TabItem x:Name="tabExams" Header="{x:Static p:Resources.PatientWindowTab2}">
                 <Grid x:Name="gridExams" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <DataGrid Margin="0 5 0 0"
                         ItemsSource="{Binding Items}" 
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         SelectedItem="{Binding SelectedItem}"
-                        Grid.Column="1" Grid.Row="1"
                         Background="White"
                         BorderThickness="1"
-                        BorderBrush="#9ebdf0">
+                        BorderBrush="#9ebdf0"
+                        MouseDoubleClick="DataGrid_MouseDoubleClick_2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowExamTypeDG}" Binding="{Binding ExamType.Name}" />
                             <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowDateDG}" Binding="{Binding DateTime,StringFormat='{}{0:dd.MM.yyy. HH:mm}'}" />
@@ -230,6 +234,24 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button x:Name="btnAddNewExam" 
+                        Grid.Column="0" Grid.Row="1"
+                        materialDesign:ButtonAssist.CornerRadius="5" 
+                        Cursor="Hand"  
+                        Style="{StaticResource MaterialDesignPaperLightButton}"
+                        Width="300"
+                        MinHeight="40"
+                        HorizontalAlignment="Left"
+                        Click="BtnAddNewExam_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Margin="0 2 0 0"
+                                Kind="Plus"/>
+                            <TextBlock
+                                Margin="10 0 0 0"
+                                Text="{x:Static p:Resources.PatientWindowNewExamBtn}"/>
+                        </StackPanel>
+                    </Button>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabAppointments"  Header="{x:Static p:Resources.PatientWindowTab3}">

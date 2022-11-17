@@ -9,11 +9,7 @@ namespace HCI_Project_A_2022___Clinic.Data.Model
     internal class Prescription
     {
         public int PrescriptionId { get; set; }
-        public string SerialNumber { get; set; }
-        public string Institution { get; set; }
-        public DateTime Date { get; set; }
-        public string Package { get; set; }
-        public string Dose { get; set; }
+        public DateTime? Date { get; set; } = null;
         public string Instruction { get; set; }
         public Medication Medication { get; set; }
         public Exam Exam { get; set; }

@@ -187,6 +187,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Evidentirajte novi pregled.
+        /// </summary>
+        public static string AppointmentWindowNewExamBtn {
+            get {
+                return ResourceManager.GetString("AppointmentWindowNewExamBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Podaci o pacijentu.
         /// </summary>
         public static string AppointmentWindowPatientData {
@@ -373,6 +382,465 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string EmployeesPageUsernameDG {
             get {
                 return ResourceManager.GetString("EmployeesPageUsernameDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresa stanovanja.
+        /// </summary>
+        public static string EmployeeWindowAddressTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowAddressTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Osnovne informacije.
+        /// </summary>
+        public static string EmployeeWindowBasicInfo {
+            get {
+                return ResourceManager.GetString("EmployeeWindowBasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Otkažite.
+        /// </summary>
+        public static string EmployeeWindowCancelBtn {
+            get {
+                return ResourceManager.GetString("EmployeeWindowCancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mjesto rođenja.
+        /// </summary>
+        public static string EmployeeWindowCityTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowCityTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontakt informacije.
+        /// </summary>
+        public static string EmployeeWindowContactInfo {
+            get {
+                return ResourceManager.GetString("EmployeeWindowContactInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kredencijali.
+        /// </summary>
+        public static string EmployeeWindowCredentials {
+            get {
+                return ResourceManager.GetString("EmployeeWindowCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum rođenja.
+        /// </summary>
+        public static string EmployeeWindowDateDP {
+            get {
+                return ResourceManager.GetString("EmployeeWindowDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detaljne informacije.
+        /// </summary>
+        public static string EmployeeWindowDetailedInfo {
+            get {
+                return ResourceManager.GetString("EmployeeWindowDetailedInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string EmployeeWindowEmailTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowEmailTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trenutno zaposlen.
+        /// </summary>
+        public static string EmployeeWindowEmployedCb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowEmployedCb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string EmployeeWindowFirstNameTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowFirstNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum zaposlenja.
+        /// </summary>
+        public static string EmployeeWindowHireDateDP {
+            get {
+                return ResourceManager.GetString("EmployeeWindowHireDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string EmployeeWindowJmbTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string EmployeeWindowLastNameTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowLastNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lozinka.
+        /// </summary>
+        public static string EmployeeWindowPassword {
+            get {
+                return ResourceManager.GetString("EmployeeWindowPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stručna sprema.
+        /// </summary>
+        public static string EmployeeWindowQualificationTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowQualificationTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uloga.
+        /// </summary>
+        public static string EmployeeWindowRoleCB {
+            get {
+                return ResourceManager.GetString("EmployeeWindowRoleCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plata.
+        /// </summary>
+        public static string EmployeeWindowSalaryTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowSalaryTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte.
+        /// </summary>
+        public static string EmployeeWindowSaveBtn {
+            get {
+                return ResourceManager.GetString("EmployeeWindowSaveBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pregled zaposlenog.
+        /// </summary>
+        public static string EmployeeWindowTitle {
+            get {
+                return ResourceManager.GetString("EmployeeWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zvanje.
+        /// </summary>
+        public static string EmployeeWindowTitleTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowTitleTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime.
+        /// </summary>
+        public static string EmployeeWindowUsernameTb {
+            get {
+                return ResourceManager.GetString("EmployeeWindowUsernameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodajte novi pregled.
+        /// </summary>
+        public static string ExamsPageAddExamBtn {
+            get {
+                return ResourceManager.GetString("ExamsPageAddExamBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum pregleda.
+        /// </summary>
+        public static string ExamsPageDateDP {
+            get {
+                return ResourceManager.GetString("ExamsPageDateDP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum i vrijeme pregleda.
+        /// </summary>
+        public static string ExamsPageDateTimeDG {
+            get {
+                return ResourceManager.GetString("ExamsPageDateTimeDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra dijagnoze.
+        /// </summary>
+        public static string ExamsPageDiagnosisCodeDG {
+            get {
+                return ResourceManager.GetString("ExamsPageDiagnosisCodeDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string ExamsPageDoctorCB {
+            get {
+                return ResourceManager.GetString("ExamsPageDoctorCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string ExamsPageDoctorDG {
+            get {
+                return ResourceManager.GetString("ExamsPageDoctorDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrsta pregleda.
+        /// </summary>
+        public static string ExamsPageExamTypeDG {
+            get {
+                return ResourceManager.GetString("ExamsPageExamTypeDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretražite.
+        /// </summary>
+        public static string ExamsPageSearchBtn {
+            get {
+                return ResourceManager.GetString("ExamsPageSearchBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pretraga pregleda.
+        /// </summary>
+        public static string ExamsPageSearchLb {
+            get {
+                return ResourceManager.GetString("ExamsPageSearchLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Otkažite.
+        /// </summary>
+        public static string ExamWindowCancelBtn {
+            get {
+                return ResourceManager.GetString("ExamWindowCancelBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra dijagnoze.
+        /// </summary>
+        public static string ExamWindowDiagnosisCodeTb {
+            get {
+                return ResourceManager.GetString("ExamWindowDiagnosisCodeTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ljekar.
+        /// </summary>
+        public static string ExamWindowDoctorCB {
+            get {
+                return ResourceManager.GetString("ExamWindowDoctorCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o ljekaru.
+        /// </summary>
+        public static string ExamWindowDoctorData {
+            get {
+                return ResourceManager.GetString("ExamWindowDoctorData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o pregledu.
+        /// </summary>
+        public static string ExamWindowExamData {
+            get {
+                return ResourceManager.GetString("ExamWindowExamData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrsta pregleda.
+        /// </summary>
+        public static string ExamWindowExamTypeCB {
+            get {
+                return ResourceManager.GetString("ExamWindowExamTypeCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naziv ustanove.
+        /// </summary>
+        public static string ExamWindowInstituionNameTb {
+            get {
+                return ResourceManager.GetString("ExamWindowInstituionNameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra ustanove.
+        /// </summary>
+        public static string ExamWindowInstitutionCodeTb {
+            get {
+                return ResourceManager.GetString("ExamWindowInstitutionCodeTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Način upotrebe.
+        /// </summary>
+        public static string ExamWindowInstructionTb {
+            get {
+                return ResourceManager.GetString("ExamWindowInstructionTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JMB.
+        /// </summary>
+        public static string ExamWindowJmbTb {
+            get {
+                return ResourceManager.GetString("ExamWindowJmbTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lijek.
+        /// </summary>
+        public static string ExamWindowMedicationCB {
+            get {
+                return ResourceManager.GetString("ExamWindowMedicationCB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o pacijentu.
+        /// </summary>
+        public static string ExamWindowPatientData {
+            get {
+                return ResourceManager.GetString("ExamWindowPatientData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recept.
+        /// </summary>
+        public static string ExamWindowPrescriptionCb {
+            get {
+                return ResourceManager.GetString("ExamWindowPrescriptionCb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o receptu.
+        /// </summary>
+        public static string ExamWindowPrescriptionData {
+            get {
+                return ResourceManager.GetString("ExamWindowPrescriptionData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uputnica.
+        /// </summary>
+        public static string ExamWindowRefferalCb {
+            get {
+                return ResourceManager.GetString("ExamWindowRefferalCb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci o uputnici.
+        /// </summary>
+        public static string ExamWindowRefferalData {
+            get {
+                return ResourceManager.GetString("ExamWindowRefferalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrsta uputnice.
+        /// </summary>
+        public static string ExamWindowRefferalTypeTb {
+            get {
+                return ResourceManager.GetString("ExamWindowRefferalTypeTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nalaz i mišljenje.
+        /// </summary>
+        public static string ExamWindowReportTb {
+            get {
+                return ResourceManager.GetString("ExamWindowReportTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte.
+        /// </summary>
+        public static string ExamWindowSaveBtn {
+            get {
+                return ResourceManager.GetString("ExamWindowSaveBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pregled.
+        /// </summary>
+        public static string ExamWindowTitle {
+            get {
+                return ResourceManager.GetString("ExamWindowTitle", resourceCulture);
             }
         }
         
@@ -846,6 +1314,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodajte novi pregled.
+        /// </summary>
+        public static string PatientWindowNewExamBtn {
+            get {
+                return ResourceManager.GetString("PatientWindowNewExamBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodajte novo preboljenje.
         /// </summary>
         public static string PatientWindowNewRecoveryBtn {
@@ -1013,6 +1490,42 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string RecoveryWindowTitle {
             get {
                 return ResourceManager.GetString("RecoveryWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nastavite.
+        /// </summary>
+        public static string RoleWindowContinueBtn {
+            get {
+                return ResourceManager.GetString("RoleWindowContinueBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uloga.
+        /// </summary>
+        public static string RoleWindowRoleCb {
+            get {
+                return ResourceManager.GetString("RoleWindowRoleCb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Izbor uloge.
+        /// </summary>
+        public static string RoleWindowTitle {
+            get {
+                return ResourceManager.GetString("RoleWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Izaberite ulogu zaposlenog.
+        /// </summary>
+        public static string RoleWindowTitleLb {
+            get {
+                return ResourceManager.GetString("RoleWindowTitleLb", resourceCulture);
             }
         }
     }

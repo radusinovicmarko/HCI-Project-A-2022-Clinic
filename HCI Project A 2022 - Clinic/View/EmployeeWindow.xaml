@@ -4,9 +4,246 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_Project_A_2022___Clinic.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"
         mc:Ignorable="d"
-        Title="EmployeeWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="{x:Static p:Resources.EmployeeWindowTitle}" Height="500" Width="1000">
+    <Border Margin="30" BorderBrush="#9ebdf0" BorderThickness="1">
+        <Grid x:Name="gridPatientData">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="{x:Static p:Resources.EmployeeWindowBasicInfo}" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                x:Name="tbJmb"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                Text="{Binding Jmb}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowJmbTb}"/>
+            <TextBox 
+                x:Name="tbFirstName"
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                Text="{Binding FirstName}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowFirstNameTb}"/>
+            <TextBox 
+                x:Name="tbLastName"
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                Text="{Binding LastName}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowLastNameTb}"/>
+
+            <DatePicker
+                x:Name="dpDateOfBirth"
+                Width="200"
+                Height="40"
+                Grid.Row="4"
+                Padding="5 0 5 0"
+                Text="{Binding DateOfBirth}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowDateDP}"
+                Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+
+            <Button 
+                Grid.Column="2" Grid.Row="7"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                Width="200"
+                MinHeight="40"
+                HorizontalAlignment="Center"
+                Content="{x:Static p:Resources.EmployeeWindowSaveBtn}" Click="Button_Click"/>
+
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="{x:Static p:Resources.EmployeeWindowContactInfo}"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
+            <TextBox 
+                x:Name="tbEmail"
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Text="{Binding Email}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowEmailTb}"/>
+            <TextBox 
+                x:Name="tbAddress"
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Text="{Binding Address}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowAddressTb}"/>
+            <ComboBox
+                x:Name="cbCity"
+                Grid.Column="1"
+                Grid.Row="3"
+                Padding="5 10 5 0"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowCityTb}"
+                Width="200"
+                Height="40"/>
+            
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="{x:Static p:Resources.EmployeeWindowDetailedInfo}"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
+            <DatePicker
+                x:Name="dpHireDate"
+                Width="200"
+                Height="40"
+                Grid.Row="1"
+                Grid.Column="2"
+                Padding="5 0 5 0"
+                Text="{Binding HireDate}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowHireDateDP}"
+                Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+            <TextBox 
+                x:Name="tbQualification"
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="{Binding Qualification}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowQualificationTb}"/>
+            <TextBox 
+                x:Name="tbSalary"
+                Grid.Row="3"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="{Binding Salary}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:TextFieldAssist.SuffixText="KM"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowSalaryTb}"/>
+            <CheckBox
+                Content="{x:Static p:Resources.EmployeeWindowEmployedCb}"
+                Grid.Row="4"
+                Grid.Column="2"
+                Width="200" 
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsChecked="{Binding Employed}"
+                Style="{StaticResource MaterialDesignCheckBox}" />
+            <ComboBox
+                x:Name="cbRole"
+                Grid.Column="2"
+                Grid.Row="5"
+                Padding="5 10 5 0"
+                Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowRoleCB}"
+                Width="200"
+                Height="40"/>
+            <TextBox 
+                x:Name="tbTitle"
+                Grid.Row="6"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="{Binding Title}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowTitleTb}"/>
+
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="{x:Static p:Resources.EmployeeWindowCredentials}"
+                Grid.Column="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
+            <TextBox 
+                x:Name="tbUsername"
+                Grid.Row="1"
+                Grid.Column="3"
+                HorizontalAlignment="Center"
+                Text="{Binding Username}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowUsernameTb}"/>
+            <TextBox 
+                x:Name="tbPassword"
+                Grid.Row="2"
+                Grid.Column="3"
+                HorizontalAlignment="Center"
+                Text="{Binding Password}"
+                Padding="5 10 5 0" 
+                FontSize="14" 
+                Width="200" 
+                Height="40"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowPassword}"/>
+
+            <Button 
+                Grid.Column="3" Grid.Row="7"
+                materialDesign:ButtonAssist.CornerRadius="5" 
+                Cursor="Hand"  
+                Style="{StaticResource MaterialDesignPaperLightButton}"
+                Width="200"
+                MinHeight="40"
+                HorizontalAlignment="Center"
+                IsCancel="True"
+                Content="{x:Static p:Resources.EmployeeWindowCancelBtn}"/>
+        </Grid>
+    </Border>
 </Window>
