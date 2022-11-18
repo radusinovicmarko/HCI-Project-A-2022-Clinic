@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess;
 using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.Util;
+using HCI_Project_A_2022___Clinic.ViewModel;
 
 namespace HCI_Project_A_2022___Clinic.View
 {
@@ -22,27 +24,12 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private SettingsViewModel settings;
         public LoginWindow()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
+            settings = Utils.LoadSettings();
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(settings.Language);
             InitializeComponent();
-            Patient p = new Patient()
-            {
-                PhoneNumber = "x",
-                Jmb = "asfasf",
-                FirstName = "Jovana",
-                LastName = "Miljkovic",
-                DateOfBirth = new DateTime(1998, 12, 12),
-                Email = "x",
-                Address = "x",
-                City = new City()
-                {
-                    CityId = 1,
-                    CityName = "Banja Luka",
-                    PostCode = "78000"
-                }
-            };
-            //var list = new MySQLPatientDAO().Add(p);
         }
 
         private void Login()
@@ -60,8 +47,8 @@ namespace HCI_Project_A_2022___Clinic.View
                 Employee employee = new MySQLEmployeeDAO().Get(new Employee() { PersonId = loginInfo.Item2 })[0];
                 if (employee.Role == EmployeeRole.LJEKAR)
                     employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
-                new MainWindow(employee).Show();
-                this.Close();
+                new MainWindow(settings, employee).Show();
+                Close();
             }
             else
                 MessageBox.Show(Properties.Resources.LoginError);

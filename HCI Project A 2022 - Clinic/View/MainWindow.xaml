@@ -70,7 +70,7 @@
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40">
+                    MinHeight="40" Click="Button_Click_6">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"
@@ -102,7 +102,7 @@
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40">
+                    MinHeight="40" Click="Button_Click_5">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                         Margin="0 2 0 0"

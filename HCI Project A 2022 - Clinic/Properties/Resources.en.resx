@@ -181,6 +181,54 @@
   <data name="clinic_reception1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clinic-reception.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CodebooksPageCitiesTab" xml:space="preserve">
+    <value>Cities</value>
+  </data>
+  <data name="CodebooksPageCodeTab1" xml:space="preserve">
+    <value>Post Code</value>
+  </data>
+  <data name="CodebooksPageCodeTab2" xml:space="preserve">
+    <value>Exam Type Code</value>
+  </data>
+  <data name="CodebooksPageCodeTab3" xml:space="preserve">
+    <value>Illness Code</value>
+  </data>
+  <data name="CodebooksPageEditBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CodebooksPageEditLb" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CodebooksPageExamTypesTab" xml:space="preserve">
+    <value>Exam Types</value>
+  </data>
+  <data name="CodebooksPageFactoryNameTab4" xml:space="preserve">
+    <value>Factory Name</value>
+  </data>
+  <data name="CodebooksPageGenericNameTab4" xml:space="preserve">
+    <value>Generic Name</value>
+  </data>
+  <data name="CodebooksPageIllnessesTab" xml:space="preserve">
+    <value>Illnesses</value>
+  </data>
+  <data name="CodebooksPageMedicationsTab" xml:space="preserve">
+    <value>Medications</value>
+  </data>
+  <data name="CodebooksPageNameTab1" xml:space="preserve">
+    <value>City Name</value>
+  </data>
+  <data name="CodebooksPageNameTab2" xml:space="preserve">
+    <value>Exam Type Name</value>
+  </data>
+  <data name="CodebooksPageNameTab3" xml:space="preserve">
+    <value>Illness Name</value>
+  </data>
+  <data name="CodebooksPageNewBtn" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="CodebooksPageNewLb" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Username or password missing.</value>
   </data>
@@ -606,5 +654,26 @@
   </data>
   <data name="RoleWindowTitleLb" xml:space="preserve">
     <value>Select Role</value>
+  </data>
+  <data name="SettingsPageCredentials" xml:space="preserve">
+    <value>Credentials</value>
+  </data>
+  <data name="SettingsPageLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsPagePasswordPb" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SettingsPageSaveBtn" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SettingsPageTheme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsPageTitleLb" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsPageUsernameTb" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

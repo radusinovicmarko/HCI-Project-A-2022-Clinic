@@ -167,7 +167,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 LastName = reader.GetString(11),
                 DateOfBirth = reader.GetDateTime(12),
                 Email = !reader.IsDBNull(13) ? reader.GetString(13) : null,
-                Address = reader.IsDBNull(14) ? reader.GetString(14) : null,
+                Address = !reader.IsDBNull(14) ? reader.GetString(14) : null,
                 City = new City()
                 {
                     CityId = reader.GetInt32(16),
@@ -197,8 +197,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@plata"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@korisnickoIme", item.Username);
                 cmd.Parameters["@korisnickoIme"].Direction = ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@loznika", item.Password);
-                cmd.Parameters["@loznika"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@lozinka", item.Password);
+                cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
                 cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
                 cmd.ExecuteNonQuery();

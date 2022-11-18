@@ -177,6 +177,54 @@
   <data name="AppointmentWindowTitle" xml:space="preserve">
     <value>Naručenje</value>
   </data>
+  <data name="CodebooksPageCitiesTab" xml:space="preserve">
+    <value>Gradovi</value>
+  </data>
+  <data name="CodebooksPageCodeTab1" xml:space="preserve">
+    <value>Poštanski broj</value>
+  </data>
+  <data name="CodebooksPageCodeTab2" xml:space="preserve">
+    <value>Šifra vrste pregleda</value>
+  </data>
+  <data name="CodebooksPageCodeTab3" xml:space="preserve">
+    <value>Šifra bolesti</value>
+  </data>
+  <data name="CodebooksPageEditBtn" xml:space="preserve">
+    <value>Sačuvajte</value>
+  </data>
+  <data name="CodebooksPageEditLb" xml:space="preserve">
+    <value>Izmjena</value>
+  </data>
+  <data name="CodebooksPageExamTypesTab" xml:space="preserve">
+    <value>Vrste pregleda</value>
+  </data>
+  <data name="CodebooksPageFactoryNameTab4" xml:space="preserve">
+    <value>Fabrički naziv lijeka</value>
+  </data>
+  <data name="CodebooksPageGenericNameTab4" xml:space="preserve">
+    <value>Generički naziv lijeka</value>
+  </data>
+  <data name="CodebooksPageIllnessesTab" xml:space="preserve">
+    <value>Bolesti</value>
+  </data>
+  <data name="CodebooksPageMedicationsTab" xml:space="preserve">
+    <value>Lijekovi</value>
+  </data>
+  <data name="CodebooksPageNameTab1" xml:space="preserve">
+    <value>Naziv grada</value>
+  </data>
+  <data name="CodebooksPageNameTab2" xml:space="preserve">
+    <value>Naziv vrste pregleda</value>
+  </data>
+  <data name="CodebooksPageNameTab3" xml:space="preserve">
+    <value>Naziv bolesti</value>
+  </data>
+  <data name="CodebooksPageNewBtn" xml:space="preserve">
+    <value>Dodajte</value>
+  </data>
+  <data name="CodebooksPageNewLb" xml:space="preserve">
+    <value>Dodavanje</value>
+  </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Niste unijeli korisničko ime ili lozinku.</value>
   </data>
@@ -596,5 +644,26 @@
   </data>
   <data name="RoleWindowTitleLb" xml:space="preserve">
     <value>Izaberite ulogu zaposlenog</value>
+  </data>
+  <data name="SettingsPageCredentials" xml:space="preserve">
+    <value>Kredencijali</value>
+  </data>
+  <data name="SettingsPageLanguage" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="SettingsPagePasswordPb" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="SettingsPageSaveBtn" xml:space="preserve">
+    <value>Sačuvajte izmjene</value>
+  </data>
+  <data name="SettingsPageTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="SettingsPageTitleLb" xml:space="preserve">
+    <value>Podešavanja</value>
+  </data>
+  <data name="SettingsPageUsernameTb" xml:space="preserve">
+    <value>Korisničko ime</value>
   </data>
 </root>

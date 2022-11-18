@@ -1,4 +1,5 @@
 ﻿using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,10 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class MainWindow : Window
     {
         private Employee employee;
-        internal MainWindow(Employee employee)
+        private SettingsViewModel settings;
+        internal MainWindow(SettingsViewModel settings, Employee employee)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
+            this.settings = settings;
             InitializeComponent();
             this.employee = employee;
             frameMain.Content = new PatientsPage(employee);
@@ -73,6 +75,26 @@ namespace HCI_Project_A_2022___Clinic.View
                 frameMain.Content = null;
                 frameMain.NavigationService.RemoveBackEntry();
                 frameMain.Content = new ExamsPage(employee);
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is SettingsPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new SettingsPage(settings, employee);
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is CodebooksPage))
+            {
+                frameMain.Content = null;
+                frameMain.NavigationService.RemoveBackEntry();
+                frameMain.Content = new CodebooksPage(settings, employee);
             }
         }
     }

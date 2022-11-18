@@ -1,0 +1,141 @@
+﻿<Page x:Class="HCI_Project_A_2022___Clinic.View.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Project_A_2022___Clinic.View"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
+      d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="{x:Static p:Resources.SettingsPageTitleLb}" />
+        <Border 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Grid.RowSpan="3"
+            Margin="5"
+            BorderBrush="#9ebdf0" 
+            BorderThickness="1">
+            <StackPanel x:Name="spCredentials" Margin="10">
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"                    
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                    Text="{x:Static p:Resources.SettingsPageCredentials}" />
+                <TextBox 
+                    x:Name="tbUsername"
+                    Margin="0 20 0 0"
+                    Padding="5 10 5 0" 
+                    FontSize="14" 
+                    Width="200" 
+                    Height="40"
+                    Grid.Row="2"
+                    Text="{Binding Username}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    materialDesign:HintAssist.Hint="{x:Static p:Resources.SettingsPageUsernameTb}" />
+                <PasswordBox 
+                    x:Name="pbPassword"
+                    Margin="0 30 0 0"
+                    Grid.Row="3"
+                    Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" 
+                    materialDesign:HintAssist.Hint="{x:Static p:Resources.SettingsPagePasswordPb}" 
+                    Padding="5 10 5 0" 
+                    FontSize="14"
+                    Width="200" 
+                    Height="40"/>
+            </StackPanel>
+        </Border>
+        <Border 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Grid.RowSpan="2"
+            Margin="5"
+            BorderBrush="#9ebdf0" 
+            BorderThickness="1">
+            <StackPanel Margin="10">
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                    Text="{x:Static p:Resources.SettingsPageLanguage}" />
+                <RadioButton Margin="0 10 0 0"
+                    x:Name="rbSr"
+                    GroupName="language"
+                    Content="Srpski (latinica)"
+                    Style="{StaticResource MaterialDesignRadioButton}"/>
+                <RadioButton Margin="0 10 0 0"
+                    x:Name="rbEn"
+                    GroupName="language"
+                    Content="English"
+                    Style="{StaticResource MaterialDesignRadioButton}"/>
+            </StackPanel>
+        </Border>
+        <Border 
+            Grid.Row="1" 
+            Grid.Column="2" 
+            Grid.RowSpan="2"
+            Margin="5"
+            BorderBrush="#9ebdf0" 
+            BorderThickness="1">
+            <StackPanel Margin="10">
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                    Text="{x:Static p:Resources.SettingsPageTheme}" />
+                <RadioButton Margin="0 10 0 0"
+                    x:Name="rbLight"
+                    GroupName="theme"
+                    Content="Light"
+                    Style="{StaticResource MaterialDesignRadioButton}" />
+                <RadioButton Margin="0 10 0 0"
+                    x:Name="rbDark"
+                    GroupName="theme"
+                    Content="Dark"
+                    Style="{StaticResource MaterialDesignRadioButton}"/>
+                <RadioButton Margin="0 10 0 0"
+                    x:Name="rbMix"
+                    GroupName="theme"
+                    Content="Mix"
+                    Style="{StaticResource MaterialDesignRadioButton}"/>
+            </StackPanel>
+        </Border>
+        <Button
+            x:Name="btnSave"
+            Grid.Column="2" 
+            Grid.Row="5"
+            materialDesign:ButtonAssist.CornerRadius="5" 
+            Cursor="Hand"  
+            Style="{StaticResource MaterialDesignPaperLightButton}"
+            Width="200"
+            MinHeight="40"
+            HorizontalAlignment="Center"
+            Content="{x:Static p:Resources.SettingsPageSaveBtn}" Click="BtnSave_Click"/>
+    </Grid>
+</Page>

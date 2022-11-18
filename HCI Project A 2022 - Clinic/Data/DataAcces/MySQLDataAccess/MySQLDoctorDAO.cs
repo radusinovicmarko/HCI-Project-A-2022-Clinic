@@ -173,7 +173,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 LastName = reader.GetString(13),
                 DateOfBirth = reader.GetDateTime(14),
                 Email = !reader.IsDBNull(15) ? reader.GetString(15) : null,
-                Address = reader.IsDBNull(16) ? reader.GetString(16) : null,
+                Address = !reader.IsDBNull(16) ? reader.GetString(16) : null,
                 City = new City()
                 {
                     CityId = reader.GetInt32(18),

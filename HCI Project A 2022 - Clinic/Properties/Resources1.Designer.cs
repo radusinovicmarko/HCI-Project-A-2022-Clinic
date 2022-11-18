@@ -251,6 +251,150 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gradovi.
+        /// </summary>
+        public static string CodebooksPageCitiesTab {
+            get {
+                return ResourceManager.GetString("CodebooksPageCitiesTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Poštanski broj.
+        /// </summary>
+        public static string CodebooksPageCodeTab1 {
+            get {
+                return ResourceManager.GetString("CodebooksPageCodeTab1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra vrste pregleda.
+        /// </summary>
+        public static string CodebooksPageCodeTab2 {
+            get {
+                return ResourceManager.GetString("CodebooksPageCodeTab2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Šifra bolesti.
+        /// </summary>
+        public static string CodebooksPageCodeTab3 {
+            get {
+                return ResourceManager.GetString("CodebooksPageCodeTab3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte.
+        /// </summary>
+        public static string CodebooksPageEditBtn {
+            get {
+                return ResourceManager.GetString("CodebooksPageEditBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Izmjena.
+        /// </summary>
+        public static string CodebooksPageEditLb {
+            get {
+                return ResourceManager.GetString("CodebooksPageEditLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrste pregleda.
+        /// </summary>
+        public static string CodebooksPageExamTypesTab {
+            get {
+                return ResourceManager.GetString("CodebooksPageExamTypesTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fabrički naziv lijeka.
+        /// </summary>
+        public static string CodebooksPageFactoryNameTab4 {
+            get {
+                return ResourceManager.GetString("CodebooksPageFactoryNameTab4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generički naziv lijeka.
+        /// </summary>
+        public static string CodebooksPageGenericNameTab4 {
+            get {
+                return ResourceManager.GetString("CodebooksPageGenericNameTab4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bolesti.
+        /// </summary>
+        public static string CodebooksPageIllnessesTab {
+            get {
+                return ResourceManager.GetString("CodebooksPageIllnessesTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lijekovi.
+        /// </summary>
+        public static string CodebooksPageMedicationsTab {
+            get {
+                return ResourceManager.GetString("CodebooksPageMedicationsTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naziv grada.
+        /// </summary>
+        public static string CodebooksPageNameTab1 {
+            get {
+                return ResourceManager.GetString("CodebooksPageNameTab1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naziv vrste pregleda.
+        /// </summary>
+        public static string CodebooksPageNameTab2 {
+            get {
+                return ResourceManager.GetString("CodebooksPageNameTab2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naziv bolesti.
+        /// </summary>
+        public static string CodebooksPageNameTab3 {
+            get {
+                return ResourceManager.GetString("CodebooksPageNameTab3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodajte.
+        /// </summary>
+        public static string CodebooksPageNewBtn {
+            get {
+                return ResourceManager.GetString("CodebooksPageNewBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodavanje.
+        /// </summary>
+        public static string CodebooksPageNewLb {
+            get {
+                return ResourceManager.GetString("CodebooksPageNewLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Niste unijeli korisničko ime ili lozinku..
         /// </summary>
         public static string CredentialsMissing {
@@ -1526,6 +1670,69 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string RoleWindowTitleLb {
             get {
                 return ResourceManager.GetString("RoleWindowTitleLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kredencijali.
+        /// </summary>
+        public static string SettingsPageCredentials {
+            get {
+                return ResourceManager.GetString("SettingsPageCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jezik.
+        /// </summary>
+        public static string SettingsPageLanguage {
+            get {
+                return ResourceManager.GetString("SettingsPageLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lozinka.
+        /// </summary>
+        public static string SettingsPagePasswordPb {
+            get {
+                return ResourceManager.GetString("SettingsPagePasswordPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sačuvajte izmjene.
+        /// </summary>
+        public static string SettingsPageSaveBtn {
+            get {
+                return ResourceManager.GetString("SettingsPageSaveBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tema.
+        /// </summary>
+        public static string SettingsPageTheme {
+            get {
+                return ResourceManager.GetString("SettingsPageTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podešavanja.
+        /// </summary>
+        public static string SettingsPageTitleLb {
+            get {
+                return ResourceManager.GetString("SettingsPageTitleLb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime.
+        /// </summary>
+        public static string SettingsPageUsernameTb {
+            get {
+                return ResourceManager.GetString("SettingsPageUsernameTb", resourceCulture);
             }
         }
     }
