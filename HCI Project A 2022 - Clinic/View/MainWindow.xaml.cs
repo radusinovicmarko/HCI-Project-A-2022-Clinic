@@ -28,9 +28,10 @@ namespace HCI_Project_A_2022___Clinic.View
             this.settings = settings;
             this.employee = employee;
             InitializeComponent();
+            DataContext = settings.Theme;
             if (employee.Role != EmployeeRole.ADMIN)
                 btnAdministration.Visibility = Visibility.Collapsed;
-            frameMain.Content = new PatientsPage(employee);
+            frameMain.Content = new PatientsPage(settings, employee);
         }
         private void ClearFrame()
         {
@@ -43,7 +44,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (!(frameMain.Content is PatientsPage))
             {
                 ClearFrame();
-                frameMain.Content = new PatientsPage(employee);
+                frameMain.Content = new PatientsPage(settings, employee);
             }
         }
 
@@ -52,7 +53,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (!(frameMain.Content is AppointmentsPage))
             {
                 ClearFrame();
-                frameMain.Content = new AppointmentsPage(employee);
+                frameMain.Content = new AppointmentsPage(settings, employee);
             }
         }
 
@@ -61,7 +62,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (!(frameMain.Content is ExamsPage))
             {
                 ClearFrame();
-                frameMain.Content = new ExamsPage(employee);
+                frameMain.Content = new ExamsPage(settings, employee);
             }
         }
 
@@ -79,7 +80,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (!(frameMain.Content is EmployeesPage))
             {
                 ClearFrame();
-                frameMain.Content = new EmployeesPage(employee);
+                frameMain.Content = new EmployeesPage(settings, employee);
             }
         }
 

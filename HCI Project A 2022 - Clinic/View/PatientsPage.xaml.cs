@@ -27,10 +27,12 @@ namespace HCI_Project_A_2022___Clinic.View
     {
         private GenericDataGridViewModel<Patient> patientsViewModel;
         private readonly Employee employee;
-        internal PatientsPage(Employee employee)
+        private readonly SettingsViewModel settings;
+        internal PatientsPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            this.settings = settings;
             if (employee.Role != EmployeeRole.TEHNICAR)
                 btnAddNewPatient.Visibility = Visibility.Collapsed;
             UpdateDG();
@@ -42,7 +44,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 patientsViewModel = new GenericDataGridViewModel<Patient>()
                 {
-                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
+                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll()),
+                    Theme = settings.Theme
                 };
                 DataContext = patientsViewModel;
             }
@@ -71,7 +74,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 patientsViewModel = new GenericDataGridViewModel<Patient>()
                 {
-                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient))
+                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient)),
+                    Theme = settings.Theme
                 };
                 DataContext = patientsViewModel;
             }

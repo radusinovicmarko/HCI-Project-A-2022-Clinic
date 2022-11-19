@@ -8,7 +8,7 @@
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="{Binding Theme.Surface}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="10*" />
@@ -19,14 +19,19 @@
             <RowDefinition Height="6*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Background="White" Grid.Row="0" Grid.Column="1">
-            <TextBlock 
+        <StackPanel 
+            Orientation="Vertical"
+            Grid.Row="0"
+            Grid.Column="1">
+            <TextBlock
+                Foreground="{Binding Theme.OnSurface}"
                 HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="{x:Static p:Resources.PatientsPageSearchLb}" />
             <WrapPanel HorizontalAlignment="Center">
                 <TextBox 
-                    x:Name="tbLastName" 
+                    x:Name="tbLastName"
+                    Background="{Binding Theme.Primary}"
                     Padding="5 10 5 0" 
                     FontSize="14" 
                     Width="200"
@@ -38,7 +43,8 @@
                 <TextBox 
                     x:Name="tbFirstName" 
                     Padding="5 10 5 0" 
-                    FontSize="14" 
+                    FontSize="14"
+                    Background="{Binding Theme.Primary}"
                     Width="200" 
                     Height="40"
                     Margin="10 10 0 0"
@@ -49,12 +55,14 @@
                     x:Name="tbJmb" 
                     Padding="5 10 5 0" 
                     FontSize="14"
+                    Background="{Binding Theme.Primary}"
                     Width="200" 
                     Height="40"
                     Margin="10 10 0 0"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientsPageJmbTb}" KeyDown="Tb_KeyDown"/>
                 <Button x:Name="btnSearch"
+                    Background="{Binding Theme.Primary}"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}" 
@@ -76,7 +84,7 @@
             CanUserDeleteRows="False"
             SelectedItem="{Binding SelectedItem}"
             Grid.Column="1" Grid.Row="1"
-            Background="White"
+            Background="{Binding Theme.Primary}"
             BorderThickness="1"
             BorderBrush="#9ebdf0"
             MouseDoubleClick="DgPatients_MouseDoubleClick">
@@ -97,6 +105,7 @@
             Style="{StaticResource MaterialDesignPaperLightButton}"
             Width="300"
             MinHeight="40"
+            Background="{Binding Theme.Primary}"
             HorizontalAlignment="Left" 
             Click="BtnAddNewPatient_Click">
             <StackPanel Orientation="Horizontal">

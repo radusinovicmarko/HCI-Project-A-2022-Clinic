@@ -10,26 +10,27 @@
       d:DesignHeight="450" d:DesignWidth="800">
     <TabControl
         TabStripPlacement="Left"
-        Cursor="Hand"
         Style="{StaticResource MaterialDesignFilledTabControl}"
         materialDesign:ColorZoneAssist.Mode="Custom"
-        materialDesign:ColorZoneAssist.Foreground="#2E2E20"
-        materialDesign:ColorZoneAssist.Background="#9ebdf0">
-        <TabItem Header="{x:Static p:Resources.CodebooksPageCitiesTab}">
-            <Grid x:Name="gridCities" Margin="10">
+        materialDesign:ColorZoneAssist.Foreground="{Binding Theme.OnBackground}"
+        materialDesign:ColorZoneAssist.Background="{Binding Theme.Background}">
+        <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageCitiesTab}">
+            <Grid x:Name="gridCities" 
+                Margin="10"
+                Background="{Binding Theme.Surface}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <DataGrid x:Name="dgCities"
-                    Margin="0 5 0 0"
+                    Margin="20"
                     ItemsSource="{Binding Items}" 
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"
                     SelectedItem="{Binding SelectedItem}"
-                    Background="White"
+                    Background="{Binding Theme.Primary}"
                     BorderThickness="1"
                     BorderBrush="#9ebdf0"
                     Grid.RowSpan="2"
@@ -39,8 +40,9 @@
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.CodebooksPageCodeTab1}" Binding="{Binding PostCode}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel x:Name="spAddCity" Grid.Column="2">
+                <StackPanel x:Name="spAddCity" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -48,7 +50,8 @@
                     <TextBox 
                         x:Name="tbAddCityName"
                         HorizontalAlignment="Center"
-                        Text="{Binding CityName}"
+                        Text="{Binding SelectedItem.CityName}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -59,7 +62,8 @@
                     <TextBox 
                         x:Name="tbAddPostCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding PostCode}"
+                        Text="{Binding SelectedItem.PostCode}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -69,7 +73,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab1}"/>
                     <Button x:Name="btnAddCity"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -78,8 +83,9 @@
                         HorizontalAlignment="Center"
                         Click="BtnAddCity_Click"/>
                 </StackPanel>
-                <StackPanel x:Name="spEditCity" IsEnabled="False" Grid.Column="1">
+                <StackPanel x:Name="spEditCity" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -87,7 +93,8 @@
                     <TextBox 
                         x:Name="tbEditCityName"
                         HorizontalAlignment="Center"
-                        Text="{Binding CityName}"
+                        Text="{Binding SelectedItem.CityName}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -98,7 +105,8 @@
                     <TextBox 
                         x:Name="tbEditPostCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding PostCode}"
+                        Text="{Binding SelectedItem.PostCode}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -108,7 +116,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab1}"/>
                     <Button x:Name="btnEditCity"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -119,21 +128,23 @@
                 </StackPanel>
             </Grid>
         </TabItem>
-        <TabItem Header="{x:Static p:Resources.CodebooksPageExamTypesTab}">
-            <Grid x:Name="gridExamTypes" Margin="10">
+        <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageExamTypesTab}">
+            <Grid x:Name="gridExamTypes" 
+                Margin="10"
+                Background="{Binding Theme.Surface}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <DataGrid x:Name="dgExamTypes"
-                    Margin="0 5 0 0"
+                    Margin="20"
                     ItemsSource="{Binding Items}" 
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"
                     SelectedItem="{Binding SelectedItem}"
-                    Background="White"
+                    Background="{Binding Theme.Primary}"
                     BorderThickness="1"
                     BorderBrush="#9ebdf0"
                     Grid.RowSpan="2"
@@ -143,8 +154,9 @@
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.CodebooksPageCodeTab2}" Binding="{Binding Code}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel x:Name="spEditExamType" IsEnabled="False" Grid.Column="1">
+                <StackPanel x:Name="spEditExamType" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -152,7 +164,8 @@
                     <TextBox 
                         x:Name="tbEditExamTypeName"
                         HorizontalAlignment="Center"
-                        Text="{Binding Name}"
+                        Text="{Binding SelectedItem.Name}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -163,7 +176,8 @@
                     <TextBox 
                         x:Name="tbEditExamTypeCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding Code}"
+                        Text="{Binding SelectedItem.Code}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -173,7 +187,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab2}"/>
                     <Button x:Name="btnEditExamType"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -182,8 +197,9 @@
                         HorizontalAlignment="Center"
                         Click="BtnEditExamType_Click"/>
                 </StackPanel>
-                <StackPanel x:Name="spAddExamType" Grid.Column="2">
+                <StackPanel x:Name="spAddExamType" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -191,7 +207,8 @@
                     <TextBox 
                         x:Name="tbAddExamTypeName"
                         HorizontalAlignment="Center"
-                        Text="{Binding Name}"
+                        Text="{Binding SelectedItem.Name}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -202,7 +219,8 @@
                     <TextBox 
                         x:Name="tbAddExamTypeCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding Code}"
+                        Text="{Binding SelectedItem.Code}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -212,7 +230,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab2}"/>
                     <Button x:Name="btnAddExamType"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -223,21 +242,23 @@
                 </StackPanel>
             </Grid>
         </TabItem>
-        <TabItem Header="{x:Static p:Resources.CodebooksPageIllnessesTab}">
-            <Grid x:Name="gridIllnesses" Margin="10">
+        <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageIllnessesTab}">
+            <Grid x:Name="gridIllnesses" 
+                Margin="10"
+                Background="{Binding Theme.Surface}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <DataGrid x:Name="dgIllnesses"
-                    Margin="0 5 0 0"
+                    Margin="20"
                     ItemsSource="{Binding Items}" 
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"
                     SelectedItem="{Binding SelectedItem}"
-                    Background="White"
+                    Background="{Binding Theme.Primary}"
                     BorderThickness="1"
                     BorderBrush="#9ebdf0"
                     MouseDoubleClick="DgIllnesses_MouseDoubleClick">
@@ -246,8 +267,9 @@
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.CodebooksPageCodeTab3}" Binding="{Binding Code}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel x:Name="spAddIllness" Grid.Column="2">
+                <StackPanel x:Name="spAddIllness" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -255,7 +277,8 @@
                     <TextBox 
                         x:Name="tbAddIllnessName"
                         HorizontalAlignment="Center"
-                        Text="{Binding Name}"
+                        Text="{Binding SelectedItem.Name}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -266,7 +289,8 @@
                     <TextBox 
                         x:Name="tbAddIllnessCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding Code}"
+                        Text="{Binding SelectedItem.Code}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -276,7 +300,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab3}"/>
                     <Button x:Name="btnAddllness"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -285,8 +310,9 @@
                         HorizontalAlignment="Center"
                         Click="BtnAddllness_Click"/>
                 </StackPanel>
-                <StackPanel x:Name="spEditIllness" IsEnabled="False" Grid.Column="1">
+                <StackPanel x:Name="spEditIllness" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -294,7 +320,8 @@
                     <TextBox 
                         x:Name="tbEditIllnessName"
                         HorizontalAlignment="Center"
-                        Text="{Binding Name}"
+                        Text="{Binding SelectedItem.Name}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -305,7 +332,8 @@
                     <TextBox 
                         x:Name="tbEditIllnessCode"
                         HorizontalAlignment="Center"
-                        Text="{Binding Code}"
+                        Text="{Binding SelectedItem.Code}"
+                        Background="{Binding Theme.Primary}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -315,7 +343,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageCodeTab3}"/>
                     <Button x:Name="btnEditllness"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -326,21 +355,23 @@
                 </StackPanel>
             </Grid>
         </TabItem>
-        <TabItem Header="{x:Static p:Resources.CodebooksPageMedicationsTab}">
-            <Grid x:Name="gridMedications" Margin="10">
+        <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageMedicationsTab}">
+            <Grid x:Name="gridMedications" 
+                Margin="10"
+                Background="{Binding Theme.Surface}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <DataGrid x:Name="dgMedications"
-                    Margin="0 5 0 0"
+                    Margin="20"
                     ItemsSource="{Binding Items}" 
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"
                     SelectedItem="{Binding SelectedItem}"
-                    Background="White"
+                    Background="{Binding Theme.Primary}"
                     BorderThickness="1"
                     BorderBrush="#9ebdf0"
                     Grid.RowSpan="2"
@@ -350,8 +381,9 @@
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.CodebooksPageGenericNameTab4}" Binding="{Binding GenericName}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel x:Name="spAddMedication" Grid.Column="2">
+                <StackPanel x:Name="spAddMedication" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -359,7 +391,8 @@
                     <TextBox 
                         x:Name="tbAddFactoryName"
                         HorizontalAlignment="Center"
-                        Text="{Binding FactoryName}"
+                        Background="{Binding Theme.Primary}"
+                        Text="{Binding SelectedItem.FactoryName}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -370,7 +403,8 @@
                     <TextBox 
                         x:Name="tbAddGenericName"
                         HorizontalAlignment="Center"
-                        Text="{Binding GenericName}"
+                        Background="{Binding Theme.Primary}"
+                        Text="{Binding SelectedItem.GenericName}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -380,7 +414,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageGenericNameTab4}"/>
                     <Button x:Name="btnAddMedication"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"
@@ -389,8 +424,9 @@
                         HorizontalAlignment="Center"
                         Click="BtnAddMedication_Click"/>
                 </StackPanel>
-                <StackPanel x:Name="spEditMedication" IsEnabled="False" Grid.Column="1">
+                <StackPanel x:Name="spEditMedication" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
+                        Foreground="{Binding Theme.OnSurface}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -398,7 +434,8 @@
                     <TextBox 
                         x:Name="tbEditFactoryName"
                         HorizontalAlignment="Center"
-                        Text="{Binding FactoryName}"
+                        Background="{Binding Theme.Primary}"
+                        Text="{Binding SelectedItem.FactoryName}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -409,7 +446,8 @@
                     <TextBox 
                         x:Name="tbEditGenericName"
                         HorizontalAlignment="Center"
-                        Text="{Binding GenericName}"
+                        Background="{Binding Theme.Primary}"
+                        Text="{Binding SelectedItem.GenericName}"
                         Padding="5 10 5 0"
                         Margin="0 30 0 0"
                         FontSize="14" 
@@ -419,7 +457,8 @@
                         materialDesign:HintAssist.Hint="{x:Static p:Resources.CodebooksPageGenericNameTab4}"/>
                     <Button x:Name="btnEditMedication"
                         materialDesign:ButtonAssist.CornerRadius="5" 
-                        Cursor="Hand"  
+                        Cursor="Hand"
+                        Background="{Binding Theme.Primary}"
                         Style="{StaticResource MaterialDesignPaperLightButton}"
                         Width="200"
                         MinHeight="40"

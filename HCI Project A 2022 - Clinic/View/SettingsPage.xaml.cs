@@ -36,27 +36,47 @@ namespace HCI_Project_A_2022___Clinic.View
                 rbSr.IsChecked = true;
             else
                 rbEn.IsChecked = true;
-            spCredentials.DataContext = employee;
+            if (settings.Theme.Name == "Light")
+                rbLight.IsChecked = true;
+            else if (settings.Theme.Name == "Dark")
+                rbDark.IsChecked = true;
+            else
+                rbMix.IsChecked = true;
+            DataContext = new GenericDataGridViewModel<Employee>()
+            {
+                SelectedItem = employee,
+                Theme = settings.Theme
+            };
             pbPassword.Password = employee.Password;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            try
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                employee.Username = tbUsername.Text;
-                employee.Password = pbPassword.Password;
-                new MySQLEmployeeDAO().Update(employee.PersonId.Value, employee);
-                if (rbSr.IsChecked.Value)
-                    settings.Language = "sr";
-                else
-                    settings.Language = "en";
-                File.WriteAllText("settings.json", JsonConvert.SerializeObject(settings));
-                MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                try
+                {
+                    employee.Username = tbUsername.Text;
+                    employee.Password = pbPassword.Password;
+                    //new MySQLEmployeeDAO().Update(employee.PersonId.Value, employee);
+                    if (rbSr.IsChecked.Value)
+                        settings.Language = "sr";
+                    else
+                        settings.Language = "en";
+                    if (rbLight.IsChecked.Value)
+                        settings.Theme = Theme.LightTheme;
+                    else if (rbDark.IsChecked.Value)
+                        settings.Theme = Theme.DarkTheme;
+                    else
+                        settings.Theme = Theme.MixTheme;
+                    File.WriteAllText("settings.json", JsonConvert.SerializeObject(settings, Formatting.Indented));
+                    MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

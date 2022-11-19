@@ -28,6 +28,7 @@ namespace HCI_Project_A_2022___Clinic.View
         public LoginWindow()
         {
             settings = Utils.LoadSettings();
+            DataContext = settings.Theme;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(settings.Language);
             InitializeComponent();
         }

@@ -26,10 +26,12 @@ namespace HCI_Project_A_2022___Clinic.View
     {
         private GenericDataGridViewModel<Exam> examsViewModel;
         private readonly Employee employee;
-        internal ExamsPage(Employee employee)
+        private readonly SettingsViewModel settings;
+        internal ExamsPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            this.settings = settings;
             if (employee.Role != EmployeeRole.LJEKAR)
                 btnAddNewExam.Visibility = Visibility.Collapsed;
             try
@@ -48,7 +50,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 examsViewModel = new GenericDataGridViewModel<Exam>()
                 {
-                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().GetAll())
+                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().GetAll()),
+                    Theme = settings.Theme
                 };
                 DataContext = examsViewModel;
             }
@@ -73,7 +76,8 @@ namespace HCI_Project_A_2022___Clinic.View
                     searchExam.Doctor = cbDoctor.SelectedItem as Doctor;
                 examsViewModel = new GenericDataGridViewModel<Exam>()
                 {
-                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(searchExam))
+                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(searchExam)),
+                    Theme = settings.Theme
                 };
                 DataContext = examsViewModel;
             }

@@ -8,7 +8,7 @@
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="{Binding Theme.Surface}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="10*" />
@@ -20,17 +20,19 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <StackPanel 
-            Orientation="Vertical" 
-            Background="White" 
+            Orientation="Vertical"
             Grid.Row="0" 
             Grid.Column="1">
-            <TextBlock  HorizontalAlignment="Center"
+            <TextBlock  
+                Foreground="{Binding Theme.OnSurface}"
+                HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="{x:Static p:Resources.ExamsPageSearchLb}" />
             <WrapPanel HorizontalAlignment="Center">
                 <DatePicker
                     x:Name="dpDate"
-                    Margin="0 10 0 0" 
+                    Margin="0 10 0 0"
+                    Background="{Binding Theme.Primary}"
                     Width="200"
                     Height="40"
                     Padding="5 0 5 0"
@@ -38,7 +40,8 @@
                     Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
                 <ComboBox
                     x:Name="cbDoctor"
-                    Margin="10 10 0 0" 
+                    Margin="10 10 0 0"
+                    Background="{Binding Theme.Primary}"
                     Cursor="Hand"
                     Grid.ColumnSpan="2"
                     Grid.Row="6"
@@ -50,7 +53,8 @@
                     Height="40"/>
                 <Button x:Name="btnSearch"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Theme.Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}" 
                     Margin="10 10 0 0" 
                     FontSize="14"
@@ -70,7 +74,7 @@
             CanUserDeleteRows="False"
             SelectedItem="{Binding SelectedItem}"
             Grid.Column="1" Grid.Row="1"
-            Background="White"
+            Background="{Binding Theme.Primary}"
             BorderThickness="1"
             BorderBrush="#9ebdf0"
             MouseDoubleClick="DgExams_MouseDoubleClick">
@@ -92,7 +96,8 @@
         <Button x:Name="btnAddNewExam" 
             Grid.Column="1" Grid.Row="2"
             materialDesign:ButtonAssist.CornerRadius="5" 
-            Cursor="Hand"  
+            Cursor="Hand"
+            Background="{Binding Theme.Primary}"
             Style="{StaticResource MaterialDesignPaperLightButton}"
             Width="300"
             MinHeight="40"

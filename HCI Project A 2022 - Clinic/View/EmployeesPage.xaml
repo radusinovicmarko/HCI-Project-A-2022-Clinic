@@ -8,7 +8,18 @@
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Page.Resources>
+        <Style x:Key="focusVisualStyle">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="-2" StrokeThickness="1" Stroke="Red" StrokeDashArray="1 2" Fill="{Binding Theme.Primary}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{Binding Theme.Surface}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="10*" />
@@ -20,17 +31,19 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <StackPanel 
-            Orientation="Vertical" 
-            Background="White" 
+            Orientation="Vertical"
             Grid.Row="0" 
             Grid.Column="1">
-            <TextBlock  HorizontalAlignment="Center"
+            <TextBlock  
+                Foreground="{Binding Theme.OnSurface}"
+                HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="{x:Static p:Resources.EmployeesPageSearchLb}" />
             <WrapPanel HorizontalAlignment="Center">
                 <TextBox 
                     x:Name="tbLastName" 
-                    Padding="5 10 5 0" 
+                    Padding="5 10 5 0"
+                    Background="{Binding Theme.Primary}"
                     FontSize="14" 
                     Width="200"
                     Height="40"
@@ -39,7 +52,8 @@
                     materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeesPageLastNameTb}" KeyDown="Tb_KeyDown"/>
                 <TextBox 
                     x:Name="tbFirstName" 
-                    Padding="5 10 5 0" 
+                    Padding="5 10 5 0"
+                    Background="{Binding Theme.Primary}"
                     FontSize="14" 
                     Width="200" 
                     Height="40"
@@ -48,7 +62,8 @@
                     materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeesPageFirstNameTb}" KeyDown="Tb_KeyDown"/>
                 <TextBox 
                     x:Name="tbJmb" 
-                    Padding="5 10 5 0" 
+                    Padding="5 10 5 0"
+                    Background="{Binding Theme.Primary}"
                     FontSize="14"
                     Width="200" 
                     Height="40"
@@ -59,6 +74,7 @@
                     x:Name="cbRole"
                     Margin="10 10 0 0" 
                     Cursor="Hand"
+                    Background="{Binding Theme.Primary}"
                     Grid.ColumnSpan="2"
                     Grid.Row="6"
                     Padding="5 10 5 0"
@@ -69,7 +85,8 @@
                     Height="40"/>
                 <Button x:Name="btnSearch"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Theme.Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}" 
                     Margin="10 10 0 0" 
                     FontSize="14"
@@ -89,7 +106,8 @@
             CanUserDeleteRows="False"
             SelectedItem="{Binding SelectedItem}"
             Grid.Column="1" Grid.Row="1"
-            Background="White"
+            Background="{Binding Theme.Primary}"
+            FocusVisualStyle="{DynamicResource focusVisualStyle}"
             BorderThickness="1"
             BorderBrush="#9ebdf0"
             MouseDoubleClick="DgEmployees_MouseDoubleClick">
@@ -106,7 +124,8 @@
         <Button x:Name="btnAddNewEmployee" 
             Grid.Column="1" Grid.Row="2"
             materialDesign:ButtonAssist.CornerRadius="5" 
-            Cursor="Hand"  
+            Cursor="Hand"
+            Background="{Binding Theme.Primary}"
             Style="{StaticResource MaterialDesignPaperLightButton}"
             Width="300"
             MinHeight="40"

@@ -26,10 +26,12 @@ namespace HCI_Project_A_2022___Clinic.View
     {
         private GenericDataGridViewModel<Employee> employeesViewModel;
         private readonly Employee employee;
-        internal EmployeesPage(Employee employee)
+        private readonly SettingsViewModel settings;
+        internal EmployeesPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            this.settings = settings;
             try
             {
                 cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
@@ -46,7 +48,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 employeesViewModel = new GenericDataGridViewModel<Employee>()
                 {
-                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll())
+                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll()),
+                    Theme = settings.Theme
                 };
                 DataContext = employeesViewModel;
             }
@@ -77,7 +80,8 @@ namespace HCI_Project_A_2022___Clinic.View
                     searchEmployee.Role = (EmployeeRole?)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString());
                 employeesViewModel = new GenericDataGridViewModel<Employee>()
                 {
-                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().Get(searchEmployee))
+                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().Get(searchEmployee)),
+                    Theme = settings.Theme
                 };
                 DataContext = employeesViewModel;
             }

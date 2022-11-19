@@ -28,10 +28,12 @@ namespace HCI_Project_A_2022___Clinic.View
         private GenericDataGridViewModel<Illness> illnessesViewModel;
         private GenericDataGridViewModel<Medication> medicationsViewModel;
         private readonly Employee employee;
+        private readonly SettingsViewModel settings;
         internal CodebooksPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            this.settings = settings;
             if (employee.Role != EmployeeRole.ADMIN)
             {
                 spAddCity.IsEnabled = false;
@@ -43,14 +45,31 @@ namespace HCI_Project_A_2022___Clinic.View
                 spAddMedication.IsEnabled = false;
                 spEditMedication.IsEnabled = false;
             }
+            DataContext = settings;
             UpdateCitiesDG();
-            spAddCity.DataContext = new City();
+            spAddCity.DataContext = new GenericDataGridViewModel<City>
+            {
+                SelectedItem = new City(),
+                Theme = settings.Theme
+            };
             UpdateExamTypesDG();
-            spAddExamType.DataContext = new ExamType();
+            spAddExamType.DataContext = new GenericDataGridViewModel<ExamType>
+            {
+                SelectedItem = new ExamType(),
+                Theme = settings.Theme
+            };
             UpdateIllnessesDG();
-            spAddIllness.DataContext = new Illness();
+            spAddIllness.DataContext = new GenericDataGridViewModel<Illness>
+            {
+                SelectedItem = new Illness(),
+                Theme = settings.Theme
+            };
             UpdateMedicationsDG();
-            spAddMedication.DataContext = new Medication();
+            spAddMedication.DataContext = new GenericDataGridViewModel<Medication>
+            {
+                SelectedItem = new Medication(),
+                Theme = settings.Theme
+            };
         }
 
         private void UpdateCitiesDG()
@@ -59,7 +78,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 citiesViewModel = new GenericDataGridViewModel<City>()
                 {
-                    Items = new MySQLCityDAO().GetAll()
+                    Items = new MySQLCityDAO().GetAll(),
+                    Theme = settings.Theme
                 };
                 gridCities.DataContext = citiesViewModel;
             }
@@ -74,7 +94,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 examTypesViewModel = new GenericDataGridViewModel<ExamType>()
                 {
-                    Items = new MySQLExamTypeDAO().GetAll()
+                    Items = new MySQLExamTypeDAO().GetAll(),
+                    Theme = settings.Theme
                 };
                 gridExamTypes.DataContext = examTypesViewModel;
             }
@@ -89,7 +110,8 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 illnessesViewModel = new GenericDataGridViewModel<Illness>()
                 {
-                    Items = new MySQLIllnessDAO().GetAll()
+                    Items = new MySQLIllnessDAO().GetAll(),
+                    Theme = settings.Theme
                 };
                 gridIllnesses.DataContext = illnessesViewModel;
             }
@@ -98,14 +120,15 @@ namespace HCI_Project_A_2022___Clinic.View
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         private void UpdateMedicationsDG()
         {
             try
             {
                 medicationsViewModel = new GenericDataGridViewModel<Medication>()
                 {
-                    Items = new MySQLMedicationDAO().GetAll()
+                    Items = new MySQLMedicationDAO().GetAll(),
+                    Theme = settings.Theme
                 };
                 gridMedications.DataContext = medicationsViewModel;
             }
@@ -120,7 +143,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (examTypesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditExamType.IsEnabled = true;
-                spEditExamType.DataContext = examTypesViewModel.SelectedItem;
+                spEditExamType.DataContext = examTypesViewModel;
             }
         }
 
@@ -129,7 +152,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (citiesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditCity.IsEnabled = true;
-                spEditCity.DataContext = citiesViewModel.SelectedItem;
+                spEditCity.DataContext = citiesViewModel;
             }
         }
 
@@ -138,7 +161,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (illnessesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditIllness.IsEnabled = true;
-                spEditIllness.DataContext = illnessesViewModel.SelectedItem;
+                spEditIllness.DataContext = illnessesViewModel;
             }
         }
 
@@ -147,7 +170,7 @@ namespace HCI_Project_A_2022___Clinic.View
             if (medicationsViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditMedication.IsEnabled = true;
-                spEditMedication.DataContext = medicationsViewModel.SelectedItem;
+                spEditMedication.DataContext = medicationsViewModel;
             }
         }
 

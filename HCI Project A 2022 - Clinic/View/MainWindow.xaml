@@ -13,11 +13,16 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
     <DockPanel>
-        <StackPanel Margin="0 0 0 10" Background="#9ebdf0" Height="100" DockPanel.Dock="Top" VerticalAlignment="Top">
+        <StackPanel 
+            Background="{Binding Background}" 
+            Height="100" 
+            DockPanel.Dock="Top" 
+            VerticalAlignment="Top">
             <WrapPanel HorizontalAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Center"  Margin="0 27 0 0" Orientation="Horizontal">
                 <Button x:Name="btnPatients"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -34,7 +39,8 @@
                 <Button x:Name="btnAppointments"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -51,7 +57,8 @@
                 <Button x:Name="btnExams"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -68,7 +75,8 @@
                 <Button x:Name="btnCodebooks"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -85,7 +93,8 @@
                 <Button x:Name="btnAdministration"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -102,7 +111,8 @@
                 <Button x:Name="btnSettings"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
-                    Cursor="Hand"  
+                    Cursor="Hand"
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -120,6 +130,7 @@
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
+                    Background="{Binding Primary}"
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
@@ -135,6 +146,8 @@
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <Frame x:Name="frameMain" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="frameMain" 
+            NavigationUIVisibility="Hidden" 
+            Background="{Binding Background}" />
     </DockPanel>
 </Window>
