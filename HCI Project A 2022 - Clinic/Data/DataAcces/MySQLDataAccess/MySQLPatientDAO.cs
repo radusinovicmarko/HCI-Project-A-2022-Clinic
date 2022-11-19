@@ -15,10 +15,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
         private static readonly string SELECT_ALL = @"SELECT * FROM `pacijent` p inner join `osoba` o 
                                 on p.OSOBA_IdOsobe=o.IdOsobe inner join `mjesto` m on o.MJESTO_IdMjesta=m.IdMjesta
                                 where true";
-        // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdMjesta=@IdMjesta";
         private static readonly string INSERT = "dodaj_pacijenta";
         private static readonly string UPDATE = "izmijeni_pacijenta";
-        // private static readonly string DELETE = "DELETE FROM `mjesto` WHERE IdMjesta=@IdMjesta";
 
         public int Add(Patient item)
         {
@@ -59,7 +57,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlGroup", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -107,7 +105,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlPatient", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -158,7 +156,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlPatient", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -191,7 +189,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlGroup", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {

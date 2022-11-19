@@ -22,16 +22,13 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class ExamWindow : Window
     {
-        private Exam exam;
+        private readonly Exam exam;
         private Prescription prescription;
         private Referral referral;
         internal ExamWindow(Doctor doctor)
         {
             InitializeComponent();
-            exam = new Exam()
-            {
-                Doctor = doctor
-            };
+            exam = new Exam() { Doctor = doctor };
             Load();
             cbDoctor.SelectedItem = doctor;
         }
@@ -54,31 +51,47 @@ namespace HCI_Project_A_2022___Clinic.View
             Load();
             cbDoctor.SelectedItem = exam.Doctor;
             cbExamType.SelectedItem = exam.ExamType;
-            var prescriptions = new MySQLPrescriptionDAO().Get(new Prescription() { Exam = new Exam() { ExamId = exam.ExamId } });
-            if (prescriptions.Count > 0)
+            try
             {
-                gridPrescription.DataContext = prescriptions[0];
-                cbMedication.SelectedItem = prescriptions[0].Medication;
-                cbPrescription.IsChecked = true;
+                var prescriptions = new MySQLPrescriptionDAO().Get(new Prescription() { Exam = new Exam() { ExamId = exam.ExamId } });
+                if (prescriptions.Count > 0)
+                {
+                    gridPrescription.DataContext = prescriptions[0];
+                    cbMedication.SelectedItem = prescriptions[0].Medication;
+                    cbPrescription.IsChecked = true;
+                }
+                var referrals = new MySQLReferralDAO().Get(new Referral() { Exam = new Exam() { ExamId = exam.ExamId } });
+                if (referrals.Count > 0)
+                {
+                    gridReferral.DataContext = referrals[0];
+                    cbRefferal.IsChecked = true;
+                }
+                IsEnabled = false;
+                btnSave.Visibility = Visibility.Collapsed;
+                btnCancel.Visibility = Visibility.Collapsed;
             }
-            var referrals = new MySQLReferralDAO().Get(new Referral() { Exam = new Exam() { ExamId = exam.ExamId } });
-            if (referrals.Count > 0)
+            catch (Exception ex)
             {
-                gridReferral.DataContext = referrals[0];
-                cbRefferal.IsChecked = true;
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            IsEnabled = false;
         }
         private void Load()
         {
-            prescription = new Prescription();
-            referral = new Referral();
-            cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-            cbExamType.ItemsSource = new MySQLExamTypeDAO().GetAll();
-            cbMedication.ItemsSource = new MySQLMedicationDAO().GetAll();
-            gridExam.DataContext = exam;
-            gridPrescription.DataContext = prescription;
-            gridReferral.DataContext = referral;
+            try
+            {
+                prescription = new Prescription();
+                referral = new Referral();
+                cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
+                cbExamType.ItemsSource = new MySQLExamTypeDAO().GetAll();
+                cbMedication.ItemsSource = new MySQLMedicationDAO().GetAll();
+                gridExam.DataContext = exam;
+                gridPrescription.DataContext = prescription;
+                gridReferral.DataContext = referral;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void CbPrescription_Checked(object sender, RoutedEventArgs e)
@@ -107,18 +120,32 @@ namespace HCI_Project_A_2022___Clinic.View
                 exam.Doctor = cbDoctor.SelectedItem as Doctor;
             exam.ExamType = cbExamType.SelectedItem as ExamType;
             exam.DateTime = DateTime.Now;
-            new MySQLExamDAO().Add(exam);
-            if (cbPrescription.IsChecked.Value)
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                prescription.Exam = exam;
-                prescription.Medication = cbMedication.SelectedItem as Medication;
-                prescription.Date = DateTime.Now;
-                new MySQLPrescriptionDAO().Add(prescription);
-            }
-            if (cbRefferal.IsChecked.Value)
-            {
-                referral.Exam = exam;
-                new MySQLReferralDAO().Add(referral);
+                try
+                {
+                    new MySQLExamDAO().Add(exam);
+                    if (cbPrescription.IsChecked.Value)
+                    {
+                        prescription.Exam = exam;
+                        prescription.Medication = cbMedication.SelectedItem as Medication;
+                        prescription.Date = DateTime.Now;
+                        new MySQLPrescriptionDAO().Add(prescription);
+                    }
+                    if (cbRefferal.IsChecked.Value)
+                    {
+                        referral.Exam = exam;
+                        new MySQLReferralDAO().Add(referral);
+                    }
+                    MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
+                    DialogResult = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                Close();
             }
         }
     }

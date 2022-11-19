@@ -25,8 +25,8 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class SettingsPage : Page
     {
-        private Employee employee;
-        private SettingsViewModel settings;
+        private readonly Employee employee;
+        private readonly SettingsViewModel settings;
         internal SettingsPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
@@ -42,14 +42,22 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            employee.Username = tbUsername.Text;
-            employee.Password = pbPassword.Password;
-            new MySQLEmployeeDAO().Update(employee.PersonId.Value, employee);
-            if (rbSr.IsChecked.Value)
-                settings.Language = "sr";
-            else
-                settings.Language = "en";
-            File.WriteAllText("settings.json", JsonConvert.SerializeObject(settings));
+            try
+            {
+                employee.Username = tbUsername.Text;
+                employee.Password = pbPassword.Password;
+                new MySQLEmployeeDAO().Update(employee.PersonId.Value, employee);
+                if (rbSr.IsChecked.Value)
+                    settings.Language = "sr";
+                else
+                    settings.Language = "en";
+                File.WriteAllText("settings.json", JsonConvert.SerializeObject(settings));
+                MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

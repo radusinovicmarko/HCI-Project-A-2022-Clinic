@@ -18,10 +18,12 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="6*" />
             <RowDefinition Height="1*" />
-
         </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Vertical" Background="White" Grid.Row="0" Grid.Column="1">
+        <StackPanel 
+            Orientation="Vertical" 
+            Background="White" 
+            Grid.Row="0" 
+            Grid.Column="1">
             <TextBlock  HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="{x:Static p:Resources.EmployeesPageSearchLb}" />
@@ -65,30 +67,32 @@
                     HorizontalAlignment="Center"
                     Width="200"
                     Height="40"/>
-                <Button 
+                <Button x:Name="btnSearch"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}" 
                     Margin="10 10 0 0" 
                     FontSize="14"
                     Height="40"
-                    Click="Button_Click"
+                    Click="BtnSearch_Click"
                     ToolTip="{x:Static p:Resources.EmployeesPageSearchBtn}">
                     <materialDesign:PackIcon Kind="Magnify"/>
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <DataGrid Margin="0 5 0 0"
+        <DataGrid x:Name="dgEmployees"
+            Margin="0 5 0 0"
             Cursor="Hand"
             ItemsSource="{Binding Items}" 
             AutoGenerateColumns="False"
             CanUserAddRows="False"
+            CanUserDeleteRows="False"
             SelectedItem="{Binding SelectedItem}"
             Grid.Column="1" Grid.Row="1"
             Background="White"
             BorderThickness="1"
             BorderBrush="#9ebdf0"
-            MouseDoubleClick="DataGrid_MouseDoubleClick">
+            MouseDoubleClick="DgEmployees_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.EmployeesPageLastNameDG}" Binding="{Binding LastName}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.EmployeesPageFirstNameDG}" Binding="{Binding FirstName}" />

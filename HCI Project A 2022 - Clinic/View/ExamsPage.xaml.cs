@@ -25,56 +25,79 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class ExamsPage : Page
     {
         private GenericDataGridViewModel<Exam> examsViewModel;
-        private Employee employee;
+        private readonly Employee employee;
         internal ExamsPage(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
-            cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-            examsViewModel = new GenericDataGridViewModel<Exam>()
+            if (employee.Role != EmployeeRole.LJEKAR)
+                btnAddNewExam.Visibility = Visibility.Collapsed;
+            try
             {
-                Items = new ObservableCollection<Exam>(new MySQLExamDAO().GetAll())
-            };
-            DataContext = examsViewModel;
+                cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            UpdateDG();
         }
-
-        private void Search()
+        private void UpdateDG()
         {
-            if (string.IsNullOrEmpty(dpDate.Text) && cbDoctor.SelectedItem == null)
+            try
             {
                 examsViewModel = new GenericDataGridViewModel<Exam>()
                 {
                     Items = new ObservableCollection<Exam>(new MySQLExamDAO().GetAll())
                 };
                 DataContext = examsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(dpDate.Text) && cbDoctor.SelectedItem == null)
+            {
+                UpdateDG();
                 return;
             }
-            Exam searchExam = new Exam();
-            if (!string.IsNullOrEmpty(dpDate.Text))
-                searchExam.DateTime = DateTime.Parse(dpDate.Text);
-            if (cbDoctor.SelectedItem != null)
-                searchExam.Doctor = cbDoctor.SelectedItem as Doctor;
-            examsViewModel = new GenericDataGridViewModel<Exam>()
+            try
             {
-                Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(searchExam))
-            };
-            DataContext = examsViewModel;
-        }
-
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (examsViewModel.SelectedItem != null)
-                new ExamWindow(examsViewModel.SelectedItem).ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Search();
+                Exam searchExam = new Exam();
+                if (!string.IsNullOrEmpty(dpDate.Text))
+                    searchExam.DateTime = DateTime.Parse(dpDate.Text);
+                if (cbDoctor.SelectedItem != null)
+                    searchExam.Doctor = cbDoctor.SelectedItem as Doctor;
+                examsViewModel = new GenericDataGridViewModel<Exam>()
+                {
+                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(searchExam))
+                };
+                DataContext = examsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BtnAddNewExam_Click(object sender, RoutedEventArgs e)
         {
-            new ExamWindow((Doctor) employee).ShowDialog();
+            if (new ExamWindow((Doctor)employee).ShowDialog().Value)
+                UpdateDG();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
+        }
+
+        private void DgExams_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (examsViewModel.SelectedItem != null)
+                new ExamWindow(examsViewModel.SelectedItem).ShowDialog();
         }
     }
 }

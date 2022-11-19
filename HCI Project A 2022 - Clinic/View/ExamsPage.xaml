@@ -8,7 +8,6 @@
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"  
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -19,10 +18,12 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="6*" />
             <RowDefinition Height="1*" />
-
         </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Vertical" Background="White" Grid.Row="0" Grid.Column="1">
+        <StackPanel 
+            Orientation="Vertical" 
+            Background="White" 
+            Grid.Row="0" 
+            Grid.Column="1">
             <TextBlock  HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="{x:Static p:Resources.ExamsPageSearchLb}" />
@@ -47,31 +48,32 @@
                     HorizontalAlignment="Center"
                     Width="200"
                     Height="40"/>
-
-                <Button 
+                <Button x:Name="btnSearch"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}" 
                     Margin="10 10 0 0" 
                     FontSize="14"
                     Height="40"
-                    Click="Button_Click"
+                    Click="BtnSearch_Click"
                     ToolTip="{x:Static p:Resources.ExamsPageSearchBtn}">
                     <materialDesign:PackIcon Kind="Magnify"/>
                 </Button>
             </WrapPanel>
         </StackPanel>
-        <DataGrid Margin="0 5 0 0"
-                Cursor="Hand"
-                ItemsSource="{Binding Items}" 
-                AutoGenerateColumns="False"
-                CanUserAddRows="False"
-                SelectedItem="{Binding SelectedItem}"
-                Grid.Column="1" Grid.Row="1"
-                Background="White"
-                BorderThickness="1"
-                BorderBrush="#9ebdf0"
-                MouseDoubleClick="DataGrid_MouseDoubleClick">
+        <DataGrid x:Name="dgExams"
+            Margin="0 5 0 0"
+            Cursor="Hand"
+            ItemsSource="{Binding Items}" 
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            SelectedItem="{Binding SelectedItem}"
+            Grid.Column="1" Grid.Row="1"
+            Background="White"
+            BorderThickness="1"
+            BorderBrush="#9ebdf0"
+            MouseDoubleClick="DgExams_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.PatientWindowExamTypeDG}" Binding="{Binding DiagnosisCode}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="{x:Static p:Resources.ExamsPageDateTimeDG}" Binding="{Binding DateTime, StringFormat='{}{0:dd.MM.yyyy. HH:mm}'}" />

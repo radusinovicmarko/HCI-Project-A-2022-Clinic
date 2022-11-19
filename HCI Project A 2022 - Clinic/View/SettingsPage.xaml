@@ -136,6 +136,7 @@
             Width="200"
             MinHeight="40"
             HorizontalAlignment="Center"
-            Content="{x:Static p:Resources.SettingsPageSaveBtn}" Click="BtnSave_Click"/>
+            Content="{x:Static p:Resources.SettingsPageSaveBtn}" 
+            Click="BtnSave_Click"/>
     </Grid>
 </Page>

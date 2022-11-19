@@ -8,17 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="{x:Static p:Resources.LoginWindowTitle}" MinHeight="450" MinWidth="450" Height="450" Width="450">
-    <Window.Resources>
-        <ControlTemplate x:Key="roundedPasswordBox" TargetType="{x:Type PasswordBox}">
-            <Border x:Name="Bd" BorderBrush="#BBBCC1" BorderThickness="1" CornerRadius="10">
-                <ScrollViewer Name="PART_ContentHost" />
-                <Border.Background>
-                    <SolidColorBrush Color="White" />
-                </Border.Background>
-            </Border>
-        </ControlTemplate>
-    </Window.Resources>
+        Title="{x:Static p:Resources.LoginWindowTitle}" 
+        MinHeight="450" MinWidth="450" Height="450" Width="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -46,12 +37,7 @@
                 Text="{x:Static p:Resources.LoginWindowTitleLb}"
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
         </StackPanel>
-        <!--<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
-            <Image Source="../Resources/clinic-reception-transparent.png"  />
-            <Label Content="{x:Static p:Resources.LoginWindowTitleLb}"/>
-        </StackPanel>-->
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
-            <!--<Label FontSize="14" Width="200" Height="30" Content="{x:Static p:Resources.LoginWindowUsernameLb}" />-->
             <TextBox 
                 x:Name="tbUsername" 
                 Padding="5 10 5 0" 
@@ -62,7 +48,6 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 materialDesign:HintAssist.Hint="{x:Static p:Resources.LoginWindowUsernameLb}" 
                 KeyDown="TbUsername_KeyDown"/>
-            <!--<Label Margin="0 10 0 0" FontSize="14" Width="200" Height="30" Content="{x:Static p:Resources.LoginWindowPasswordLb}" />-->
             <PasswordBox 
                 x:Name="pbPassword" 
                 Margin="0 30 0 0" 
@@ -73,14 +58,15 @@
                 Width="200" 
                 Height="40" KeyDown="PbPassword_KeyDown" />
             <Button 
+                x:Name="btnUsername"
                 materialDesign:ButtonAssist.CornerRadius="5" 
                 Cursor="Hand"  
                 Style="{StaticResource MaterialDesignPaperLightButton}" 
                 Margin="0 30 0 0" 
                 FontSize="14" 
                 Width="100" 
-                Height="40" 
-                Click="Button_Click">
+                Height="40"
+                Click="BtnUsername_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock 
                         Text="{x:Static p:Resources.LoginWindowBtn}"/>

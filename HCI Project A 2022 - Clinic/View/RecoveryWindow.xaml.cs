@@ -22,39 +22,65 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class RecoveryWindow : Window
     {
-        private Recovery recovery;
+        private readonly Recovery recovery;
         internal RecoveryWindow(Patient patient, Doctor doctor)
         {
             InitializeComponent();
-            recovery = new Recovery()
+            try
             {
-                Patient = patient,
-                Doctor = doctor
-            };
-            cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-            cbDoctor.SelectedItem = doctor;
-            cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
-            gridRecovery.DataContext = recovery;
+                recovery = new Recovery()
+                {
+                    Patient = patient,
+                    Doctor = doctor
+                };
+                cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
+                cbDoctor.SelectedItem = doctor;
+                cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
+                gridRecovery.DataContext = recovery;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         internal RecoveryWindow(Recovery recovery)
         {
             InitializeComponent();
             this.recovery = recovery;
-            cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-            cbDoctor.SelectedItem = recovery.Doctor;
-            cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
-            cbIllness.SelectedItem = recovery.Illness;
-            gridRecovery.DataContext = recovery;
+            try
+            {
+                cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
+                cbDoctor.SelectedItem = recovery.Doctor;
+                cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
+                cbIllness.SelectedItem = recovery.Illness;
+                gridRecovery.DataContext = recovery;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            recovery.Date = DateTime.Parse(dpDate.Text);
-            recovery.Illness = cbIllness.SelectedItem as Illness;
-            new MySQLRecoveryDAO().Add(recovery);
-            DialogResult = true;
-            Close();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    recovery.Date = DateTime.Parse(dpDate.Text);
+                    recovery.Illness = cbIllness.SelectedItem as Illness;
+                    new MySQLRecoveryDAO().Add(recovery);
+                    MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
+                    DialogResult = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                Close();
+            }
         }
     }
 }

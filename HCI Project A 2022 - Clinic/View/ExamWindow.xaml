@@ -231,7 +231,7 @@
             HorizontalAlignment="Center"
             Click="BtnSave_Click"
             Content="{x:Static p:Resources.ExamWindowSaveBtn}"/>
-        <Button 
+        <Button x:Name="btnCancel"
             Grid.Column="3" 
             Grid.Row="4"
             materialDesign:ButtonAssist.CornerRadius="5" 

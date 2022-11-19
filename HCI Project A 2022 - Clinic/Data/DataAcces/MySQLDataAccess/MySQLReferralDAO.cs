@@ -33,7 +33,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -81,7 +81,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -108,7 +108,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {

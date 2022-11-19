@@ -25,17 +25,35 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class EmployeesPage : Page
     {
         private GenericDataGridViewModel<Employee> employeesViewModel;
-        private Employee employee;
+        private readonly Employee employee;
         internal EmployeesPage(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
-            cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
-            employeesViewModel = new GenericDataGridViewModel<Employee>()
+            try
             {
-                Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll())
-            };
-            DataContext = employeesViewModel;
+                cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
+                UpdateDG();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void UpdateDG()
+        {
+            try
+            {
+                employeesViewModel = new GenericDataGridViewModel<Employee>()
+                {
+                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll())
+                };
+                DataContext = employeesViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Search()
@@ -43,27 +61,30 @@ namespace HCI_Project_A_2022___Clinic.View
             if (string.IsNullOrEmpty(tbFirstName.Text) && string.IsNullOrEmpty(tbLastName.Text) 
                 && string.IsNullOrEmpty(tbJmb.Text) && cbRole.SelectedItem == null)
             {
-                employeesViewModel = new GenericDataGridViewModel<Employee>()
-                {
-                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll())
-                };
-                DataContext = employeesViewModel;
+                UpdateDG();
                 return;
             }
-            Employee searchEmployee = new Employee();
-            if (!string.IsNullOrEmpty(tbFirstName.Text))
-                searchEmployee.FirstName = tbFirstName.Text;
-            if (!string.IsNullOrEmpty(tbLastName.Text))
-                searchEmployee.LastName = tbLastName.Text;
-            if (!string.IsNullOrEmpty(tbJmb.Text))
-                searchEmployee.Jmb = tbJmb.Text;
-            if (cbRole.SelectedItem != null)
-                searchEmployee.Role = (EmployeeRole?) Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString());
-            employeesViewModel = new GenericDataGridViewModel<Employee>()
+            try
             {
-                Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().Get(searchEmployee))
-            };
-            DataContext = employeesViewModel;
+                Employee searchEmployee = new Employee();
+                if (!string.IsNullOrEmpty(tbFirstName.Text))
+                    searchEmployee.FirstName = tbFirstName.Text;
+                if (!string.IsNullOrEmpty(tbLastName.Text))
+                    searchEmployee.LastName = tbLastName.Text;
+                if (!string.IsNullOrEmpty(tbJmb.Text))
+                    searchEmployee.Jmb = tbJmb.Text;
+                if (cbRole.SelectedItem != null)
+                    searchEmployee.Role = (EmployeeRole?)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString());
+                employeesViewModel = new GenericDataGridViewModel<Employee>()
+                {
+                    Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().Get(searchEmployee))
+                };
+                DataContext = employeesViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Tb_KeyDown(object sender, KeyEventArgs e)
@@ -76,15 +97,15 @@ namespace HCI_Project_A_2022___Clinic.View
             new RoleWindow().ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Search();
-        }
-
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DgEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (employeesViewModel.SelectedItem != null)
                 new EmployeeWindow(employeesViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
         }
     }
 }

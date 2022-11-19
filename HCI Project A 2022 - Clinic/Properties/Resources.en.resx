@@ -229,8 +229,17 @@
   <data name="CodebooksPageNewLb" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="ConfirmationDialogContent" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="ConfirmationTitle" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Username or password missing.</value>
+  </data>
+  <data name="DBError" xml:space="preserve">
+    <value>Database Error.</value>
   </data>
   <data name="EmployeesPageAddEmployeeBtn" xml:space="preserve">
     <value>Add New Employee</value>
@@ -339,6 +348,9 @@
   </data>
   <data name="EmployeeWindowUsernameTb" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="ErrorMessageTitle" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="ExamsPageAddExamBtn" xml:space="preserve">
     <value>Add New Exam</value>
@@ -675,5 +687,11 @@
   </data>
   <data name="SettingsPageUsernameTb" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Action Successful.</value>
+  </data>
+  <data name="SuccessMessageTitle" xml:space="preserve">
+    <value>Success</value>
   </data>
 </root>

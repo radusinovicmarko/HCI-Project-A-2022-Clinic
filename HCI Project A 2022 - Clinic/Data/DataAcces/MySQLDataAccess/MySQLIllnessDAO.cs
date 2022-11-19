@@ -11,7 +11,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     internal class MySQLIllnessDAO : IGenericDAO<Illness>
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `bolest`";
-        // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdMjesta=@IdMjesta";
         private static readonly string INSERT = @"INSERT INTO `bolest`(NazivBolesti, SifraBolesti) VALUES (@Naziv, @Sifra)";
         private static readonly string UPDATE = @"UPDATE `bolest` SET Naziv=@Naziv, Sifra=@Sifra WHERE IdBolesti=@IdBolesti";
         private static readonly string DELETE = "DELETE FROM `bolest` WHERE IdBolesti=@IdBolesti";
@@ -32,7 +31,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlIllness", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -55,7 +54,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlIllness", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -88,7 +87,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlIllness", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -113,7 +112,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlIllness", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {

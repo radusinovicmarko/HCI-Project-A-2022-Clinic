@@ -8,7 +8,6 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:p="clr-namespace:HCI_Project_A_2022___Clinic.Properties"
       d:DesignHeight="450" d:DesignWidth="800">
-
     <TabControl
         TabStripPlacement="Left"
         Cursor="Hand"

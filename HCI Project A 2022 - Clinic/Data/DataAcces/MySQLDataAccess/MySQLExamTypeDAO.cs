@@ -11,7 +11,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     internal class MySQLExamTypeDAO : IGenericDAO<ExamType>
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `vrsta_pregleda`";
-        // private static readonly string SELECT = "SELECT * FROM `vrsta_pregleda` WHERE IdVrstePregleda=@IdVrstePregleda";
         private static readonly string INSERT = @"INSERT INTO `vrsta_pregleda`(SifraPregleda, NazivPregleda) VALUES (@Sifra, @Naziv)";
         private static readonly string UPDATE = @"UPDATE `vrsta_pregleda` SET SifraPregleda=@Sifra, NazivPregleda=@Naziv WHERE IdVrstePregleda=@IdVrstePregleda";
         private static readonly string DELETE = "DELETE FROM `vrsta_pregleda` WHERE IdVrstePregleda=@IdVrstePregleda";
@@ -32,7 +31,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExamType", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -55,7 +54,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExamType", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -88,7 +87,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExamType", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -113,7 +112,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExamType", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {

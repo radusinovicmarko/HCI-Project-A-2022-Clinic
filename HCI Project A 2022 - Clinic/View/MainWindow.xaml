@@ -15,117 +15,122 @@
     <DockPanel>
         <StackPanel Margin="0 0 0 10" Background="#9ebdf0" Height="100" DockPanel.Dock="Top" VerticalAlignment="Top">
             <WrapPanel HorizontalAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Center"  Margin="0 27 0 0" Orientation="Horizontal">
-                <Button
-                materialDesign:ButtonAssist.CornerRadius="5" 
-                Cursor="Hand"  
-                Style="{StaticResource MaterialDesignPaperLightButton}"
-                MinWidth="100"
-                MinHeight="40" Click="Button_Click_1">
+                <Button x:Name="btnPatients"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"  
+                    Style="{StaticResource MaterialDesignPaperLightButton}"
+                    MinWidth="100"
+                    MinHeight="40"
+                    Click="BtnPatients_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="AccountOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="AccountOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowPatientsBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowPatientsBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnAppointments"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
-                    Click="Button_Click_2">
+                    Click="BtnAppointments_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="CalendarClockOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="CalendarClockOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowAppointmentsBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowAppointmentsBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnExams"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
                     MinHeight="40"
-                    Click="Button_Click_4">
+                    Click="BtnExams_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="NotebookHeartOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="NotebookHeartOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowExamsBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowExamsBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnCodebooks"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40" Click="Button_Click_6">
+                    MinHeight="40"
+                    Click="BtnCodebooks_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="BookOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="BookOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowCodebooksBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowCodebooksBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnAdministration"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40" Click="Button_Click_3">
+                    MinHeight="40"
+                    Click="BtnAdministration_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="AccountWrenchOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="AccountWrenchOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowAdministrationBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowAdministrationBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnSettings"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40" Click="Button_Click_5">
+                    MinHeight="40"
+                    Click="BtnSettings_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="CogOutline"/>
+                            Margin="0 2 0 0"
+                            Kind="CogOutline"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowSettingsBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowSettingsBtn}"/>
                     </StackPanel>
                 </Button>
-                <Button
+                <Button x:Name="btnLogout"
                     Margin="10 0 0 0"
                     materialDesign:ButtonAssist.CornerRadius="5" 
                     Cursor="Hand"  
                     Style="{StaticResource MaterialDesignPaperLightButton}"
                     MinWidth="100"
-                    MinHeight="40" Click="Button_Click">
+                    MinHeight="40"
+                    Click="BtnLogout_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
-                        Margin="0 2 0 0"
-                        Kind="Logout"/>
+                            Margin="0 2 0 0"
+                            Kind="Logout"/>
                         <TextBlock
-                        Margin="10 0 0 0"
-                        Text="{x:Static p:Resources.MainWindowLogoutBtn}"/>
+                            Margin="10 0 0 0"
+                            Text="{x:Static p:Resources.MainWindowLogoutBtn}"/>
                     </StackPanel>
                 </Button>
             </WrapPanel>

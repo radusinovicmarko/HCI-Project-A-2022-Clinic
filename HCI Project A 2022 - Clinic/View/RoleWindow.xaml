@@ -34,7 +34,7 @@
             materialDesign:HintAssist.Hint="{x:Static p:Resources.RoleWindowRoleCb}"
             Width="200"
             Height="40"/>
-        <Button 
+        <Button x:Name="btnContinue"
             Grid.Row="2"
             materialDesign:ButtonAssist.CornerRadius="5" 
             Cursor="Hand"  
@@ -42,7 +42,7 @@
             Width="100"
             Height="40"
             HorizontalAlignment="Center"
-            Content="{x:Static p:Resources.RoleWindowContinueBtn}" Click="Button_Click"/>
-
+            Content="{x:Static p:Resources.RoleWindowContinueBtn}" 
+            Click="BtnContinue_Click"/>
     </Grid>
 </Window>

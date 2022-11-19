@@ -395,11 +395,38 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Da li ste sigurni?.
+        /// </summary>
+        public static string ConfirmationDialogContent {
+            get {
+                return ResourceManager.GetString("ConfirmationDialogContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potvrda.
+        /// </summary>
+        public static string ConfirmationTitle {
+            get {
+                return ResourceManager.GetString("ConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Niste unijeli korisničko ime ili lozinku..
         /// </summary>
         public static string CredentialsMissing {
             get {
                 return ResourceManager.GetString("CredentialsMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Greška u radu sa bazom podataka..
+        /// </summary>
+        public static string DBError {
+            get {
+                return ResourceManager.GetString("DBError", resourceCulture);
             }
         }
         
@@ -724,6 +751,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string EmployeeWindowUsernameTb {
             get {
                 return ResourceManager.GetString("EmployeeWindowUsernameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Greška.
+        /// </summary>
+        public static string ErrorMessageTitle {
+            get {
+                return ResourceManager.GetString("ErrorMessageTitle", resourceCulture);
             }
         }
         
@@ -1733,6 +1769,24 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string SettingsPageUsernameTb {
             get {
                 return ResourceManager.GetString("SettingsPageUsernameTb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Akcija uspješna..
+        /// </summary>
+        public static string SuccessMessage {
+            get {
+                return ResourceManager.GetString("SuccessMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspjeh.
+        /// </summary>
+        public static string SuccessMessageTitle {
+            get {
+                return ResourceManager.GetString("SuccessMessageTitle", resourceCulture);
             }
         }
     }

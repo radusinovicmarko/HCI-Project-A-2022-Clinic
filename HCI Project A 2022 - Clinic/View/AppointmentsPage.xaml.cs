@@ -26,56 +26,79 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class AppointmentsPage : Page
     {
         private GenericDataGridViewModel<Appointment> appointmentsViewModel;
-        private Employee employee;
+        private readonly Employee employee;
         internal AppointmentsPage(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
-            cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-            appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
+            if (employee.Role != EmployeeRole.TEHNICAR)
+                btnAddNewAppointment.Visibility = Visibility.Collapsed;
+            try
             {
-                Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().GetAll())
-            };
-            DataContext = appointmentsViewModel;
+                cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
+                UpdateDG();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-        private void Search()
+        private void UpdateDG()
         {
-            if (string.IsNullOrEmpty(dpDate.Text) && cbDoctor.SelectedItem == null)
+            try
             {
                 appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
                 {
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().GetAll())
                 };
                 DataContext = appointmentsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(dpDate.Text) && cbDoctor.SelectedItem == null)
+            {
+                UpdateDG();
                 return;
             }
-            Appointment searchAppointment = new Appointment();
-            if (!string.IsNullOrEmpty(dpDate.Text))
-                searchAppointment.DateTime = DateTime.Parse(dpDate.Text);
-            if (cbDoctor.SelectedItem != null)
-                searchAppointment.Doctor = cbDoctor.SelectedItem as Doctor;
-            appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
+            try
             {
-                Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(searchAppointment))
-            };
-            DataContext = appointmentsViewModel;
+                Appointment searchAppointment = new Appointment();
+                if (!string.IsNullOrEmpty(dpDate.Text))
+                    searchAppointment.DateTime = DateTime.Parse(dpDate.Text);
+                if (cbDoctor.SelectedItem != null)
+                    searchAppointment.Doctor = cbDoctor.SelectedItem as Doctor;
+                appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
+                {
+                    Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(searchAppointment))
+                };
+                DataContext = appointmentsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (appointmentsViewModel.SelectedItem != null)
-                new AppointmentWindow(appointmentsViewModel.SelectedItem).ShowDialog();
+                new AppointmentWindow(employee, appointmentsViewModel.SelectedItem).ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            if (new AppointmentWindow().ShowDialog().Value)
+                UpdateDG();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             Search();
-        }
-
-        private void btnAddNewAppointment_Click(object sender, RoutedEventArgs e)
-        {
-            new AppointmentWindow().ShowDialog();
         }
     }
 }

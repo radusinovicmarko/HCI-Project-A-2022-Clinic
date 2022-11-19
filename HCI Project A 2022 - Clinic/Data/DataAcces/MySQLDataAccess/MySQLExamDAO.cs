@@ -37,7 +37,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -84,7 +84,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -111,7 +111,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -135,7 +135,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                     Name = reader.GetString(9),
                 },
                 Patient = new MySQLPatientDAO().Get(new Patient() { PersonId = reader.GetInt32(5) })[0],
-                //Doctor = new Doctor() { PersonId = reader.GetInt32(6) }
                 Doctor = new MySQLDoctorDAO().Get(new Doctor() { PersonId = reader.GetInt32(6) })[0]
             };
         }

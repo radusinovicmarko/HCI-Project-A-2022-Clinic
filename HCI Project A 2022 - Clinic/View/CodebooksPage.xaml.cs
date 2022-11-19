@@ -23,18 +23,26 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class CodebooksPage : Page
     {
-        private SettingsViewModel settings;
-        private Employee employee;
         private GenericDataGridViewModel<City> citiesViewModel;
         private GenericDataGridViewModel<ExamType> examTypesViewModel;
         private GenericDataGridViewModel<Illness> illnessesViewModel;
         private GenericDataGridViewModel<Medication> medicationsViewModel;
-
+        private readonly Employee employee;
         internal CodebooksPage(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
-            this.settings = settings;
             this.employee = employee;
+            if (employee.Role != EmployeeRole.ADMIN)
+            {
+                spAddCity.IsEnabled = false;
+                spEditCity.IsEnabled = false;
+                spAddExamType.IsEnabled = false;
+                spEditExamType.IsEnabled = false;
+                spAddIllness.IsEnabled = false;
+                spEditIllness.IsEnabled = false;
+                spAddMedication.IsEnabled = false;
+                spEditMedication.IsEnabled = false;
+            }
             UpdateCitiesDG();
             spAddCity.DataContext = new City();
             UpdateExamTypesDG();
@@ -47,41 +55,69 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void UpdateCitiesDG()
         {
-            citiesViewModel = new GenericDataGridViewModel<City>()
+            try
             {
-                Items = new MySQLCityDAO().GetAll()
-            };
-            gridCities.DataContext = citiesViewModel;
+                citiesViewModel = new GenericDataGridViewModel<City>()
+                {
+                    Items = new MySQLCityDAO().GetAll()
+                };
+                gridCities.DataContext = citiesViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void UpdateExamTypesDG()
         {
-            examTypesViewModel = new GenericDataGridViewModel<ExamType>()
+            try
             {
-                Items = new MySQLExamTypeDAO().GetAll()
-            };
-            gridExamTypes.DataContext = examTypesViewModel;
+                examTypesViewModel = new GenericDataGridViewModel<ExamType>()
+                {
+                    Items = new MySQLExamTypeDAO().GetAll()
+                };
+                gridExamTypes.DataContext = examTypesViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void UpdateIllnessesDG()
         {
-            illnessesViewModel = new GenericDataGridViewModel<Illness>()
+            try
             {
-                Items = new MySQLIllnessDAO().GetAll()
-            };
-            gridIllnesses.DataContext = illnessesViewModel;
+                illnessesViewModel = new GenericDataGridViewModel<Illness>()
+                {
+                    Items = new MySQLIllnessDAO().GetAll()
+                };
+                gridIllnesses.DataContext = illnessesViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         
         private void UpdateMedicationsDG()
         {
-            medicationsViewModel = new GenericDataGridViewModel<Medication>()
+            try
             {
-                Items = new MySQLMedicationDAO().GetAll()
-            };
-            gridMedications.DataContext = medicationsViewModel;
+                medicationsViewModel = new GenericDataGridViewModel<Medication>()
+                {
+                    Items = new MySQLMedicationDAO().GetAll()
+                };
+                gridMedications.DataContext = medicationsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DgExamTypes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (examTypesViewModel.SelectedItem != null)
+            if (examTypesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditExamType.IsEnabled = true;
                 spEditExamType.DataContext = examTypesViewModel.SelectedItem;
@@ -90,7 +126,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void DgCities_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (citiesViewModel.SelectedItem != null)
+            if (citiesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditCity.IsEnabled = true;
                 spEditCity.DataContext = citiesViewModel.SelectedItem;
@@ -99,7 +135,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void DgIllnesses_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (illnessesViewModel.SelectedItem != null)
+            if (illnessesViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditIllness.IsEnabled = true;
                 spEditIllness.DataContext = illnessesViewModel.SelectedItem;
@@ -108,7 +144,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void DgMedications_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (medicationsViewModel.SelectedItem != null)
+            if (medicationsViewModel.SelectedItem != null && employee.Role == EmployeeRole.ADMIN)
             {
                 spEditMedication.IsEnabled = true;
                 spEditMedication.DataContext = medicationsViewModel.SelectedItem;
@@ -117,58 +153,146 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddCity_Click(object sender, RoutedEventArgs e)
         {
-            City city = spAddCity.DataContext as City;
-            new MySQLCityDAO().Add(city);
-            UpdateCitiesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    City city = spAddCity.DataContext as City;
+                    new MySQLCityDAO().Add(city);
+                    UpdateCitiesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnEditCity_Click(object sender, RoutedEventArgs e)
         {
-            City city = spEditCity.DataContext as City;
-            new MySQLCityDAO().Update(city.CityId, city);
-            UpdateCitiesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    City city = spEditCity.DataContext as City;
+                    new MySQLCityDAO().Update(city.CityId, city);
+                    UpdateCitiesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnEditExamType_Click(object sender, RoutedEventArgs e)
         {
-            ExamType examType = spEditExamType.DataContext as ExamType;
-            new MySQLExamTypeDAO().Update(examType.ExamTypeId, examType);
-            UpdateExamTypesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    ExamType examType = spEditExamType.DataContext as ExamType;
+                    new MySQLExamTypeDAO().Update(examType.ExamTypeId, examType);
+                    UpdateExamTypesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnAddExamType_Click(object sender, RoutedEventArgs e)
         {
-            ExamType examType = spEditExamType.DataContext as ExamType;
-            new MySQLExamTypeDAO().Add(examType);
-            UpdateExamTypesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    ExamType examType = spEditExamType.DataContext as ExamType;
+                    new MySQLExamTypeDAO().Add(examType);
+                    UpdateExamTypesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnAddllness_Click(object sender, RoutedEventArgs e)
         {
-            Illness illness = spAddIllness.DataContext as Illness;
-            new MySQLIllnessDAO().Add(illness);
-            UpdateIllnessesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Illness illness = spAddIllness.DataContext as Illness;
+                    new MySQLIllnessDAO().Add(illness);
+                    UpdateIllnessesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnEditllness_Click(object sender, RoutedEventArgs e)
         {
-            Illness illness = spEditCity.DataContext as Illness;
-            new MySQLIllnessDAO().Update(illness.IllnessId, illness);
-            UpdateIllnessesDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Illness illness = spEditCity.DataContext as Illness;
+                    new MySQLIllnessDAO().Update(illness.IllnessId, illness);
+                    UpdateIllnessesDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnAddMedication_Click(object sender, RoutedEventArgs e)
         {
-            Medication medication = spAddMedication.DataContext as Medication;
-            new MySQLMedicationDAO().Add(medication);
-            UpdateMedicationsDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Medication medication = spAddMedication.DataContext as Medication;
+                    new MySQLMedicationDAO().Add(medication);
+                    UpdateMedicationsDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnEditMedication_Click(object sender, RoutedEventArgs e)
         {
-            Medication medication = spEditMedication.DataContext as Medication;
-            new MySQLMedicationDAO().Update(medication.MedicationId, medication);
-            UpdateMedicationsDG();
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Medication medication = spEditMedication.DataContext as Medication;
+                    new MySQLMedicationDAO().Update(medication.MedicationId, medication);
+                    UpdateMedicationsDG();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

@@ -21,80 +21,84 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Employee employee;
-        private SettingsViewModel settings;
+        private readonly Employee employee;
+        private readonly SettingsViewModel settings;
         internal MainWindow(SettingsViewModel settings, Employee employee)
         {
             this.settings = settings;
-            InitializeComponent();
             this.employee = employee;
+            InitializeComponent();
+            if (employee.Role != EmployeeRole.ADMIN)
+                btnAdministration.Visibility = Visibility.Collapsed;
             frameMain.Content = new PatientsPage(employee);
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClearFrame()
         {
-            // TODO: Are you sure?
-            new LoginWindow().Show();
-            this.Close();
+            frameMain.Content = null;
+            frameMain.NavigationService.RemoveBackEntry();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnPatients_Click(object sender, RoutedEventArgs e)
         {
             if (!(frameMain.Content is PatientsPage))
             {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
+                ClearFrame();
                 frameMain.Content = new PatientsPage(employee);
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void BtnAppointments_Click(object sender, RoutedEventArgs e)
         {
             if (!(frameMain.Content is AppointmentsPage))
             {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
+                ClearFrame();
                 frameMain.Content = new AppointmentsPage(employee);
             }
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            if (!(frameMain.Content is EmployeesPage))
-            {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
-                frameMain.Content = new EmployeesPage(employee);
-            }
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void BtnExams_Click(object sender, RoutedEventArgs e)
         {
             if (!(frameMain.Content is ExamsPage))
             {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
+                ClearFrame();
                 frameMain.Content = new ExamsPage(employee);
             }
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void BtnCodebooks_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is CodebooksPage))
+            {
+                ClearFrame();
+                frameMain.Content = new CodebooksPage(settings, employee);
+            }
+        }
+
+        private void BtnAdministration_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(frameMain.Content is EmployeesPage))
+            {
+                ClearFrame();
+                frameMain.Content = new EmployeesPage(employee);
+            }
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
             if (!(frameMain.Content is SettingsPage))
             {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
+                ClearFrame();
                 frameMain.Content = new SettingsPage(settings, employee);
             }
         }
 
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            if (!(frameMain.Content is CodebooksPage))
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                frameMain.Content = null;
-                frameMain.NavigationService.RemoveBackEntry();
-                frameMain.Content = new CodebooksPage(settings, employee);
+                new LoginWindow().Show();
+                Close();
             }
         }
     }

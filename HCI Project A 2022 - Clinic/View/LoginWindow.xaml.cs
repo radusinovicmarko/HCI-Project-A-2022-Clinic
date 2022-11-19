@@ -24,7 +24,7 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private SettingsViewModel settings;
+        private readonly SettingsViewModel settings;
         public LoginWindow()
         {
             settings = Utils.LoadSettings();
@@ -38,25 +38,27 @@ namespace HCI_Project_A_2022___Clinic.View
             string password = pbPassword.Password;
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show(Properties.Resources.CredentialsMissing);
+                MessageBox.Show(Properties.Resources.CredentialsMissing, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            var loginInfo = MySQLUtil.Login(username, password);
-            if (loginInfo.Item1)
+            try
             {
-                Employee employee = new MySQLEmployeeDAO().Get(new Employee() { PersonId = loginInfo.Item2 })[0];
-                if (employee.Role == EmployeeRole.LJEKAR)
-                    employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
-                new MainWindow(settings, employee).Show();
-                Close();
+                var loginInfo = MySQLUtil.Login(username, password);
+                if (loginInfo.Item1)
+                {
+                    Employee employee = new MySQLEmployeeDAO().Get(new Employee() { PersonId = loginInfo.Item2 })[0];
+                    if (employee.Role == EmployeeRole.LJEKAR)
+                        employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
+                    new MainWindow(settings, employee).Show();
+                    Close();
+                }
+                else
+                    MessageBox.Show(Properties.Resources.LoginError, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else
-                MessageBox.Show(Properties.Resources.LoginError);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Login();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void TbUsername_KeyDown(object sender, KeyEventArgs e)
@@ -69,6 +71,11 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             if (e.Key == Key.Enter)
                 Login();
+        }
+
+        private void BtnUsername_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
         }
     }
 }

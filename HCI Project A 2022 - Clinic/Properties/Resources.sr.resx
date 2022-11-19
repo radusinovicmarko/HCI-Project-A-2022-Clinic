@@ -225,8 +225,17 @@
   <data name="CodebooksPageNewLb" xml:space="preserve">
     <value>Dodavanje</value>
   </data>
+  <data name="ConfirmationDialogContent" xml:space="preserve">
+    <value>Da li ste sigurni?</value>
+  </data>
+  <data name="ConfirmationTitle" xml:space="preserve">
+    <value>Potvrda</value>
+  </data>
   <data name="CredentialsMissing" xml:space="preserve">
     <value>Niste unijeli korisničko ime ili lozinku.</value>
+  </data>
+  <data name="DBError" xml:space="preserve">
+    <value>Greška u radu sa bazom podataka.</value>
   </data>
   <data name="EmployeesPageEmailDG" xml:space="preserve">
     <value>E-Mail adresa</value>
@@ -332,6 +341,9 @@
   </data>
   <data name="EmployeeWindowUsernameTb" xml:space="preserve">
     <value>Korisničko ime</value>
+  </data>
+  <data name="ErrorMessageTitle" xml:space="preserve">
+    <value>Greška</value>
   </data>
   <data name="ExamsPageAddExamBtn" xml:space="preserve">
     <value>Dodajte novi pregled</value>
@@ -665,5 +677,11 @@
   </data>
   <data name="SettingsPageUsernameTb" xml:space="preserve">
     <value>Korisničko ime</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Akcija uspješna.</value>
+  </data>
+  <data name="SuccessMessageTitle" xml:space="preserve">
+    <value>Uspjeh</value>
   </data>
 </root>

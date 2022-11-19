@@ -26,27 +26,38 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class PatientsPage : Page
     {
         private GenericDataGridViewModel<Patient> patientsViewModel;
-        private Employee employee;
+        private readonly Employee employee;
         internal PatientsPage(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
-            patientsViewModel = new GenericDataGridViewModel<Patient>()
-            {
-                Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
-            };
-            DataContext = patientsViewModel;
+            if (employee.Role != EmployeeRole.TEHNICAR)
+                btnAddNewPatient.Visibility = Visibility.Collapsed;
+            UpdateDG();
         }
 
-        private void Search()
+        private void UpdateDG()
         {
-            if (string.IsNullOrEmpty(tbFirstName.Text) && string.IsNullOrEmpty(tbLastName.Text) && string.IsNullOrEmpty(tbJmb.Text))
+            try
             {
                 patientsViewModel = new GenericDataGridViewModel<Patient>()
                 {
                     Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll())
                 };
                 DataContext = patientsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
+
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(tbFirstName.Text) && string.IsNullOrEmpty(tbLastName.Text) && string.IsNullOrEmpty(tbJmb.Text))
+            {
+                UpdateDG();
                 return;
             }
             Patient searchPatient = new Patient();
@@ -56,16 +67,19 @@ namespace HCI_Project_A_2022___Clinic.View
                 searchPatient.LastName = tbLastName.Text;
             if (!string.IsNullOrEmpty(tbJmb.Text))
                 searchPatient.Jmb = tbJmb.Text;
-            patientsViewModel = new GenericDataGridViewModel<Patient>()
+            try
             {
-                Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient))
-            };
-            DataContext = patientsViewModel;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Search();
+                patientsViewModel = new GenericDataGridViewModel<Patient>()
+                {
+                    Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient))
+                };
+                DataContext = patientsViewModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void Tb_KeyDown(object sender, KeyEventArgs e)
@@ -77,12 +91,18 @@ namespace HCI_Project_A_2022___Clinic.View
         private void BtnAddNewPatient_Click(object sender, RoutedEventArgs e)
         {
             new PatientWindow(employee).ShowDialog();
+            UpdateDG();
         }
 
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DgPatients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (patientsViewModel.SelectedItem != null)
                 new PatientWindow(patientsViewModel.SelectedItem, employee).ShowDialog();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
         }
     }
 }

@@ -23,10 +23,10 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class PatientWindow : Window
     {
-        private Patient patient;
-        private Employee employee;
-        private bool editMode = false;
-        private GenericDataGridViewModel<Exam> examViewModel;
+        private readonly Patient patient;
+        private readonly Employee employee;
+        private readonly bool editMode = false;
+        private readonly GenericDataGridViewModel<Exam> examViewModel;
         private GenericDataGridViewModel<Appointment> appointmentViewModel;
         private GenericDataGridViewModel<Recovery> recoveriesViewModel;
         internal PatientWindow(Employee employee)
@@ -38,7 +38,14 @@ namespace HCI_Project_A_2022___Clinic.View
             tabAppointments.Visibility = Visibility.Collapsed;
             tabRecoveries.Visibility = Visibility.Collapsed;
             gridPatientData.DataContext = patient;
-            cbCity.ItemsSource = new MySQLCityDAO().GetAll();
+            try
+            {
+                cbCity.ItemsSource = new MySQLCityDAO().GetAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         internal PatientWindow(Patient patient, Employee employee)
         {
@@ -46,64 +53,30 @@ namespace HCI_Project_A_2022___Clinic.View
             this.patient = patient;
             this.employee = employee;
             editMode = true;
-            cbCity.ItemsSource = new MySQLCityDAO().GetAll();
-            cbCity.SelectedItem = patient.City;
-            examViewModel = new GenericDataGridViewModel<Exam>()
+            if (employee.Role != EmployeeRole.TEHNICAR)
             {
-                Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(new Exam()
-                {
-                    Patient = patient
-                }))
-            };
-            gridExams.DataContext = examViewModel;
-            appointmentViewModel = new GenericDataGridViewModel<Appointment>()
-            {
-                Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
-                {
-                    Patient = patient
-                }))
-            };
-            gridAppointments.DataContext = appointmentViewModel;
-            recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
-            {
-                Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
-                {
-                    Patient = patient
-                }))
-            };
-            gridRecoveries.DataContext = recoveriesViewModel;
-            gridPatientData.DataContext = patient;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //TODO: Are you sure?
-            var dao = new MySQLPatientDAO();
-            if (editMode)
-                dao.Update((int)patient.PersonId, patient);
-            else
-            {
-                patient.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
-                patient.City = cbCity.SelectedItem as City;
-                dao.Add(patient);
+                gridPatientData.IsEnabled = false;
+                btnSave.Visibility = Visibility.Collapsed;
+                btnCancel.Visibility = Visibility.Collapsed;
+                btnAddNewAppointment.Visibility = Visibility.Collapsed;
             }
-        }
-
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (appointmentViewModel.SelectedItem != null)
-                    new AppointmentWindow(appointmentViewModel.SelectedItem).ShowDialog();
-        }
-
-        private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
-        {
-            if (new AppointmentWindow(patient).ShowDialog().Value)
+            if (employee.Role != EmployeeRole.LJEKAR)
             {
+                btnAddNewExam.Visibility = Visibility.Collapsed;
+                btnAddNewRecovery.Visibility = Visibility.Collapsed;
+            }
+            try
+            {
+                cbCity.ItemsSource = new MySQLCityDAO().GetAll();
+                cbCity.SelectedItem = patient.City;
+                examViewModel = new GenericDataGridViewModel<Exam>()
+                {
+                    Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(new Exam()
+                    {
+                        Patient = patient
+                    }))
+                };
+                gridExams.DataContext = examViewModel;
                 appointmentViewModel = new GenericDataGridViewModel<Appointment>()
                 {
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
@@ -112,19 +85,6 @@ namespace HCI_Project_A_2022___Clinic.View
                     }))
                 };
                 gridAppointments.DataContext = appointmentViewModel;
-            }
-        }
-
-        private void DataGrid_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
-        {
-            if (recoveriesViewModel.SelectedItem != null)
-                new RecoveryWindow(recoveriesViewModel.SelectedItem).ShowDialog();
-        }
-
-        private void btnAddNewRecovery_Click(object sender, RoutedEventArgs e)
-        {
-            if (new RecoveryWindow(patient, employee as Doctor).ShowDialog().Value)
-            {
                 recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
                 {
                     Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
@@ -133,18 +93,104 @@ namespace HCI_Project_A_2022___Clinic.View
                     }))
                 };
                 gridRecoveries.DataContext = recoveriesViewModel;
+                gridPatientData.DataContext = patient;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void DataGrid_MouseDoubleClick_2(object sender, MouseButtonEventArgs e)
+        private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
         {
-            if (examViewModel.SelectedItem != null)
-                new ExamWindow(examViewModel.SelectedItem).ShowDialog();
+            if (new AppointmentWindow(patient).ShowDialog().Value)
+            {
+                try
+                {
+                    appointmentViewModel = new GenericDataGridViewModel<Appointment>()
+                    {
+                        Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
+                        {
+                            Patient = patient
+                        }))
+                    };
+                    gridAppointments.DataContext = appointmentViewModel;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void BtnAddNewRecovery_Click(object sender, RoutedEventArgs e)
+        {
+            if (new RecoveryWindow(patient, employee as Doctor).ShowDialog().Value)
+            {
+                try
+                {
+                    recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
+                    {
+                        Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
+                        {
+                            Patient = patient
+                        }))
+                    };
+                    gridRecoveries.DataContext = recoveriesViewModel;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnAddNewExam_Click(object sender, RoutedEventArgs e)
         {
             new ExamWindow(patient, (Doctor)employee).ShowDialog();
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(Properties.Resources.ConfirmationDialogContent, Properties.Resources.ConfirmationTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var dao = new MySQLPatientDAO();
+                    if (editMode)
+                        dao.Update((int)patient.PersonId, patient);
+                    else
+                    {
+                        patient.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
+                        patient.City = cbCity.SelectedItem as City;
+                        dao.Add(patient);
+                    }
+                    MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void DgExams_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (examViewModel.SelectedItem != null)
+                new ExamWindow(examViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void DgAppointments_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (appointmentViewModel.SelectedItem != null)
+                new AppointmentWindow(employee, appointmentViewModel.SelectedItem).ShowDialog();
+        }
+
+        private void DgRecoveries_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (recoveriesViewModel.SelectedItem != null)
+                new RecoveryWindow(recoveriesViewModel.SelectedItem).ShowDialog();
         }
     }
 }

@@ -91,7 +91,7 @@
             HorizontalAlignment="Center"
             Width="200"
             Height="40"/>
-        <Button 
+        <Button x:Name="btnSave"
             Grid.Column="0" 
             Grid.Row="7"
             materialDesign:ButtonAssist.CornerRadius="5" 
@@ -100,8 +100,9 @@
             Width="200"
             MinHeight="40"
             HorizontalAlignment="Center"
-            Content="{x:Static p:Resources.RecoveryWindowSaveBtn}" Click="Button_Click"/>
-        <Button 
+            Content="{x:Static p:Resources.RecoveryWindowSaveBtn}" 
+            Click="BtnSave_Click"/>
+        <Button x:Name="btnCancel"
             Grid.Column="1" 
             Grid.Row="7"
             materialDesign:ButtonAssist.CornerRadius="5" 

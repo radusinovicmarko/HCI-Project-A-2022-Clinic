@@ -26,7 +26,7 @@ namespace HCI_Project_A_2022___Clinic.View
             cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
             if (cbRole.SelectedItem != null)
             {

@@ -12,7 +12,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     internal class MySQLCityDAO : IGenericDAO<City>
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `mjesto`";
-        // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdMjesta=@IdMjesta";
         private static readonly string INSERT = @"INSERT INTO `mjesto`(Naziv, BrojPoste) VALUES (@Naziv, @BrojPoste)";
         private static readonly string UPDATE = @"UPDATE `mjesto` SET Naziv=@Naziv, BrojPoste=@BrojPoste WHERE IdMjesta=@IdMjesta";
         private static readonly string DELETE = "DELETE FROM `mjesto` WHERE IdMjesta=@IdMjesta";
@@ -33,7 +32,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlCity", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -56,7 +55,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlCity", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -89,7 +88,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlCity", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -114,7 +113,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlCity", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {

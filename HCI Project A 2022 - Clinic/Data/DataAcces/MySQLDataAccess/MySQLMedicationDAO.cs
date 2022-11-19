@@ -11,7 +11,6 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     internal class MySQLMedicationDAO : IGenericSearchDAO<Medication>
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `lijek` WHERE true";
-        // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdLijeka=@IdLijeka";
         private static readonly string INSERT = @"INSERT INTO `lijek`(GenerickiNazivLijeka, TvornickiNazivLijeka) 
                             VALUES (@GenerickiNaziv, @TvornickiNaziv)";
         private static readonly string UPDATE = @"UPDATE `lijek` SET GenerickiNazivLijeka=@GenerickiNaziv, 
@@ -34,7 +33,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlMedication", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -57,7 +56,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlMedication", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -91,7 +90,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlExam", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -125,7 +124,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlMedication", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
@@ -150,7 +149,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception in MySqlMedication", ex);
+                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
             }
             finally
             {
