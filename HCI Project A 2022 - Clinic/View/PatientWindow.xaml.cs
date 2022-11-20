@@ -29,15 +29,22 @@ namespace HCI_Project_A_2022___Clinic.View
         private readonly GenericDataGridViewModel<Exam> examViewModel;
         private GenericDataGridViewModel<Appointment> appointmentViewModel;
         private GenericDataGridViewModel<Recovery> recoveriesViewModel;
-        internal PatientWindow(Employee employee)
+        private readonly SettingsViewModel settings;
+        internal PatientWindow(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
+            this.settings = settings;
             this.employee = employee;
             patient = new Patient();
+            DataContext = new { settings.Theme };
             tabExams.Visibility = Visibility.Collapsed;
             tabAppointments.Visibility = Visibility.Collapsed;
             tabRecoveries.Visibility = Visibility.Collapsed;
-            gridPatientData.DataContext = patient;
+            gridPatientData.DataContext = new GenericDataGridViewModel<Patient>()
+            {
+                SelectedItem = patient,
+                Theme = settings.Theme
+            };
             try
             {
                 cbCity.ItemsSource = new MySQLCityDAO().GetAll();
@@ -47,15 +54,16 @@ namespace HCI_Project_A_2022___Clinic.View
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        internal PatientWindow(Patient patient, Employee employee)
+        internal PatientWindow(SettingsViewModel settings, Patient patient, Employee employee)
         {
             InitializeComponent();
+            this.settings = settings;
             this.patient = patient;
             this.employee = employee;
             editMode = true;
+            DataContext = new { settings.Theme };
             if (employee.Role != EmployeeRole.TEHNICAR)
             {
-                gridPatientData.IsEnabled = false;
                 btnSave.Visibility = Visibility.Collapsed;
                 btnCancel.Visibility = Visibility.Collapsed;
                 btnAddNewAppointment.Visibility = Visibility.Collapsed;
@@ -74,7 +82,8 @@ namespace HCI_Project_A_2022___Clinic.View
                     Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(new Exam()
                     {
                         Patient = patient
-                    }))
+                    })),
+                    Theme = settings.Theme
                 };
                 gridExams.DataContext = examViewModel;
                 appointmentViewModel = new GenericDataGridViewModel<Appointment>()
@@ -82,7 +91,8 @@ namespace HCI_Project_A_2022___Clinic.View
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
                     {
                         Patient = patient
-                    }))
+                    })),
+                    Theme = settings.Theme
                 };
                 gridAppointments.DataContext = appointmentViewModel;
                 recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
@@ -90,10 +100,15 @@ namespace HCI_Project_A_2022___Clinic.View
                     Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
                     {
                         Patient = patient
-                    }))
+                    })),
+                    Theme = settings.Theme
                 };
                 gridRecoveries.DataContext = recoveriesViewModel;
-                gridPatientData.DataContext = patient;
+                gridPatientData.DataContext = new GenericDataGridViewModel<Patient>()
+                {
+                    SelectedItem = patient,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {
@@ -103,7 +118,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
         {
-            if (new AppointmentWindow(patient).ShowDialog().Value)
+            if (new AppointmentWindow(settings, patient).ShowDialog().Value)
             {
                 try
                 {
@@ -112,7 +127,8 @@ namespace HCI_Project_A_2022___Clinic.View
                         Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
                         {
                             Patient = patient
-                        }))
+                        })),
+                        Theme = settings.Theme
                     };
                     gridAppointments.DataContext = appointmentViewModel;
                 }
@@ -125,7 +141,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewRecovery_Click(object sender, RoutedEventArgs e)
         {
-            if (new RecoveryWindow(patient, employee as Doctor).ShowDialog().Value)
+            if (new RecoveryWindow(settings, patient, employee as Doctor).ShowDialog().Value)
             {
                 try
                 {
@@ -134,7 +150,8 @@ namespace HCI_Project_A_2022___Clinic.View
                         Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
                         {
                             Patient = patient
-                        }))
+                        })),
+                        Theme = settings.Theme
                     };
                     gridRecoveries.DataContext = recoveriesViewModel;
                 }
@@ -147,7 +164,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewExam_Click(object sender, RoutedEventArgs e)
         {
-            new ExamWindow(patient, (Doctor)employee).ShowDialog();
+            new ExamWindow(settings, patient, (Doctor)employee).ShowDialog();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -178,19 +195,19 @@ namespace HCI_Project_A_2022___Clinic.View
         private void DgExams_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (examViewModel.SelectedItem != null)
-                new ExamWindow(examViewModel.SelectedItem).ShowDialog();
+                new ExamWindow(settings, examViewModel.SelectedItem).ShowDialog();
         }
 
         private void DgAppointments_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (appointmentViewModel.SelectedItem != null)
-                new AppointmentWindow(employee, appointmentViewModel.SelectedItem).ShowDialog();
+                new AppointmentWindow(settings, employee, appointmentViewModel.SelectedItem).ShowDialog();
         }
 
         private void DgRecoveries_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (recoveriesViewModel.SelectedItem != null)
-                new RecoveryWindow(recoveriesViewModel.SelectedItem).ShowDialog();
+                new RecoveryWindow(settings, recoveriesViewModel.SelectedItem).ShowDialog();
         }
     }
 }

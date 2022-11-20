@@ -1,5 +1,6 @@
 ﻿using HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess;
 using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +24,24 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class ExamWindow : Window
     {
         private readonly Exam exam;
+        private readonly SettingsViewModel settings;
         private Prescription prescription;
         private Referral referral;
-        internal ExamWindow(Doctor doctor)
+        internal ExamWindow(SettingsViewModel settings, Doctor doctor)
         {
             InitializeComponent();
+            this.settings = settings;
+            DataContext = settings;
             exam = new Exam() { Doctor = doctor };
             Load();
             cbDoctor.SelectedItem = doctor;
         }
 
-        internal ExamWindow(Patient patient, Doctor doctor)
+        internal ExamWindow(SettingsViewModel settings, Patient patient, Doctor doctor)
         {
             InitializeComponent();
+            this.settings = settings;
+            DataContext = settings;
             exam = new Exam()
             {
                 Doctor = doctor,
@@ -44,10 +50,12 @@ namespace HCI_Project_A_2022___Clinic.View
             Load();
             cbDoctor.SelectedItem = doctor;
         }
-        internal ExamWindow(Exam exam)
+        internal ExamWindow(SettingsViewModel settings, Exam exam)
         {
             InitializeComponent();
+            this.settings = settings;
             this.exam = exam;
+            DataContext = settings;
             Load();
             cbDoctor.SelectedItem = exam.Doctor;
             cbExamType.SelectedItem = exam.ExamType;
@@ -56,14 +64,22 @@ namespace HCI_Project_A_2022___Clinic.View
                 var prescriptions = new MySQLPrescriptionDAO().Get(new Prescription() { Exam = new Exam() { ExamId = exam.ExamId } });
                 if (prescriptions.Count > 0)
                 {
-                    gridPrescription.DataContext = prescriptions[0];
+                    gridPrescription.DataContext = new GenericDataGridViewModel<Prescription>()
+                    {
+                        SelectedItem = prescriptions[0],
+                        Theme = settings.Theme
+                    };
                     cbMedication.SelectedItem = prescriptions[0].Medication;
                     cbPrescription.IsChecked = true;
                 }
                 var referrals = new MySQLReferralDAO().Get(new Referral() { Exam = new Exam() { ExamId = exam.ExamId } });
                 if (referrals.Count > 0)
                 {
-                    gridReferral.DataContext = referrals[0];
+                    gridReferral.DataContext = new GenericDataGridViewModel<Referral>()
+                    {
+                        SelectedItem = referrals[0],
+                        Theme = settings.Theme
+                    };
                     cbRefferal.IsChecked = true;
                 }
                 IsEnabled = false;
@@ -84,9 +100,21 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbExamType.ItemsSource = new MySQLExamTypeDAO().GetAll();
                 cbMedication.ItemsSource = new MySQLMedicationDAO().GetAll();
-                gridExam.DataContext = exam;
-                gridPrescription.DataContext = prescription;
-                gridReferral.DataContext = referral;
+                gridExam.DataContext = new GenericDataGridViewModel<Exam>()
+                {
+                    SelectedItem = exam,
+                    Theme = settings.Theme
+                };
+                gridPrescription.DataContext = new GenericDataGridViewModel<Prescription>()
+                {
+                    SelectedItem = prescription,
+                    Theme = settings.Theme
+                };
+                gridReferral.DataContext = new GenericDataGridViewModel<Referral>()
+                {
+                    SelectedItem = referral,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {

@@ -23,43 +23,59 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class AppointmentWindow : Window
     {
         private readonly Appointment appointment;
-        public AppointmentWindow()
+        private readonly SettingsViewModel settings;
+        internal AppointmentWindow(SettingsViewModel settings)
         {
             InitializeComponent();
+            this.settings = settings;
             appointment = new Appointment();
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-                gridAppointment.DataContext = appointment;
+                DataContext = new GenericDataGridViewModel<Appointment>()
+                {
+                    SelectedItem = appointment,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        internal AppointmentWindow(Patient patient)
+        internal AppointmentWindow(SettingsViewModel settings, Patient patient)
         {
             InitializeComponent();
+            this.settings = settings;
             appointment = new Appointment() { Patient = patient };
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-                gridAppointment.DataContext = appointment;
+                DataContext = new GenericDataGridViewModel<Appointment>()
+                {
+                    SelectedItem = appointment,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        internal AppointmentWindow(Employee employee, Appointment appointment)
+        internal AppointmentWindow(SettingsViewModel settings, Employee employee, Appointment appointment)
         {
             InitializeComponent();
+            this.settings = settings;
             this.appointment = appointment;
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbDoctor.SelectedItem = appointment.Doctor;
-                gridAppointment.DataContext = appointment;
+                DataContext = new GenericDataGridViewModel<Appointment>()
+                {
+                    SelectedItem = appointment,
+                    Theme = settings.Theme
+                };
                 btnSave.Visibility = Visibility.Collapsed;
                 if (employee.Role == EmployeeRole.LJEKAR)
                     btnNewExam.Visibility = Visibility.Visible;
@@ -94,7 +110,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnNewExam_Click(object sender, RoutedEventArgs e)
         {
-            new ExamWindow(appointment.Patient, appointment.Doctor).ShowDialog();
+            new ExamWindow(settings, appointment.Patient, appointment.Doctor).ShowDialog();
         }
     }
 }

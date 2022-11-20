@@ -89,7 +89,7 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewExam_Click(object sender, RoutedEventArgs e)
         {
-            if (new ExamWindow((Doctor)employee).ShowDialog().Value)
+            if (new ExamWindow(settings, (Doctor)employee).ShowDialog().Value)
                 UpdateDG();
         }
 
@@ -101,7 +101,7 @@ namespace HCI_Project_A_2022___Clinic.View
         private void DgExams_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (examsViewModel.SelectedItem != null)
-                new ExamWindow(examsViewModel.SelectedItem).ShowDialog();
+                new ExamWindow(settings, examsViewModel.SelectedItem).ShowDialog();
         }
     }
 }

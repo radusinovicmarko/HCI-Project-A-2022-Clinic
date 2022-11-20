@@ -94,14 +94,14 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewPatient_Click(object sender, RoutedEventArgs e)
         {
-            new PatientWindow(employee).ShowDialog();
+            new PatientWindow(settings, employee).ShowDialog();
             UpdateDG();
         }
 
         private void DgPatients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (patientsViewModel.SelectedItem != null)
-                new PatientWindow(patientsViewModel.SelectedItem, employee).ShowDialog();
+                new PatientWindow(settings, patientsViewModel.SelectedItem, employee).ShowDialog();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

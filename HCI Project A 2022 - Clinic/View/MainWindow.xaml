@@ -14,7 +14,7 @@
         WindowState="Maximized">
     <DockPanel>
         <StackPanel 
-            Background="{Binding Background}" 
+            Background="{Binding Surface}" 
             Height="100" 
             DockPanel.Dock="Top" 
             VerticalAlignment="Top">

@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Background="{Binding Theme.Background}"
         Title="{x:Static p:Resources.RoleWindowTitle}" Height="250" Width="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,6 +20,7 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <TextBlock
+            Foreground="{Binding Theme.OnBackground}"
             Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
             Text="{x:Static p:Resources.RoleWindowTitleLb}" 
             HorizontalAlignment="Center"
@@ -29,14 +31,16 @@
             Cursor="Hand"
             Grid.Row="1"
             VerticalAlignment="Center"
+            Background="{Binding Theme.Primary}"
             Padding="5 10 5 0"
             Style="{StaticResource MaterialDesignOutlinedComboBox}"
             materialDesign:HintAssist.Hint="{x:Static p:Resources.RoleWindowRoleCb}"
             Width="200"
-            Height="40"/>
+            Height="40" />
         <Button x:Name="btnContinue"
             Grid.Row="2"
-            materialDesign:ButtonAssist.CornerRadius="5" 
+            materialDesign:ButtonAssist.CornerRadius="5"
+            Background="{Binding Theme.Primary}"
             Cursor="Hand"  
             Style="{StaticResource MaterialDesignPaperLightButton}"
             Width="100"

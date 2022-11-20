@@ -12,12 +12,12 @@ namespace HCI_Project_A_2022___Clinic.ViewModel
         public static Theme LightTheme = new Theme()
         {
             Name = "Light",
-            Background = "#9EBDF0",
-            Surface = "#FFFFFF",
+            Background = "#FFFFFF",
+            Surface = "#9EBDF0",
             Primary = "#FFFFFF",
             Secondary = "#FFFFFF",
-            OnBackground = "#2E2E20",
-            OnSurface = "#202020"
+            OnBackground = "#202020",
+            OnSurface = "#2E2E20"
         };
 
         public static Theme DarkTheme = new Theme()

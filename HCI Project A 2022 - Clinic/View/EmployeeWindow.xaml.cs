@@ -1,5 +1,6 @@
 ﻿using HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess;
 using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,12 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class EmployeeWindow : Window
     {
         private readonly Employee employee;
+        private readonly SettingsViewModel settings;
         private readonly bool editMode = false;
-        internal EmployeeWindow(EmployeeRole role)
+        internal EmployeeWindow(SettingsViewModel settings, EmployeeRole role)
         {
             InitializeComponent();
+            this.settings = settings;
             try
             {
                 cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
@@ -38,16 +41,21 @@ namespace HCI_Project_A_2022___Clinic.View
                     employee = new Employee { Role = role };
                     tbTitle.Visibility = Visibility.Collapsed;
                 }
-                DataContext = employee;
+                DataContext = new GenericDataGridViewModel<Employee>()
+                {
+                    SelectedItem = employee,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        internal EmployeeWindow(Employee employee)
+        internal EmployeeWindow(SettingsViewModel settings, Employee employee)
         {
             InitializeComponent();
+            this.settings = settings;
             try
             {
                 this.employee = employee;
@@ -59,9 +67,17 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbCity.ItemsSource = new MySQLCityDAO().GetAll();
                 cbCity.SelectedItem = employee.City;
                 if (employee.Role == EmployeeRole.LJEKAR)
-                    DataContext = new MySQLDoctorDAO().Get(new Doctor() { PersonId = employee.PersonId })[0];
+                    DataContext = new GenericDataGridViewModel<Doctor>()
+                    {
+                        SelectedItem = new MySQLDoctorDAO().Get(new Doctor() { PersonId = employee.PersonId })[0],
+                        Theme = settings.Theme
+                    };
                 else
-                    DataContext = employee;
+                    DataContext = new GenericDataGridViewModel<Employee>()
+                    {
+                        SelectedItem = employee,
+                        Theme = settings.Theme
+                    };
             }
             catch (Exception ex)
             {

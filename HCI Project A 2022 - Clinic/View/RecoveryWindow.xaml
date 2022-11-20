@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Background="{Binding Theme.Background}"
         Title="RecoveryWindow" Height="550" Width="500">
     <Grid Margin="10" x:Name="gridRecovery">
         <Grid.ColumnDefinitions>
@@ -26,6 +27,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock
+            Foreground="{Binding Theme.OnBackground}"
             Grid.Row="0"
             Grid.ColumnSpan="2"
             VerticalAlignment="Center"
@@ -34,17 +36,19 @@
             Text="{x:Static p:Resources.RecoveryWindowTitle}" />
         <DatePicker
             x:Name="dpDate"
+            Background="{Binding Theme.Primary}"
             Width="200"
             Height="40"
             Grid.Row="1"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             Padding="5 0 5 0"
-            Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy.}'}"
+            Text="{Binding SelectedItem.Date, StringFormat='{}{0:dd.MM.yyyy.}'}"
             materialDesign:HintAssist.Hint="{x:Static p:Resources.RecoveryWindowDateDP}"
             Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
         <ComboBox
             x:Name="cbIllness"
+            Background="{Binding Theme.Primary}"
             Cursor="Hand"
             Grid.ColumnSpan="2"
             Grid.Row="2"
@@ -55,6 +59,7 @@
             Width="200"
             Height="40"/>
         <TextBlock
+            Foreground="{Binding Theme.OnBackground}"
             Grid.Row="3"
             Grid.ColumnSpan="2"
             VerticalAlignment="Center"
@@ -63,10 +68,11 @@
             Text="{x:Static p:Resources.RecoveryWindowPatientData}" />
         <TextBox 
             x:Name="tbJmb"
+            Background="{Binding Theme.Primary}"
             Grid.Row="4"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
-            Text="{Binding Patient.Jmb}"
+            Text="{Binding SelectedItem.Patient.Jmb}"
             Padding="5 10 5 0" 
             FontSize="14" 
             Width="200" 
@@ -74,6 +80,7 @@
             Style="{StaticResource MaterialDesignOutlinedTextBox}"
             materialDesign:HintAssist.Hint="{x:Static p:Resources.RecoveryWindowJmbTb}"/>
         <TextBlock
+            Foreground="{Binding Theme.OnBackground}"
             Grid.Row="5"
             Grid.ColumnSpan="2"
             VerticalAlignment="Center"
@@ -82,6 +89,7 @@
             Text="{x:Static p:Resources.RecoveryWindowDoctorData}" />
         <ComboBox
             x:Name="cbDoctor"
+            Background="{Binding Theme.Primary}"
             Cursor="Hand"
             Grid.ColumnSpan="2"
             Grid.Row="6"
@@ -92,6 +100,7 @@
             Width="200"
             Height="40"/>
         <Button x:Name="btnSave"
+            Background="{Binding Theme.Primary}"
             Grid.Column="0" 
             Grid.Row="7"
             materialDesign:ButtonAssist.CornerRadius="5" 
@@ -103,6 +112,7 @@
             Content="{x:Static p:Resources.RecoveryWindowSaveBtn}" 
             Click="BtnSave_Click"/>
         <Button x:Name="btnCancel"
+            Background="{Binding Theme.Primary}"
             Grid.Column="1" 
             Grid.Row="7"
             materialDesign:ButtonAssist.CornerRadius="5" 

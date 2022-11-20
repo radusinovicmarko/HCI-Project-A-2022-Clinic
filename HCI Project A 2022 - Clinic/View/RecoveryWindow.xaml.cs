@@ -1,5 +1,6 @@
 ﻿using HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess;
 using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,12 @@ namespace HCI_Project_A_2022___Clinic.View
     public partial class RecoveryWindow : Window
     {
         private readonly Recovery recovery;
-        internal RecoveryWindow(Patient patient, Doctor doctor)
+        private readonly SettingsViewModel settings;
+        internal RecoveryWindow(SettingsViewModel settings, Patient patient, Doctor doctor)
         {
             InitializeComponent();
+            this.settings = settings;
+            DataContext = settings;
             try
             {
                 recovery = new Recovery()
@@ -36,7 +40,11 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbDoctor.SelectedItem = doctor;
                 cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
-                gridRecovery.DataContext = recovery;
+                gridRecovery.DataContext = new GenericDataGridViewModel<Recovery>()
+                {
+                    SelectedItem = recovery,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {
@@ -44,17 +52,24 @@ namespace HCI_Project_A_2022___Clinic.View
             }
         }
 
-        internal RecoveryWindow(Recovery recovery)
+        internal RecoveryWindow(SettingsViewModel settings, Recovery recovery)
         {
             InitializeComponent();
+            DataContext = settings;
+            this.settings = settings;
             this.recovery = recovery;
+            btnSave.Visibility = Visibility.Collapsed;
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbDoctor.SelectedItem = recovery.Doctor;
                 cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
                 cbIllness.SelectedItem = recovery.Illness;
-                gridRecovery.DataContext = recovery;
+                gridRecovery.DataContext = new GenericDataGridViewModel<Recovery>()
+                {
+                    SelectedItem = recovery,
+                    Theme = settings.Theme
+                };
             }
             catch (Exception ex)
             {

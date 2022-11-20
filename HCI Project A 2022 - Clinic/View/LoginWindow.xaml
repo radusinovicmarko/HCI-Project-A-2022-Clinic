@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         Title="{x:Static p:Resources.LoginWindowTitle}" 
         MinHeight="450" MinWidth="450" Height="450" Width="450">
-    <Grid Background="{Binding Surface}">
+    <Grid Background="{Binding Background}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
@@ -32,7 +32,7 @@
                 Width="70" 
                 Source="../Resources/clinic-logo.png"/>
             <TextBlock 
-                Foreground="{Binding OnSurface}"
+                Foreground="{Binding OnBackground}"
                 VerticalAlignment="Center" 
                 Margin="10 0 0 0"  
                 Text="{x:Static p:Resources.LoginWindowTitleLb}"

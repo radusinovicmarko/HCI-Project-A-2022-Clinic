@@ -91,12 +91,12 @@ namespace HCI_Project_A_2022___Clinic.View
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (appointmentsViewModel.SelectedItem != null)
-                new AppointmentWindow(employee, appointmentsViewModel.SelectedItem).ShowDialog();
+                new AppointmentWindow(settings, employee, appointmentsViewModel.SelectedItem).ShowDialog();
         }
 
         private void BtnAddNewAppointment_Click(object sender, RoutedEventArgs e)
         {
-            if (new AppointmentWindow().ShowDialog().Value)
+            if (new AppointmentWindow(settings).ShowDialog().Value)
                 UpdateDG();
         }
 

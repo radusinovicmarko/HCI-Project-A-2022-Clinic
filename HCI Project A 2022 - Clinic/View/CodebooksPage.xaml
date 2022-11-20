@@ -12,12 +12,12 @@
         TabStripPlacement="Left"
         Style="{StaticResource MaterialDesignFilledTabControl}"
         materialDesign:ColorZoneAssist.Mode="Custom"
-        materialDesign:ColorZoneAssist.Foreground="{Binding Theme.OnBackground}"
-        materialDesign:ColorZoneAssist.Background="{Binding Theme.Background}">
+        materialDesign:ColorZoneAssist.Foreground="{Binding Theme.OnSurface}"
+        materialDesign:ColorZoneAssist.Background="{Binding Theme.Surface}">
         <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageCitiesTab}">
             <Grid x:Name="gridCities" 
                 Margin="10"
-                Background="{Binding Theme.Surface}">
+                Background="{Binding Theme.Background}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
@@ -42,7 +42,7 @@
                 </DataGrid>
                 <StackPanel x:Name="spAddCity" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -85,7 +85,7 @@
                 </StackPanel>
                 <StackPanel x:Name="spEditCity" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -131,7 +131,7 @@
         <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageExamTypesTab}">
             <Grid x:Name="gridExamTypes" 
                 Margin="10"
-                Background="{Binding Theme.Surface}">
+                Background="{Binding Theme.Background}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*" />
@@ -156,7 +156,7 @@
                 </DataGrid>
                 <StackPanel x:Name="spEditExamType" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -199,7 +199,7 @@
                 </StackPanel>
                 <StackPanel x:Name="spAddExamType" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -245,7 +245,7 @@
         <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageIllnessesTab}">
             <Grid x:Name="gridIllnesses" 
                 Margin="10"
-                Background="{Binding Theme.Surface}">
+                Background="{Binding Theme.Background}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
@@ -269,7 +269,7 @@
                 </DataGrid>
                 <StackPanel x:Name="spAddIllness" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -312,7 +312,7 @@
                 </StackPanel>
                 <StackPanel x:Name="spEditIllness" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"
@@ -358,7 +358,7 @@
         <TabItem Cursor="Hand" Header="{x:Static p:Resources.CodebooksPageMedicationsTab}">
             <Grid x:Name="gridMedications" 
                 Margin="10"
-                Background="{Binding Theme.Surface}">
+                Background="{Binding Theme.Background}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
@@ -383,7 +383,7 @@
                 </DataGrid>
                 <StackPanel x:Name="spAddMedication" Margin="0 20 0 0" Grid.Column="2">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageNewLb}"
                         HorizontalAlignment="Center"
@@ -426,7 +426,7 @@
                 </StackPanel>
                 <StackPanel x:Name="spEditMedication" Margin="0 20 0 0" IsEnabled="False" Grid.Column="1">
                     <TextBlock
-                        Foreground="{Binding Theme.OnSurface}"
+                        Foreground="{Binding Theme.OnBackground}"
                         Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                         Text="{x:Static p:Resources.CodebooksPageEditLb}"
                         HorizontalAlignment="Center"

@@ -1,4 +1,5 @@
 ﻿using HCI_Project_A_2022___Clinic.Data.Model;
+using HCI_Project_A_2022___Clinic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,12 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class RoleWindow : Window
     {
-        public RoleWindow()
+        private readonly SettingsViewModel settings;
+        internal RoleWindow(SettingsViewModel settings)
         {
             InitializeComponent();
+            this.settings = settings;
+            DataContext = settings;
             cbRole.ItemsSource = Enum.GetValues(typeof(EmployeeRole)).Cast<EmployeeRole>();
         }
 
@@ -30,7 +34,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             if (cbRole.SelectedItem != null)
             {
-                new EmployeeWindow((EmployeeRole)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString())).ShowDialog();
+                new EmployeeWindow(settings, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString())).ShowDialog();
                 Close();
             }
         }

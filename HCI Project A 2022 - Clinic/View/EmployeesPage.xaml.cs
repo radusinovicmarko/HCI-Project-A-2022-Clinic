@@ -98,13 +98,13 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void BtnAddNewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            new RoleWindow().ShowDialog();
+            new RoleWindow(settings).ShowDialog();
         }
 
         private void DgEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (employeesViewModel.SelectedItem != null)
-                new EmployeeWindow(employeesViewModel.SelectedItem).ShowDialog();
+                new EmployeeWindow(settings, employeesViewModel.SelectedItem).ShowDialog();
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
