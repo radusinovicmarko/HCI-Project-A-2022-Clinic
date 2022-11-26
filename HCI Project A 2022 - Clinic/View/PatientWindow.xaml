@@ -86,7 +86,7 @@
                             Height="40"
                             Grid.Row="4"
                             Padding="5 0 5 0"
-                            Text="{Binding SelectedItem.DateOfBirth}"
+                            Text="{Binding SelectedItem.DateOfBirth, StringFormat='{}{0:dd.MM.yyyy. HH:mm}'}"
                             materialDesign:HintAssist.Hint="{x:Static p:Resources.PatientWindowDateDP}"
                             Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
                         <Button x:Name="btnSave"

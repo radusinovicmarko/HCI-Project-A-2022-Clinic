@@ -104,5 +104,11 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             Search();
         }
+
+        private void BtnClear_Click(object sender, RoutedEventArgs e)
+        {
+            dpDate.Text = null;
+            cbDoctor.SelectedItem = null;
+        }
     }
 }

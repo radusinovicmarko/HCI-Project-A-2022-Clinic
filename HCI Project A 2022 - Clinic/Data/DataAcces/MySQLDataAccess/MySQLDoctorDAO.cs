@@ -15,9 +15,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                                 on l.ZAPOSLENI_OSOBA_IdOsobe=z.OSOBA_IdOsobe inner join `osoba` o 
                                 on z.OSOBA_IdOsobe=o.IdOsobe inner join `mjesto` m on o.MJESTO_IdMjesta=m.IdMjesta
                                 where true";
-        // private static readonly string SELECT = "SELECT * FROM `mjesto` WHERE IdMjesta=@IdMjesta";
         private static readonly string INSERT = "dodaj_ljekara";
-        //private static readonly string UPDATE = "izmijeni_ljekara";
         public int Add(Doctor item)
         {
             MySqlConnection conn = null;
@@ -50,10 +48,12 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@sprema"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@korisnickoIme", item.Username);
                 cmd.Parameters["@korisnickoIme"].Direction = ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@loznika", item.Password);
-                cmd.Parameters["@loznika"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@lozinka", item.Password);
+                cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
                 cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@uloga", item.Role);
+                cmd.Parameters["@uloga"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zvanje", item.Title);
                 cmd.Parameters["@zvanje"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@idOsobe", MySqlDbType.Int32);
@@ -63,7 +63,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {
@@ -119,7 +119,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {
@@ -146,7 +146,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {

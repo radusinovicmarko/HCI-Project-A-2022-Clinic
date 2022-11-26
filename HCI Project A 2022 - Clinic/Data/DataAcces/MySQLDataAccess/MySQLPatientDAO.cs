@@ -57,7 +57,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {
@@ -105,7 +105,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {
@@ -156,7 +156,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {
@@ -177,10 +177,24 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.CommandText = UPDATE;
                 cmd.Parameters.AddWithValue("@idOsobe", item.PersonId);
                 cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@jmb", item.Jmb);
+                cmd.Parameters["@jmb"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@ime", item.FirstName);
+                cmd.Parameters["@ime"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@prezime", item.LastName);
+                cmd.Parameters["@prezime"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@datum", item.DateOfBirth);
+                cmd.Parameters["@datum"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@email", item.Email);
                 cmd.Parameters["@email"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@adresa", item.Address);
                 cmd.Parameters["@adresa"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@idMjesta", item.City.CityId);
+                cmd.Parameters["@idMjesta"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@karton", item.MedicalCardNumber);
+                cmd.Parameters["@karton"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@grupa", item.BloodType);
+                cmd.Parameters["@grupa"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@bracniStatus", item.MarriageStatus);
                 cmd.Parameters["@bracniStatus"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@telefon", item.PhoneNumber);
@@ -189,7 +203,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception(Properties.Resources.DBError + " " + ex.Message, ex);
+                throw new Exception(Properties.Resources.DBError, ex);
             }
             finally
             {

@@ -95,6 +95,18 @@
                     ToolTip="{x:Static p:Resources.EmployeesPageSearchBtn}">
                     <materialDesign:PackIcon Kind="Magnify"/>
                 </Button>
+                <Button x:Name="btnClear"
+                    materialDesign:ButtonAssist.CornerRadius="5" 
+                    Cursor="Hand"
+                    Background="{Binding Theme.Primary}"
+                    Style="{StaticResource MaterialDesignPaperLightButton}" 
+                    Margin="10 10 0 0" 
+                    FontSize="14"
+                    Height="40"
+                    Click="BtnClear_Click"
+                    ToolTip="{x:Static p:Resources.EmployeesPageClearBtn}">
+                    <materialDesign:PackIcon Kind="CloseCircleOutline"/>
+                </Button>
             </WrapPanel>
         </StackPanel>
         <DataGrid x:Name="dgEmployees"

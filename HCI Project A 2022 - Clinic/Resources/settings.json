@@ -1,0 +1,38 @@
+{
+  "-1": {
+    "Language": "sr",
+    "Theme": {
+      "Name": "Light",
+      "Background": "#FFFFFF",
+      "Surface": "#9EBDF0",
+      "Primary": "#FFFFFF",
+      "Secondary": "#FFFFFF",
+      "OnBackground": "#202020",
+      "OnSurface": "#2E2E20"
+    }
+  },
+  "7": {
+    "Language": "sr",
+    "Theme": {
+      "Name": "Mix",
+      "Background": "#48466D",
+      "Surface": "#3D84A8",
+      "Primary": "#46CDCF",
+      "Secondary": "#ABEDD8",
+      "OnBackground": "#FFFFFF",
+      "OnSurface": "#1E212D"
+    }
+  },
+  "2": {
+    "Language": "sr",
+    "Theme": {
+      "Name": "Dark",
+      "Background": "#121212",
+      "Surface": "#202020",
+      "Primary": "#C38FFF",
+      "Secondary": "#03DAC6",
+      "OnBackground": "#FFFFFF",
+      "OnSurface": "#FFFFFF"
+    }
+  }
+}

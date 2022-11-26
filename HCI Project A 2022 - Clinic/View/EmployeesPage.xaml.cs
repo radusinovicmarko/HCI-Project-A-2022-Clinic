@@ -93,12 +93,14 @@ namespace HCI_Project_A_2022___Clinic.View
 
         private void Tb_KeyDown(object sender, KeyEventArgs e)
         {
-            Search();
+            if (e.Key == Key.Enter)
+                Search();
         }
 
         private void BtnAddNewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            new RoleWindow(settings).ShowDialog();
+            if (new RoleWindow(settings).ShowDialog().Value)
+                UpdateDG();
         }
 
         private void DgEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -110,6 +112,14 @@ namespace HCI_Project_A_2022___Clinic.View
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             Search();
+        }
+
+        private void BtnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbLastName.Text = null;
+            tbFirstName.Text = null;
+            tbJmb.Text = null;
+            cbRole.SelectedItem = null;
         }
     }
 }

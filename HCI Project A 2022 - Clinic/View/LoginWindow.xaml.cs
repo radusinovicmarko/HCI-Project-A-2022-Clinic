@@ -24,10 +24,10 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private readonly SettingsViewModel settings;
+        private SettingsViewModel settings;
         public LoginWindow()
         {
-            settings = Utils.LoadSettings();
+            settings = Utils.LoadSettings(null);
             DataContext = settings.Theme;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(settings.Language);
             InitializeComponent();
@@ -50,6 +50,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     Employee employee = new MySQLEmployeeDAO().Get(new Employee() { PersonId = loginInfo.Item2 })[0];
                     if (employee.Role == EmployeeRole.LJEKAR)
                         employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
+                    settings = Utils.LoadSettings(employee);
                     new MainWindow(settings, employee).Show();
                     Close();
                 }

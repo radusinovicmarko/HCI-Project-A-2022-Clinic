@@ -73,11 +73,14 @@ namespace HCI_Project_A_2022___Clinic.View
                         Theme = settings.Theme
                     };
                 else
+                {
                     DataContext = new GenericDataGridViewModel<Employee>()
                     {
                         SelectedItem = employee,
                         Theme = settings.Theme
                     };
+                    tbTitle.Visibility = Visibility.Collapsed;
+                }
             }
             catch (Exception ex)
             {
@@ -92,6 +95,11 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
+                    employee.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
+                    employee.HireDate = DateTime.Parse(dpHireDate.Text);
+                    employee.City = cbCity.SelectedItem as City;
+                    employee.Password = tbPassword.Text;
+                    employee.Role = (EmployeeRole)cbRole.SelectedItem;
                     if (editMode)
                     {
                         if (employee is Doctor doctor)
@@ -101,9 +109,6 @@ namespace HCI_Project_A_2022___Clinic.View
                     }
                     else
                     {
-                        employee.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
-                        employee.HireDate = DateTime.Parse(dpHireDate.Text);
-                        employee.City = cbCity.SelectedItem as City;
                         if (employee is Doctor doctor)
                             new MySQLDoctorDAO().Add(doctor);
                         else
@@ -111,12 +116,12 @@ namespace HCI_Project_A_2022___Clinic.View
                     }
                     MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
                     DialogResult = true;
+                    Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                Close();
             }
         }
     }

@@ -70,6 +70,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obrišite filtere pretrage.
+        /// </summary>
+        public static string AppointmentsPageClearBtn {
+            get {
+                return ResourceManager.GetString("AppointmentsPageClearBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Datum naručenja.
         /// </summary>
         public static string AppointmentsPageDateDP {
@@ -440,6 +449,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obrišite filtere pretrage.
+        /// </summary>
+        public static string EmployeesPageClearBtn {
+            get {
+                return ResourceManager.GetString("EmployeesPageClearBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-Mail adresa.
         /// </summary>
         public static string EmployeesPageEmailDG {
@@ -769,6 +787,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string ExamsPageAddExamBtn {
             get {
                 return ResourceManager.GetString("ExamsPageAddExamBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obrišite filtere pretrage.
+        /// </summary>
+        public static string ExamsPageClearBtn {
+            get {
+                return ResourceManager.GetString("ExamsPageClearBtn", resourceCulture);
             }
         }
         
@@ -1184,6 +1211,15 @@ namespace HCI_Project_A_2022___Clinic.Properties {
         public static string PatientsPageCityDG {
             get {
                 return ResourceManager.GetString("PatientsPageCityDG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obrišite filtere pretrage.
+        /// </summary>
+        public static string PatientsPageClearBtn {
+            get {
+                return ResourceManager.GetString("PatientsPageClearBtn", resourceCulture);
             }
         }
         

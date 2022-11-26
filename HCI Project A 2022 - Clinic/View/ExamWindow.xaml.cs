@@ -168,12 +168,12 @@ namespace HCI_Project_A_2022___Clinic.View
                     }
                     MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
                     DialogResult = true;
+                    Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                Close();
             }
         }
     }

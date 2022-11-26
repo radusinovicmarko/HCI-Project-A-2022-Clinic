@@ -120,6 +120,9 @@
   <data name="AppointmentsPageAddAppointmentBtn" xml:space="preserve">
     <value>Dodajte novo naručenje</value>
   </data>
+  <data name="AppointmentsPageClearBtn" xml:space="preserve">
+    <value>Obrišite filtere pretrage</value>
+  </data>
   <data name="AppointmentsPageDateDP" xml:space="preserve">
     <value>Datum naručenja</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="DBError" xml:space="preserve">
     <value>Greška u radu sa bazom podataka.</value>
   </data>
+  <data name="EmployeesPageClearBtn" xml:space="preserve">
+    <value>Obrišite filtere pretrage</value>
+  </data>
   <data name="EmployeesPageEmailDG" xml:space="preserve">
     <value>E-Mail adresa</value>
   </data>
@@ -347,6 +353,9 @@
   </data>
   <data name="ExamsPageAddExamBtn" xml:space="preserve">
     <value>Dodajte novi pregled</value>
+  </data>
+  <data name="ExamsPageClearBtn" xml:space="preserve">
+    <value>Obrišite filtere pretrage</value>
   </data>
   <data name="ExamsPageDateDP" xml:space="preserve">
     <value>Datum pregleda</value>
@@ -482,6 +491,9 @@
   </data>
   <data name="PatientsPageCityDG" xml:space="preserve">
     <value>Grad</value>
+  </data>
+  <data name="PatientsPageClearBtn" xml:space="preserve">
+    <value>Obrišite filtere pretrage</value>
   </data>
   <data name="PatientsPageEmailDG" xml:space="preserve">
     <value>E-Mail adresa</value>

@@ -120,6 +120,9 @@
   <data name="AppointmentsPageAddAppointmentBtn" xml:space="preserve">
     <value>Add New Appointment</value>
   </data>
+  <data name="AppointmentsPageClearBtn" xml:space="preserve">
+    <value>Clear filters</value>
+  </data>
   <data name="AppointmentsPageDateDP" xml:space="preserve">
     <value>Date Of Appointment</value>
   </data>
@@ -244,6 +247,9 @@
   <data name="EmployeesPageAddEmployeeBtn" xml:space="preserve">
     <value>Add New Employee</value>
   </data>
+  <data name="EmployeesPageClearBtn" xml:space="preserve">
+    <value>Clear filters</value>
+  </data>
   <data name="EmployeesPageEmailDG" xml:space="preserve">
     <value>E-mail</value>
   </data>
@@ -354,6 +360,9 @@
   </data>
   <data name="ExamsPageAddExamBtn" xml:space="preserve">
     <value>Add New Exam</value>
+  </data>
+  <data name="ExamsPageClearBtn" xml:space="preserve">
+    <value>Clear filters</value>
   </data>
   <data name="ExamsPageDateDP" xml:space="preserve">
     <value>Date Of Exam</value>
@@ -492,6 +501,9 @@
   </data>
   <data name="PatientsPageCityDG" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="PatientsPageClearBtn" xml:space="preserve">
+    <value>Clear filters</value>
   </data>
   <data name="PatientsPageEmailDG" xml:space="preserve">
     <value>E-Mail</value>

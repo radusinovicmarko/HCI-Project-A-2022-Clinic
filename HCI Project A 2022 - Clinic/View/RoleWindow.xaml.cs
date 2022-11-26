@@ -34,7 +34,10 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             if (cbRole.SelectedItem != null)
             {
-                new EmployeeWindow(settings, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString())).ShowDialog();
+                if (new EmployeeWindow(settings, (EmployeeRole)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString())).ShowDialog().Value)
+                    DialogResult = true;
+                else
+                    DialogResult = false;
                 Close();
             }
         }

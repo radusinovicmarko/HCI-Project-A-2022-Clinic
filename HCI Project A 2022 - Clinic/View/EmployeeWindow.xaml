@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         Title="{x:Static p:Resources.EmployeeWindowTitle}" Height="500" Width="1000">
     <Border Margin="30" BorderBrush="{Binding Theme.Primary}" BorderThickness="1">
-        <Grid x:Name="gridPatientData">
+        <Grid Margin="5" x:Name="gridPatientData">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -79,7 +79,7 @@
                 Height="40"
                 Grid.Row="4"
                 Padding="5 0 5 0"
-                Text="{Binding SelectedItem.DateOfBirth}"
+                Text="{Binding SelectedItem.DateOfBirth, StringFormat='{}{0:dd.MM.yyyy.}'}"
                 materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowDateDP}"
                 Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
             <Button x:Name="btnSave"
@@ -151,7 +151,7 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 Padding="5 0 5 0"
-                Text="{Binding SelectedItem.HireDate}"
+                Text="{Binding SelectedItem.HireDate, StringFormat='{}{0:dd.MM.yyyy. HH:mm}'}"
                 materialDesign:HintAssist.Hint="{x:Static p:Resources.EmployeeWindowHireDateDP}"
                 Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
             <TextBox 
