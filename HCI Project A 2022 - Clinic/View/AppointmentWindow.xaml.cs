@@ -32,7 +32,7 @@ namespace HCI_Project_A_2022___Clinic.View
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-                DataContext = new GenericDataGridViewModel<Appointment>()
+                DataContext = new GenericViewModelEntity<Appointment>()
                 {
                     SelectedItem = appointment,
                     Theme = settings.Theme
@@ -51,7 +51,7 @@ namespace HCI_Project_A_2022___Clinic.View
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
-                DataContext = new GenericDataGridViewModel<Appointment>()
+                DataContext = new GenericViewModelEntity<Appointment>()
                 {
                     SelectedItem = appointment,
                     Theme = settings.Theme
@@ -71,7 +71,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbDoctor.SelectedItem = appointment.Doctor;
-                DataContext = new GenericDataGridViewModel<Appointment>()
+                DataContext = new GenericViewModelEntity<Appointment>()
                 {
                     SelectedItem = appointment,
                     Theme = settings.Theme

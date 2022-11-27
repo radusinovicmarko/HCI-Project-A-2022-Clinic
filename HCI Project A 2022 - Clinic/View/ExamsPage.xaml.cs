@@ -24,7 +24,7 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class ExamsPage : Page
     {
-        private GenericDataGridViewModel<Exam> examsViewModel;
+        private GenericViewModelEntity<Exam> examsViewModel;
         private readonly Employee employee;
         private readonly SettingsViewModel settings;
         internal ExamsPage(SettingsViewModel settings, Employee employee)
@@ -48,7 +48,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                examsViewModel = new GenericDataGridViewModel<Exam>()
+                examsViewModel = new GenericViewModelEntity<Exam>()
                 {
                     Items = new ObservableCollection<Exam>(new MySQLExamDAO().GetAll()),
                     Theme = settings.Theme
@@ -74,7 +74,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     searchExam.DateTime = DateTime.Parse(dpDate.Text);
                 if (cbDoctor.SelectedItem != null)
                     searchExam.Doctor = cbDoctor.SelectedItem as Doctor;
-                examsViewModel = new GenericDataGridViewModel<Exam>()
+                examsViewModel = new GenericViewModelEntity<Exam>()
                 {
                     Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(searchExam)),
                     Theme = settings.Theme

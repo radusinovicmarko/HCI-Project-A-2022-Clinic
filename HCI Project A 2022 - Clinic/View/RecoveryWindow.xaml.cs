@@ -40,7 +40,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbDoctor.SelectedItem = doctor;
                 cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
-                gridRecovery.DataContext = new GenericDataGridViewModel<Recovery>()
+                gridRecovery.DataContext = new GenericViewModelEntity<Recovery>()
                 {
                     SelectedItem = recovery,
                     Theme = settings.Theme
@@ -64,7 +64,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbDoctor.SelectedItem = recovery.Doctor;
                 cbIllness.ItemsSource = new MySQLIllnessDAO().GetAll();
                 cbIllness.SelectedItem = recovery.Illness;
-                gridRecovery.DataContext = new GenericDataGridViewModel<Recovery>()
+                gridRecovery.DataContext = new GenericViewModelEntity<Recovery>()
                 {
                     SelectedItem = recovery,
                     Theme = settings.Theme

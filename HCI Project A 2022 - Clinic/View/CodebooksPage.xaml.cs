@@ -23,10 +23,10 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class CodebooksPage : Page
     {
-        private GenericDataGridViewModel<City> citiesViewModel;
-        private GenericDataGridViewModel<ExamType> examTypesViewModel;
-        private GenericDataGridViewModel<Illness> illnessesViewModel;
-        private GenericDataGridViewModel<Medication> medicationsViewModel;
+        private GenericViewModelEntity<City> citiesViewModel;
+        private GenericViewModelEntity<ExamType> examTypesViewModel;
+        private GenericViewModelEntity<Illness> illnessesViewModel;
+        private GenericViewModelEntity<Medication> medicationsViewModel;
         private readonly Employee employee;
         private readonly SettingsViewModel settings;
         internal CodebooksPage(SettingsViewModel settings, Employee employee)
@@ -47,25 +47,25 @@ namespace HCI_Project_A_2022___Clinic.View
             }
             DataContext = settings;
             UpdateCitiesDG();
-            spAddCity.DataContext = new GenericDataGridViewModel<City>
+            spAddCity.DataContext = new GenericViewModelEntity<City>
             {
                 SelectedItem = new City(),
                 Theme = settings.Theme
             };
             UpdateExamTypesDG();
-            spAddExamType.DataContext = new GenericDataGridViewModel<ExamType>
+            spAddExamType.DataContext = new GenericViewModelEntity<ExamType>
             {
                 SelectedItem = new ExamType(),
                 Theme = settings.Theme
             };
             UpdateIllnessesDG();
-            spAddIllness.DataContext = new GenericDataGridViewModel<Illness>
+            spAddIllness.DataContext = new GenericViewModelEntity<Illness>
             {
                 SelectedItem = new Illness(),
                 Theme = settings.Theme
             };
             UpdateMedicationsDG();
-            spAddMedication.DataContext = new GenericDataGridViewModel<Medication>
+            spAddMedication.DataContext = new GenericViewModelEntity<Medication>
             {
                 SelectedItem = new Medication(),
                 Theme = settings.Theme
@@ -76,7 +76,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                citiesViewModel = new GenericDataGridViewModel<City>()
+                citiesViewModel = new GenericViewModelEntity<City>()
                 {
                     Items = new MySQLCityDAO().GetAll(),
                     Theme = settings.Theme
@@ -92,7 +92,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                examTypesViewModel = new GenericDataGridViewModel<ExamType>()
+                examTypesViewModel = new GenericViewModelEntity<ExamType>()
                 {
                     Items = new MySQLExamTypeDAO().GetAll(),
                     Theme = settings.Theme
@@ -108,7 +108,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                illnessesViewModel = new GenericDataGridViewModel<Illness>()
+                illnessesViewModel = new GenericViewModelEntity<Illness>()
                 {
                     Items = new MySQLIllnessDAO().GetAll(),
                     Theme = settings.Theme
@@ -125,7 +125,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                medicationsViewModel = new GenericDataGridViewModel<Medication>()
+                medicationsViewModel = new GenericViewModelEntity<Medication>()
                 {
                     Items = new MySQLMedicationDAO().GetAll(),
                     Theme = settings.Theme

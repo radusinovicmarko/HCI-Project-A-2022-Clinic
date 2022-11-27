@@ -25,7 +25,7 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class AppointmentsPage : Page
     {
-        private GenericDataGridViewModel<Appointment> appointmentsViewModel;
+        private GenericViewModelEntity<Appointment> appointmentsViewModel;
         private readonly Employee employee;
         private readonly SettingsViewModel settings;
         internal AppointmentsPage(SettingsViewModel settings, Employee employee)
@@ -49,7 +49,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
+                appointmentsViewModel = new GenericViewModelEntity<Appointment>()
                 {
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().GetAll()),
                     Theme = settings.Theme
@@ -75,7 +75,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     searchAppointment.DateTime = DateTime.Parse(dpDate.Text);
                 if (cbDoctor.SelectedItem != null)
                     searchAppointment.Doctor = cbDoctor.SelectedItem as Doctor;
-                appointmentsViewModel = new GenericDataGridViewModel<Appointment>()
+                appointmentsViewModel = new GenericViewModelEntity<Appointment>()
                 {
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(searchAppointment)),
                     Theme = settings.Theme

@@ -41,7 +41,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     employee = new Employee { Role = role };
                     tbTitle.Visibility = Visibility.Collapsed;
                 }
-                DataContext = new GenericDataGridViewModel<Employee>()
+                DataContext = new GenericViewModelEntity<Employee>()
                 {
                     SelectedItem = employee,
                     Theme = settings.Theme
@@ -69,7 +69,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 if (employee.Role == EmployeeRole.LJEKAR)
                 {
                     this.employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = employee.PersonId })[0];
-                    DataContext = new GenericDataGridViewModel<Doctor>()
+                    DataContext = new GenericViewModelEntity<Doctor>()
                     {
                         SelectedItem = this.employee as Doctor,
                         Theme = settings.Theme
@@ -77,7 +77,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 }
                 else
                 {
-                    DataContext = new GenericDataGridViewModel<Employee>()
+                    DataContext = new GenericViewModelEntity<Employee>()
                     {
                         SelectedItem = employee,
                         Theme = settings.Theme

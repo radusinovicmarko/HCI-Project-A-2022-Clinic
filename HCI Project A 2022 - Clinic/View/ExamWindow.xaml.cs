@@ -64,7 +64,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 var prescriptions = new MySQLPrescriptionDAO().Get(new Prescription() { Exam = new Exam() { ExamId = exam.ExamId } });
                 if (prescriptions.Count > 0)
                 {
-                    gridPrescription.DataContext = new GenericDataGridViewModel<Prescription>()
+                    gridPrescription.DataContext = new GenericViewModelEntity<Prescription>()
                     {
                         SelectedItem = prescriptions[0],
                         Theme = settings.Theme
@@ -75,7 +75,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 var referrals = new MySQLReferralDAO().Get(new Referral() { Exam = new Exam() { ExamId = exam.ExamId } });
                 if (referrals.Count > 0)
                 {
-                    gridReferral.DataContext = new GenericDataGridViewModel<Referral>()
+                    gridReferral.DataContext = new GenericViewModelEntity<Referral>()
                     {
                         SelectedItem = referrals[0],
                         Theme = settings.Theme
@@ -116,17 +116,17 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
                 cbExamType.ItemsSource = new MySQLExamTypeDAO().GetAll();
                 cbMedication.ItemsSource = new MySQLMedicationDAO().GetAll();
-                gridExam.DataContext = new GenericDataGridViewModel<Exam>()
+                gridExam.DataContext = new GenericViewModelEntity<Exam>()
                 {
                     SelectedItem = exam,
                     Theme = settings.Theme
                 };
-                gridPrescription.DataContext = new GenericDataGridViewModel<Prescription>()
+                gridPrescription.DataContext = new GenericViewModelEntity<Prescription>()
                 {
                     SelectedItem = prescription,
                     Theme = settings.Theme
                 };
-                gridReferral.DataContext = new GenericDataGridViewModel<Referral>()
+                gridReferral.DataContext = new GenericViewModelEntity<Referral>()
                 {
                     SelectedItem = referral,
                     Theme = settings.Theme

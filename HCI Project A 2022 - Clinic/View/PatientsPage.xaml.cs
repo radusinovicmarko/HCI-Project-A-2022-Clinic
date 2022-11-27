@@ -25,7 +25,7 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class PatientsPage : Page
     {
-        private GenericDataGridViewModel<Patient> patientsViewModel;
+        private GenericViewModelEntity<Patient> patientsViewModel;
         private readonly Employee employee;
         private readonly SettingsViewModel settings;
         internal PatientsPage(SettingsViewModel settings, Employee employee)
@@ -42,7 +42,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                patientsViewModel = new GenericDataGridViewModel<Patient>()
+                patientsViewModel = new GenericViewModelEntity<Patient>()
                 {
                     Items = new ObservableCollection<Patient>(new MySQLPatientDAO().GetAll()),
                     Theme = settings.Theme
@@ -72,7 +72,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 searchPatient.Jmb = tbJmb.Text;
             try
             {
-                patientsViewModel = new GenericDataGridViewModel<Patient>()
+                patientsViewModel = new GenericViewModelEntity<Patient>()
                 {
                     Items = new ObservableCollection<Patient>(new MySQLPatientDAO().Get(searchPatient)),
                     Theme = settings.Theme

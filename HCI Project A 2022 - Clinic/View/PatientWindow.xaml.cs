@@ -26,9 +26,9 @@ namespace HCI_Project_A_2022___Clinic.View
         private readonly Patient patient;
         private readonly Employee employee;
         private readonly bool editMode = false;
-        private readonly GenericDataGridViewModel<Exam> examViewModel;
-        private GenericDataGridViewModel<Appointment> appointmentViewModel;
-        private GenericDataGridViewModel<Recovery> recoveriesViewModel;
+        private readonly GenericViewModelEntity<Exam> examViewModel;
+        private GenericViewModelEntity<Appointment> appointmentViewModel;
+        private GenericViewModelEntity<Recovery> recoveriesViewModel;
         private readonly SettingsViewModel settings;
         internal PatientWindow(SettingsViewModel settings, Employee employee)
         {
@@ -40,7 +40,7 @@ namespace HCI_Project_A_2022___Clinic.View
             tabExams.Visibility = Visibility.Collapsed;
             tabAppointments.Visibility = Visibility.Collapsed;
             tabRecoveries.Visibility = Visibility.Collapsed;
-            gridPatientData.DataContext = new GenericDataGridViewModel<Patient>()
+            gridPatientData.DataContext = new GenericViewModelEntity<Patient>()
             {
                 SelectedItem = patient,
                 Theme = settings.Theme
@@ -77,7 +77,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 cbCity.ItemsSource = new MySQLCityDAO().GetAll();
                 cbCity.SelectedItem = patient.City;
-                examViewModel = new GenericDataGridViewModel<Exam>()
+                examViewModel = new GenericViewModelEntity<Exam>()
                 {
                     Items = new ObservableCollection<Exam>(new MySQLExamDAO().Get(new Exam()
                     {
@@ -86,7 +86,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     Theme = settings.Theme
                 };
                 gridExams.DataContext = examViewModel;
-                appointmentViewModel = new GenericDataGridViewModel<Appointment>()
+                appointmentViewModel = new GenericViewModelEntity<Appointment>()
                 {
                     Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
                     {
@@ -95,7 +95,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     Theme = settings.Theme
                 };
                 gridAppointments.DataContext = appointmentViewModel;
-                recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
+                recoveriesViewModel = new GenericViewModelEntity<Recovery>()
                 {
                     Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
                     {
@@ -104,7 +104,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     Theme = settings.Theme
                 };
                 gridRecoveries.DataContext = recoveriesViewModel;
-                gridPatientData.DataContext = new GenericDataGridViewModel<Patient>()
+                gridPatientData.DataContext = new GenericViewModelEntity<Patient>()
                 {
                     SelectedItem = patient,
                     Theme = settings.Theme
@@ -122,7 +122,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    appointmentViewModel = new GenericDataGridViewModel<Appointment>()
+                    appointmentViewModel = new GenericViewModelEntity<Appointment>()
                     {
                         Items = new ObservableCollection<Appointment>(new MySQLAppointmentDAO().Get(new Appointment()
                         {
@@ -145,7 +145,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    recoveriesViewModel = new GenericDataGridViewModel<Recovery>()
+                    recoveriesViewModel = new GenericViewModelEntity<Recovery>()
                     {
                         Items = new ObservableCollection<Recovery>(new MySQLRecoveryDAO().Get(new Recovery()
                         {

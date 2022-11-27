@@ -24,7 +24,7 @@ namespace HCI_Project_A_2022___Clinic.View
     /// </summary>
     public partial class EmployeesPage : Page
     {
-        private GenericDataGridViewModel<Employee> employeesViewModel;
+        private GenericViewModelEntity<Employee> employeesViewModel;
         private readonly Employee employee;
         private readonly SettingsViewModel settings;
         internal EmployeesPage(SettingsViewModel settings, Employee employee)
@@ -46,7 +46,7 @@ namespace HCI_Project_A_2022___Clinic.View
         {
             try
             {
-                employeesViewModel = new GenericDataGridViewModel<Employee>()
+                employeesViewModel = new GenericViewModelEntity<Employee>()
                 {
                     Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().GetAll()),
                     Theme = settings.Theme
@@ -78,7 +78,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     searchEmployee.Jmb = tbJmb.Text;
                 if (cbRole.SelectedItem != null)
                     searchEmployee.Role = (EmployeeRole?)Enum.Parse(typeof(EmployeeRole), cbRole.SelectedItem.ToString());
-                employeesViewModel = new GenericDataGridViewModel<Employee>()
+                employeesViewModel = new GenericViewModelEntity<Employee>()
                 {
                     Items = new ObservableCollection<Employee>(new MySQLEmployeeDAO().Get(searchEmployee)),
                     Theme = settings.Theme

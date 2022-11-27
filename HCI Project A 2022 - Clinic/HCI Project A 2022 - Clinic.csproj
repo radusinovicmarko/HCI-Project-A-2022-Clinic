@@ -156,7 +156,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Util\Utils.cs" />
-    <Compile Include="ViewModel\GenericDataGridViewModel.cs" />
+    <Compile Include="ViewModel\GenericViewModelEntity.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="View\AppointmentsPage.xaml.cs">
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>

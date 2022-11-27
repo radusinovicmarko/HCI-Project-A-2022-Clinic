@@ -43,7 +43,7 @@ namespace HCI_Project_A_2022___Clinic.View
                 rbDark.IsChecked = true;
             else
                 rbMix.IsChecked = true;
-            DataContext = new GenericDataGridViewModel<Employee>()
+            DataContext = new GenericViewModelEntity<Employee>()
             {
                 SelectedItem = employee,
                 Theme = settings.Theme
