@@ -58,7 +58,6 @@ namespace HCI_Project_A_2022___Clinic.View
             DataContext = settings;
             this.settings = settings;
             this.recovery = recovery;
-            btnSave.Visibility = Visibility.Collapsed;
             try
             {
                 cbDoctor.ItemsSource = new MySQLDoctorDAO().GetAll();
@@ -70,11 +69,21 @@ namespace HCI_Project_A_2022___Clinic.View
                     SelectedItem = recovery,
                     Theme = settings.Theme
                 };
+                ConfigureEditMode();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ConfigureEditMode()
+        {
+            dpDate.IsEnabled = false;
+            cbIllness.IsEnabled = false;
+            tbJmb.IsEnabled = false;
+            cbDoctor.IsEnabled = false;
+            btnSave.Visibility = Visibility.Collapsed;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

@@ -52,7 +52,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
                 cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@uloga", item.Role);
+                cmd.Parameters.AddWithValue("@uloga", item.Role.ToString());
                 cmd.Parameters["@uloga"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@idOsobe", MySqlDbType.Int32);
                 cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Output;
@@ -214,7 +214,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
                 cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@uloga", item.Role);
+                cmd.Parameters.AddWithValue("@uloga", item.Role.ToString());
                 cmd.Parameters["@uloga"].Direction = ParameterDirection.Input;
                 cmd.ExecuteNonQuery();
             }

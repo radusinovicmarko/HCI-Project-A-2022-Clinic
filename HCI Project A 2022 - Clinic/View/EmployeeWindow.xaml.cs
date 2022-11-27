@@ -67,11 +67,14 @@ namespace HCI_Project_A_2022___Clinic.View
                 cbCity.ItemsSource = new MySQLCityDAO().GetAll();
                 cbCity.SelectedItem = employee.City;
                 if (employee.Role == EmployeeRole.LJEKAR)
+                {
+                    this.employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = employee.PersonId })[0];
                     DataContext = new GenericDataGridViewModel<Doctor>()
                     {
-                        SelectedItem = new MySQLDoctorDAO().Get(new Doctor() { PersonId = employee.PersonId })[0],
+                        SelectedItem = this.employee as Doctor,
                         Theme = settings.Theme
                     };
+                }
                 else
                 {
                     DataContext = new GenericDataGridViewModel<Employee>()

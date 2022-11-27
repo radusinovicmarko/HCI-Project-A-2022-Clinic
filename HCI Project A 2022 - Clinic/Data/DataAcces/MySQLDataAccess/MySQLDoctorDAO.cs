@@ -16,6 +16,8 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                                 on z.OSOBA_IdOsobe=o.IdOsobe inner join `mjesto` m on o.MJESTO_IdMjesta=m.IdMjesta
                                 where true";
         private static readonly string INSERT = "dodaj_ljekara";
+        private static readonly string UPDATE = "izmijeni_ljekara";
+
         public int Add(Doctor item)
         {
             MySqlConnection conn = null;
@@ -185,7 +187,56 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
 
         public void Update(int id, Doctor item)
         {
-            new MySQLEmployeeDAO().Update(id, item);
+            MySqlConnection conn = null;
+            MySqlCommand cmd;
+            try
+            {
+                conn = MySQLUtil.GetConnection();
+                cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = UPDATE;
+                cmd.Parameters.AddWithValue("@idOsobe", item.PersonId);
+                cmd.Parameters["@idOsobe"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@jmb", item.Jmb);
+                cmd.Parameters["@jmb"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@ime", item.FirstName);
+                cmd.Parameters["@ime"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@prezime", item.LastName);
+                cmd.Parameters["@prezime"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@datum", item.DateOfBirth);
+                cmd.Parameters["@datum"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@email", item.Email);
+                cmd.Parameters["@email"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@adresa", item.Address);
+                cmd.Parameters["@adresa"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@idMjesta", item.City.CityId);
+                cmd.Parameters["@idMjesta"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@plata", item.Salary);
+                cmd.Parameters["@plata"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@datumZap", item.HireDate);
+                cmd.Parameters["@datumZap"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@sprema", item.Qualification);
+                cmd.Parameters["@sprema"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@korisnickoIme", item.Username);
+                cmd.Parameters["@korisnickoIme"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@lozinka", item.Password);
+                cmd.Parameters["@lozinka"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@zaposlen", item.Employed);
+                cmd.Parameters["@zaposlen"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@uloga", item.Role.ToString());
+                cmd.Parameters["@uloga"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@zvanje", item.Title);
+                cmd.Parameters["@zvanje"].Direction = ParameterDirection.Input;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(Properties.Resources.DBError, ex);
+            }
+            finally
+            {
+                MySQLUtil.CloseQuietly(conn);
+            }
         }
     }
 }

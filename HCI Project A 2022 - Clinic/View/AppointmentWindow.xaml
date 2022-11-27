@@ -49,8 +49,6 @@
         <materialDesign:TimePicker
             x:Name="tpTime"
             Is24Hours="True"
-            materialDesign:ColorZoneAssist.Mode="Custom"
-            materialDesign:ColorZoneAssist.Background="Red"
             Width="200"
             Height="40"
             Grid.Row="1"

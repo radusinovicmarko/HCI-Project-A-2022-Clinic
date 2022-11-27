@@ -76,7 +76,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     SelectedItem = appointment,
                     Theme = settings.Theme
                 };
-                btnSave.Visibility = Visibility.Collapsed;
+                ConfigureEditMode();
                 if (employee.Role == EmployeeRole.LJEKAR)
                     btnNewExam.Visibility = Visibility.Visible;
             }
@@ -84,6 +84,16 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ConfigureEditMode()
+        {
+            dpDate.IsEnabled = false;
+            tpTime.IsEnabled = false;
+            tbReason.IsEnabled = false;
+            tbJmb.IsEnabled = false;
+            cbDoctor.IsEnabled = false;
+            btnSave.Visibility = Visibility.Collapsed;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

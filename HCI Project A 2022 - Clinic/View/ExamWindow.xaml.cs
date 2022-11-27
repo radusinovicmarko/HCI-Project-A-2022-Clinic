@@ -80,17 +80,33 @@ namespace HCI_Project_A_2022___Clinic.View
                         SelectedItem = referrals[0],
                         Theme = settings.Theme
                     };
-                    cbRefferal.IsChecked = true;
+                    cbReferral.IsChecked = true;
                 }
-                IsEnabled = false;
-                btnSave.Visibility = Visibility.Collapsed;
-                btnCancel.Visibility = Visibility.Collapsed;
+                ConfigureEditMode();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Properties.Resources.ErrorMessageTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void ConfigureEditMode()
+        {
+            tbDiagnosisCode.IsEnabled = false;
+            cbExamType.IsEnabled = false;
+            tbReport.IsEnabled = false;
+            cbPrescription.IsEnabled = false;
+            cbMedication.IsEnabled = false;
+            tbInstruction.IsEnabled = false;
+            tbJmb.IsEnabled = false;
+            cbDoctor.IsEnabled = false;
+            cbReferral.IsEnabled = false;
+            tbInstitutionName.IsEnabled = false;
+            tbInstitutionCode.IsEnabled = false;
+            tbReferralType.IsEnabled = false;
+            btnSave.Visibility = Visibility.Collapsed;
+        }
+
         private void Load()
         {
             try
@@ -132,12 +148,12 @@ namespace HCI_Project_A_2022___Clinic.View
             gridPrescription.IsEnabled = false;
         }
 
-        private void CbRefferal_Checked(object sender, RoutedEventArgs e)
+        private void CbReferral_Checked(object sender, RoutedEventArgs e)
         {
             gridReferral.IsEnabled = true;
         }
 
-        private void CbRefferal_Unchecked(object sender, RoutedEventArgs e)
+        private void CbReferral_Unchecked(object sender, RoutedEventArgs e)
         {
             gridReferral.IsEnabled = false;
         }
@@ -161,7 +177,7 @@ namespace HCI_Project_A_2022___Clinic.View
                         prescription.Date = DateTime.Now;
                         new MySQLPrescriptionDAO().Add(prescription);
                     }
-                    if (cbRefferal.IsChecked.Value)
+                    if (cbReferral.IsChecked.Value)
                     {
                         referral.Exam = exam;
                         new MySQLReferralDAO().Add(referral);

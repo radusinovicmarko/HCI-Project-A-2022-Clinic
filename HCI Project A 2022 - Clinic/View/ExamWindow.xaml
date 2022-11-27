@@ -47,6 +47,7 @@
                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                 Text="{x:Static p:Resources.ExamWindowExamData}" />
             <TextBox
+                x:Name="tbDiagnosisCode"
                 Background="{Binding Theme.Primary}"
                 Grid.Row="2"
                 Grid.RowSpan="2"
@@ -71,6 +72,7 @@
                 Width="200"
                 Height="40"/>
             <TextBox
+                x:Name="tbReport"
                 Grid.Row="4"
                 Background="{Binding Theme.Primary}"
                 Grid.RowSpan="2"
@@ -139,14 +141,14 @@
                 Content="{x:Static p:Resources.ExamWindowPrescriptionCb}"
                 Style="{StaticResource MaterialDesignCheckBox}" />
             <CheckBox
-                x:Name="cbRefferal"
+                x:Name="cbReferral"
                 Grid.Row="6"
                 Grid.Column="1"
                 Background="{Binding Theme.Primary}"
                 Foreground="{Binding Theme.OnBackground}"
                 HorizontalAlignment="Center"
-                Checked="CbRefferal_Checked"
-                Unchecked="CbRefferal_Unchecked"
+                Checked="CbReferral_Checked"
+                Unchecked="CbReferral_Unchecked"
                 Content="{x:Static p:Resources.ExamWindowRefferalCb}"
                 Style="{StaticResource MaterialDesignCheckBox}" />
         </Grid>
@@ -175,6 +177,7 @@
                 Width="200"
                 Height="40"/>
             <TextBox
+                x:Name="tbInstruction"
                 Grid.Row="2"
                 Background="{Binding Theme.Primary}"
                 HorizontalAlignment="Center"
@@ -204,7 +207,8 @@
                 HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                 Text="{x:Static p:Resources.ExamWindowRefferalData}" />
-            <TextBox 
+            <TextBox
+                x:Name="tbInstitutionName"
                 Grid.Row="1"
                 Background="{Binding Theme.Primary}"
                 HorizontalAlignment="Center"
@@ -215,7 +219,8 @@
                 Height="40"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 materialDesign:HintAssist.Hint="{x:Static p:Resources.ExamWindowInstituionNameTb}"/>
-            <TextBox 
+            <TextBox
+                x:Name="tbInstitutionCode"
                 Grid.Row="2"
                 Background="{Binding Theme.Primary}"
                 HorizontalAlignment="Center"
@@ -226,7 +231,8 @@
                 Height="40"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 materialDesign:HintAssist.Hint="{x:Static p:Resources.ExamWindowInstitutionCodeTb}"/>
-            <TextBox 
+            <TextBox
+                x:Name="tbReferralType"
                 Grid.Row="3"
                 Background="{Binding Theme.Primary}"
                 HorizontalAlignment="Center"
