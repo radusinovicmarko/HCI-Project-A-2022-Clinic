@@ -56,6 +56,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     SelectedItem = appointment,
                     Theme = settings.Theme
                 };
+                tbJmb.IsEnabled = false;
             }
             catch (Exception ex)
             {

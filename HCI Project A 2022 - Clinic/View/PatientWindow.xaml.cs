@@ -64,6 +64,7 @@ namespace HCI_Project_A_2022___Clinic.View
             DataContext = new { settings.Theme };
             if (employee.Role != EmployeeRole.TEHNICAR)
             {
+                gridPatientData.IsEnabled = false;
                 btnSave.Visibility = Visibility.Collapsed;
                 btnCancel.Visibility = Visibility.Collapsed;
                 btnAddNewAppointment.Visibility = Visibility.Collapsed;
@@ -174,15 +175,13 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
+                    patient.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
+                    patient.City = cbCity.SelectedItem as City;
                     var dao = new MySQLPatientDAO();
                     if (editMode)
                         dao.Update((int)patient.PersonId, patient);
                     else
-                    {
-                        patient.DateOfBirth = DateTime.Parse(dpDateOfBirth.Text);
-                        patient.City = cbCity.SelectedItem as City;
-                        dao.Add(patient);
-                    }
+                       dao.Add(patient);
                     MessageBox.Show(Properties.Resources.SuccessMessage, Properties.Resources.SuccessMessageTitle, MessageBoxButton.OK);
                 }
                 catch (Exception ex)

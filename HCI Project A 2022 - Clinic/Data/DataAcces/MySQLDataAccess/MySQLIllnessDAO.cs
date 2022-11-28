@@ -12,7 +12,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
     {
         private static readonly string SELECT_ALL = @"SELECT * FROM `bolest`";
         private static readonly string INSERT = @"INSERT INTO `bolest`(NazivBolesti, SifraBolesti) VALUES (@Naziv, @Sifra)";
-        private static readonly string UPDATE = @"UPDATE `bolest` SET Naziv=@Naziv, Sifra=@Sifra WHERE IdBolesti=@IdBolesti";
+        private static readonly string UPDATE = @"UPDATE `bolest` SET NazivBolesti=@Naziv, SifraBolesti=@Sifra WHERE IdBolesti=@IdBolesti";
         private static readonly string DELETE = "DELETE FROM `bolest` WHERE IdBolesti=@IdBolesti";
 
         public int Add(Illness item)

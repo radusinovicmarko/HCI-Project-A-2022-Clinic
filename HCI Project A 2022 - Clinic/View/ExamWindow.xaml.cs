@@ -35,6 +35,7 @@ namespace HCI_Project_A_2022___Clinic.View
             exam = new Exam() { Doctor = doctor };
             Load();
             cbDoctor.SelectedItem = doctor;
+            cbDoctor.IsEnabled = false;
         }
 
         internal ExamWindow(SettingsViewModel settings, Patient patient, Doctor doctor)
@@ -49,6 +50,8 @@ namespace HCI_Project_A_2022___Clinic.View
             };
             Load();
             cbDoctor.SelectedItem = doctor;
+            cbDoctor.IsEnabled = false;
+            tbJmb.IsEnabled = false;
         }
         internal ExamWindow(SettingsViewModel settings, Exam exam)
         {

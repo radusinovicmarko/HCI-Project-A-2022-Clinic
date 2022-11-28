@@ -27,7 +27,11 @@ namespace HCI_Project_A_2022___Clinic.View
         private SettingsViewModel settings;
         public LoginWindow()
         {
-            settings = Utils.LoadSettings(null);
+            settings = new SettingsViewModel()
+            {
+                Language = "sr",
+                Theme = Theme.LightTheme
+            };
             DataContext = settings.Theme;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(settings.Language);
             InitializeComponent();
@@ -51,6 +55,7 @@ namespace HCI_Project_A_2022___Clinic.View
                     if (employee.Role == EmployeeRole.LJEKAR)
                         employee = new MySQLDoctorDAO().Get(new Doctor() { PersonId = loginInfo.Item2 })[0];
                     settings = Utils.LoadSettings(employee);
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(settings.Language);
                     new MainWindow(settings, employee).Show();
                     Close();
                 }

@@ -45,6 +45,8 @@ namespace HCI_Project_A_2022___Clinic.View
                     SelectedItem = recovery,
                     Theme = settings.Theme
                 };
+                cbDoctor.IsEnabled = false;
+                tbJmb.IsEnabled = false;
             }
             catch (Exception ex)
             {

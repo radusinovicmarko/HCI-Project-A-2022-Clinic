@@ -35,7 +35,7 @@ namespace HCI_Project_A_2022___Clinic.Util
                 allSettings[(int)employee.PersonId] = settings;
             else
                 allSettings.Add((int)employee.PersonId, settings);
-            File.WriteAllText("settings.json", JsonConvert.SerializeObject(allSettings, Formatting.Indented));
+            File.WriteAllText(settingsPath, JsonConvert.SerializeObject(allSettings, Formatting.Indented));
         }
     }
 }

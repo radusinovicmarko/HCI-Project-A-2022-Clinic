@@ -27,8 +27,20 @@
     "Language": "sr",
     "Theme": {
       "Name": "Dark",
-      "Background": "#121212",
-      "Surface": "#202020",
+      "Background": "#202020",
+      "Surface": "#121212",
+      "Primary": "#C38FFF",
+      "Secondary": "#03DAC6",
+      "OnBackground": "#FFFFFF",
+      "OnSurface": "#FFFFFF"
+    }
+  },
+  "13": {
+    "Language": "en",
+    "Theme": {
+      "Name": "Dark",
+      "Background": "#202020",
+      "Surface": "#121212",
       "Primary": "#C38FFF",
       "Secondary": "#03DAC6",
       "OnBackground": "#FFFFFF",

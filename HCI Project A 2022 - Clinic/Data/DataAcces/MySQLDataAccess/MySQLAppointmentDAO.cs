@@ -68,7 +68,7 @@ namespace HCI_Project_A_2022___Clinic.Data.DataAcces.MySQLDataAccess
                 if (item.DateTime != null)
                 {
                     cmd.Parameters.AddWithValue("@datumOd", item.DateTime);
-                    cmd.Parameters.AddWithValue("@datumDo", new DateTime(item.DateTime.Value.Year, item.DateTime.Value.Month, item.DateTime.Value.Day + 1));
+                    cmd.Parameters.AddWithValue("@datumDo", new DateTime(item.DateTime.Value.Year, item.DateTime.Value.Month, item.DateTime.Value.Day, 23, 59, 59));
                 }
                 if (item.Patient != null)
                     cmd.Parameters.AddWithValue("@idPacijenta", item.Patient.PersonId);

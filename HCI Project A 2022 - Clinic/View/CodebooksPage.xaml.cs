@@ -181,7 +181,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    City city = spAddCity.DataContext as City;
+                    City city = (spAddCity.DataContext as GenericViewModelEntity<City>).SelectedItem;
                     new MySQLCityDAO().Add(city);
                     UpdateCitiesDG();
                 }
@@ -199,7 +199,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    City city = spEditCity.DataContext as City;
+                    City city = (spEditCity.DataContext as GenericViewModelEntity<City>).SelectedItem;
                     new MySQLCityDAO().Update(city.CityId, city);
                     UpdateCitiesDG();
                 }
@@ -217,7 +217,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    ExamType examType = spEditExamType.DataContext as ExamType;
+                    ExamType examType = (spEditExamType.DataContext as GenericViewModelEntity<ExamType>).SelectedItem;
                     new MySQLExamTypeDAO().Update(examType.ExamTypeId, examType);
                     UpdateExamTypesDG();
                 }
@@ -235,7 +235,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    ExamType examType = spEditExamType.DataContext as ExamType;
+                    ExamType examType = (spAddExamType.DataContext as GenericViewModelEntity<ExamType>).SelectedItem;
                     new MySQLExamTypeDAO().Add(examType);
                     UpdateExamTypesDG();
                 }
@@ -253,7 +253,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    Illness illness = spAddIllness.DataContext as Illness;
+                    Illness illness = (spAddIllness.DataContext as GenericViewModelEntity<Illness>).SelectedItem;
                     new MySQLIllnessDAO().Add(illness);
                     UpdateIllnessesDG();
                 }
@@ -271,7 +271,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    Illness illness = spEditCity.DataContext as Illness;
+                    Illness illness = (spEditIllness.DataContext as GenericViewModelEntity<Illness>).SelectedItem;
                     new MySQLIllnessDAO().Update(illness.IllnessId, illness);
                     UpdateIllnessesDG();
                 }
@@ -289,7 +289,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    Medication medication = spAddMedication.DataContext as Medication;
+                    Medication medication = (spAddMedication.DataContext as GenericViewModelEntity<Medication>).SelectedItem;
                     new MySQLMedicationDAO().Add(medication);
                     UpdateMedicationsDG();
                 }
@@ -307,7 +307,7 @@ namespace HCI_Project_A_2022___Clinic.View
             {
                 try
                 {
-                    Medication medication = spEditMedication.DataContext as Medication;
+                    Medication medication = (spEditMedication.DataContext as GenericViewModelEntity<Medication>).SelectedItem;
                     new MySQLMedicationDAO().Update(medication.MedicationId, medication);
                     UpdateMedicationsDG();
                 }
